@@ -1,0 +1,76 @@
+//
+// Tabs
+//
+
+.e-nav-tabs {
+    margin-bottom: 1rem;
+    @include clearfix();
+
+    .e-nav-item {
+        float: left;
+    }
+
+    .e-nav-link {
+        background-color: $e-nav-tabs-link-bg;
+        border-bottom: 3px solid transparent;
+        border-top: 3px solid transparent;
+        color: $e-nav-tabs-link-color;
+        display: block;
+        max-width: $e-nav-tabs-link-max-lenght;
+        padding: $e-nav-link-padding;
+        @include text-truncate();
+
+        @include hover-focus {
+            background-color: $e-nav-tabs-link-hover-bg;
+            color: $e-nav-tabs-link-hover-color;
+        }
+
+        &.disabled {
+            background-color: transparent;
+            color: $e-nav-disabled-link-color;
+
+            @include hover-focus {
+                background-color: transparent;
+                color: $e-nav-disabled-link-hover-color;
+            }
+        }
+
+        &.active {
+            background-color: $e-nav-tabs-active-link-bg;
+            border-top-color: $e-nav-tabs-active-link-border-color;
+            color: $e-nav-tabs-active-link-color;
+
+            @include plain-hover-focus {
+                background-color: $e-nav-tabs-active-link-hover-bg;
+                color: $e-nav-tabs-active-link-hover-color;
+            }
+        }
+        &:active,
+        &.active {
+            &:focus {
+                @include tab-focus();
+            }
+        }
+    }
+
+}
+
+
+
+//
+// Tabbable tabs
+//
+
+// Hide tabbable panes to start, show them when `.active`
+.e-tab-content {
+    /*border: 1px solid $e-nav-tabs-border-color;
+    border-top: none;*/
+    /*padding: 1rem;*/
+
+    > .e-tab-pane {
+        display: none;
+    }
+    > .active {
+        display: block;
+    }
+}
