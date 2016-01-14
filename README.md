@@ -2,6 +2,15 @@
 Web uikit for eleks projects
 
 ## What's left ?
-* ~~Init repo.~~
+* Content
+  * Links
+  * Lists
+  * Paragraphs
 * Headers
+* Labels
+* Inputs
 * Buttons
+* Navigation
+* Grid
+* Components
+  * Tabs
