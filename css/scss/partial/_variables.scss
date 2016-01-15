@@ -16,7 +16,7 @@ $e-brand-danger:              #c25959 !default;
 // Options
 
 /*$enable-flex:               false !default;*/
-$enable-rounded:            false !default;
+$enable-rounded:            true !default;
 $enable-shadows:            true !default;
 /*$enable-gradients:          false !default;*/
 $enable-transitions:        true !default;
@@ -520,10 +520,11 @@ $list-group-link-heading-color: #333 !default;*/
 
 // Image thumbnails
 
-/*$thumbnail-padding:           .25rem !default;
-$thumbnail-bg:                $body-bg !default;
-$thumbnail-border:            #ddd !default;
-$thumbnail-border-radius:     $border-radius !default;*/
+$e-thumbnail-padding:           .25rem !default;
+$e-thumbnail-bg:                $e-body-bg !default;
+$e-thumbnail-border-width:      $e-border-width !default;
+$e-thumbnail-border-color:      #ddd !default;
+$e-thumbnail-border-radius:     $e-border-radius !default;
 
 
 // Breadcrumbs

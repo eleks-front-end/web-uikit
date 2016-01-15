@@ -4,7 +4,7 @@
 
 .e-nav-tabs {
     margin-bottom: 1rem;
-    @include clearfix();
+    @include e-clearfix();
 
     .e-nav-item {
         float: left;

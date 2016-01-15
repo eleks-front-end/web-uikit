@@ -2,22 +2,21 @@
 // Floats
 //
 
-.clearfix {
-  @include clearfix();
+.e-clearfix {
+  @include e-clearfix();
 }
 
-.center-block {
-  @include center-block();
+.e-center-block {
+  @include e-center-block();
 }
 
-.pull-right {
-  @include pull-right();
+.e-pull-right {
+  @include e-pull-right();
 }
 
-.pull-left {
-  @include pull-left();
+.e-pull-left {
+  @include e-pull-left();
 }
-
 
 /*//
 // Screenreaders
@@ -51,11 +50,11 @@
 
 // Alignment
 
-.text-left           { text-align: left; }
-.text-right          { text-align: right; }
-.text-center         { text-align: center; }
-.text-justify        { text-align: justify; }
-.text-nowrap         { white-space: nowrap; }
+.e-text-left           { text-align: left; }
+.e-text-right          { text-align: right; }
+.e-text-center         { text-align: center; }
+.e-text-justify        { text-align: justify; }
+.e-text-nowrap         { white-space: nowrap; }
 /*.text-truncate       { @include text-truncate; }*/
 
 /*// Responsive alignment
@@ -90,13 +89,13 @@
 
 // Transformation
 
-.text-lowercase      { text-transform: lowercase; }
-.text-uppercase      { text-transform: uppercase; }
-.text-capitalize     { text-transform: capitalize; }
+.e-text-lowercase      { text-transform: lowercase; }
+.e-text-uppercase      { text-transform: uppercase; }
+.e-text-capitalize     { text-transform: capitalize; }
 
 // Contextual colors
 
-.text-muted {
+.e-text-muted {
   color: $e-text-muted;
 }
 

@@ -2,7 +2,7 @@
 // Clearfix
 //
 
-@mixin clearfix() {
+@mixin e-clearfix() {
     &:before,
     &:after {
         content: "";
