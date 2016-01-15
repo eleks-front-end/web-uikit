@@ -1,7 +1,7 @@
 // Container widths
 .e-container {
     @include e-make-container();
-    max-width: $container-max-width;
+    max-width: $e-container-max-width;
 }
 
 // Fluid container

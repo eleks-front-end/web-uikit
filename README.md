@@ -23,6 +23,7 @@ Web uikit for eleks projects
 * Buttons *(hover, active, focus, disabled)*
 * Breadcrumbs
 * Tables
+* Tooltips
 * Navs
   * Base nav
   * Inline
@@ -33,6 +34,6 @@ Web uikit for eleks projects
   * Placement
 * Grid
 
-
+## For next sprint
 * Components
   * Tabs
