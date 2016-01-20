@@ -27,13 +27,13 @@ Web uikit for eleks projects
 * Navs
   * Base nav
   * Inline
-* Navbar *(The navbar is a simple wrapper for positioning branding, navigation, and other elements into a concise navigation header)*
-  * Brand
-  * Nav
-  * Color schemes
-  * Placement
 * Grid
 
 ## For next sprint
 * Components
   * Tabs
+  * Navbar *(The navbar is a simple wrapper for positioning branding, navigation, and other elements into a concise navigation header)*
+    * Brand
+    * Nav
+    * Color schemes
+    * Placement
