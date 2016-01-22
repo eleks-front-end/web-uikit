@@ -1,9 +1,17 @@
 <header class="e-navbar e-navbar-primary">
-  <a href="/" class="e-navbar-logo">
-    <img src="{{ 'public/img/logo_white.png' | prepend: site.baseurl }}" alt="logo">
-  </a>
-  <nav class="e-navbar-menu">
-    <a class="e-nav-link active" href="{{ 'getting_started/' | prepend: site.baseurl }}">Getting started</a>
-    <a class="e-nav-link active" href="{{ 'css/' | prepend: site.baseurl }}">CSS</a>
-  </nav>
+    <div class="e-container">
+        <div class="e-navbar-brand">
+            <a href="/" class="e-navbar-logo">
+                <img src="{{ '/public/img/logo_white.png' | prepend: site.baseurl }}" alt="logo">
+            </a>
+        </div>
+        <ul class="e-nav e-nav-inline">
+            <li class="e-nav-item">
+                <a class="e-nav-link active" href="{{ 'getting_started/' | prepend: site.baseurl }}">Getting started</a>
+            </li>
+            <li class="e-nav-item">
+                <a class="e-nav-link active" href="{{ 'css/' | prepend: site.baseurl }}">CSS</a>
+            </li>
+        </ul>
+    </div>
 </header>

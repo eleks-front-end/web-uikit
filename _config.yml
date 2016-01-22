@@ -16,6 +16,9 @@ baseurl: "web-uikit/" # the subpath of your site, e.g. /blog
 url: "http://yourdomain.com" # the base hostname & protocol for your site
 twitter_username: jekyllrb
 github_username:  jekyll
-
+sass:
+    load_paths:
+        - _sass
+        - styles
 # Build settings
 markdown: kramdown
