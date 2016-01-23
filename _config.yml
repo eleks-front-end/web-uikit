@@ -19,7 +19,7 @@ github_username:  jekyll
 sass:
     load_paths:
         - _sass
-        - styles/partial/
+        - styles
 
 exclude: ['css/input']
 assets:
