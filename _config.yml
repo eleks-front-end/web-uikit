@@ -20,5 +20,12 @@ sass:
     load_paths:
         - _sass
         - styles
+
+exclude: ['css/input']
+assets:
+    sources:
+        - fonts
+        - img
+
 # Build settings
 markdown: kramdown

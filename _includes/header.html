@@ -1,17 +1,25 @@
 <header class="e-navbar e-navbar-primary">
     <div class="e-container">
         <div class="e-navbar-brand">
-            <a href="/" class="e-navbar-logo">
-                <img src="{{ '/public/img/logo_white.png' | prepend: site.baseurl }}" alt="logo">
+            <a href="/">
+                <img src="{{ 'img/logo_white.png' | prepend: site.baseurl }}" alt="logo">
             </a>
         </div>
+
         <ul class="e-nav e-nav-inline">
-            <li class="e-nav-item">
-                <a class="e-nav-link active" href="{{ 'getting_started/' | prepend: site.baseurl }}">Getting started</a>
-            </li>
-            <li class="e-nav-item">
-                <a class="e-nav-link active" href="{{ 'css/' | prepend: site.baseurl }}">CSS</a>
-            </li>
+            {% for node in site.pages %}
+              {% if 'public' == node.group %}
+                {% if page.url == node.url %}
+                    <li class="e-nav-item">
+                        <a href="{{node.url}}" class="e-nav-link active">{{node.title}}</a>
+                    </li>
+                {% else %}
+                    <li class="e-nav-item">
+                        <a href="{{node.url}}" class="e-nav-link">{{node.title}}</a>
+                    </li>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
         </ul>
     </div>
 </header>
