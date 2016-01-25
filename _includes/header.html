@@ -1,10 +1,8 @@
 <header class="e-navbar e-navbar-primary">
     <div class="e-container">
-        <div class="e-navbar-brand">
-            <a href="/">
-                <img src="{{ '/img/logo_white.png' | prepend: site.baseurl }}" alt="logo">
-            </a>
-        </div>
+        <a href="/" class="e-navbar-brand">
+            <img src="{{ '/img/logo_white.png' | prepend: site.baseurl }}" alt="logo">
+        </a>
 
         <ul class="e-nav e-nav-inline">
             {% for node in site.pages %}
