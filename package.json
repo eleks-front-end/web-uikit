@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "jekyll serve --watch --safe",
     "sync": "git checkout master && git checkout gh-pages -- styles/ img/ fonts/"
   },
   "repository": {
