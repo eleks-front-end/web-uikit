@@ -102,6 +102,12 @@ textarea.e-input {
     &.e-error {
         color: $e-brand-danger;
     }
+    &.required {
+        &:after {
+            content: '*';
+            color: #0066cc
+        }
+    }
 }
 
 
