@@ -3,3 +3,13 @@
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import "partial/syntax-highlighting";
+
+.e-example-wrap {
+	padding: 1.5rem;
+}
+.e-example-block {
+	background-color: white;
+	margin-left: -1.5rem;
+    margin-right: -1.5rem;
+	padding: 1rem 1.5rem;
+}

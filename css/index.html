@@ -4,13 +4,40 @@ title: CSS
 group: 'public'
 ---
 
-<h2>Inputs</h2>
-<p>a general description of the input fields</p>
+<div class="e-example-wrap">
+	<h2>Inputs</h2>
+	<p>a general description of the input fields</p>
 
-<h3>Basic inputs</h3>
+	<div class="e-example-block">
+		<div class="e-row">
+			<div class="e-col-sm-6 e-col-xs-12">
+				{% include_relative inputs/default.html %}
+			</div>
+		</div>
+		<div class="e-row">
+			<div class="e-col-sm-6 e-col-xs-12">
+				{% include_relative inputs/disabled.html %}
+			</div>
+		</div>
+		<div class="e-row">
+			<div class="e-col-sm-6 e-col-xs-12">
+				{% include_relative inputs/readonly.html %}
+			</div>
+		</div>
+		<div class="e-row">
+			<div class="e-col-sm-6 e-col-sm-12"></div>
+			<div class="e-col-sm-6 e-col-sm-12"></div>
+		</div>
+		<div class="e-row">
+			<div class="e-col-sm-6 e-col-sm-12"></div>
+			<div class="e-col-sm-6 e-col-sm-12"></div>
+		</div>
+	</div>
+</div>	
+
+
 
 {% highlight html %}
-    {% include_relative inputs/test.html %}
+    {% include_relative inputs/default.html %}
 {% endhighlight %}
 
-{% include_relative inputs/test.html %}

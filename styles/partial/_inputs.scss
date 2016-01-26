@@ -14,7 +14,6 @@
     padding: $e-input-padding-y-top $e-input-padding-x $e-input-padding-y-bottom;
     width: 100%;
     @include border-radius($e-input-border-radius);
-    @include box-shadow($e-input-box-shadow);
     @include transition(border-color ease-in-out 150ms, box-shadow ease-in-out 150ms);
 
     &:focus {
@@ -24,13 +23,20 @@
         @include box-shadow($e-shadow);
     }
 
-    &[disabled], &[readonly] {
-        background-color: $e-input-bg-disabled;
-    }
-
     &[disabled] {
+        background-color: $e-input-bg-disabled;
         cursor: $e-cursor-disabled;
     }
+
+    &[readonly] {
+        border: none;
+
+        &:focus {
+            $e-shadow: none;
+            @include box-shadow($e-shadow);
+        }
+    }
+
 
     &.e-success {
         border-color: $e-brand-success;
@@ -48,7 +54,7 @@
             @include box-shadow($warning-shadow);
         }
     }
-    &.e-error {
+    &.e-danger {
         border-color: $e-brand-danger;
 
         &:focus {
@@ -59,6 +65,10 @@
     &.multiline {
         height: auto;
         min-height: 3 * $e-input-height;
+    }
+    &::placeholder {
+        color: $e-input-color-placeholder;
+        opacity: 1;
     }
 }
 textarea.e-input {
@@ -89,8 +99,11 @@ textarea.e-input {
 //
 
 .e-input-label {
+    color: #7c8a99;
     display: inline-block;
-    margin-bottom: 0.5rem;
+    font-size: 0.8125rem;
+    line-height: 0.9375rem;
+    margin-bottom: 0.25rem;
     vertical-align: top;
 
     &.e-success {
@@ -102,10 +115,13 @@ textarea.e-input {
     &.e-error {
         color: $e-brand-danger;
     }
-    &.required {
+    &.e-required {
         &:after {
+            color: #146fea;
             content: '*';
-            color: #0066cc
+            font-size: 1.125rem;
+            line-height: 1.25rem;
+            margin-left: 5px;
         }
     }
 }

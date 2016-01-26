@@ -220,11 +220,11 @@ $e-input-padding-x:                .75rem !default;
 $e-input-padding-y-bottom:         .375rem + $e-font-align-compensation !default;
 $e-input-padding-y-top:            .375rem !default;
 
-$e-input-bg:                       #fff !default;
-$e-input-bg-disabled:              $e-gray-lighter !default;
+$e-input-bg:                       #fefeff !default;
+$e-input-bg-disabled:              #f7f8fa !default;
 
-$e-input-color:                    $e-gray !default;
-$e-input-border:                   #ccc !default;
+$e-input-color:                    #131619 !default;
+$e-input-border:                   #e9eef5 !default;
 $e-input-box-shadow:               1px 1px 0 rgba(0, 0, 0, 0.075) !default;
 
 $e-input-border-radius:            $e-border-radius !default;
@@ -234,7 +234,7 @@ $e-input-border-radius-sm:         $e-border-radius-sm !default;
 $e-input-border-focus:             #0e559e !default;
 $e-input-box-shadow-focus:         rgba(14, 85, 158, 0.6) !default;
 
-/*$input-color-placeholder:        #999 !default;*/
+$e-input-color-placeholder:        #bcc6d1 !default;
 
 $e-input-padding-x-sm:             .75rem !default;
 $e-input-padding-y-bottom-sm:      .275rem !default;
@@ -248,7 +248,7 @@ $e-input-height:                   (($e-font-size-base * $e-line-height) + ($e-i
 $e-input-height-lg:                (($e-font-size-lg * $e-line-height-lg) + ($e-input-padding-y-bottom-lg + $e-input-padding-y-top-lg) + ($e-border-width * 2)) !default;
 $e-input-height-sm:                (($e-font-size-sm * $e-line-height-sm) + ($e-input-padding-y-bottom-sm + $e-input-padding-y-top-sm) + ($e-border-width * 2)) !default;
 
-/*$form-group-margin-bottom:       15px;*/
+$e-form-group-margin-bottom:       1rem;
 
 /*$input-group-addon-bg:           $gray-lighter !default;
 $input-group-addon-border-color: $input-border !default;*/
