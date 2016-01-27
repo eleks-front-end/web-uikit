@@ -63,7 +63,7 @@
         }
         @each $modifier in (pull, push, offset) {
             @for $i from 0 through $columns {
-                .col-#{$breakpoint}-#{$modifier}-#{$i} {
+                .e-col-#{$breakpoint}-#{$modifier}-#{$i} {
                     @include e-make-col-modifier($modifier, $i, $columns)
                 }
             }

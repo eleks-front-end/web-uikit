@@ -151,7 +151,7 @@ textarea.e-input {
         position: absolute;
         opacity: 0;
     }
-    
+
     &.e-disabled {
         label {
             color: #bfc8d3;
@@ -164,6 +164,21 @@ textarea.e-input {
         }
         input:checked ~ .e-icon {
             opacity: 0.6;
+        }
+    }
+    &.e-has-success {
+        label {
+            color: $e-brand-success;
+        }
+    }
+    &.e-has-warning {
+        label {
+            color: $e-brand-warning;
+        }
+    }
+    &.e-has-danger {
+        label {
+            color: $e-brand-danger;
         }
     }
 }
@@ -250,6 +265,48 @@ textarea.e-input {
             }
         }
     }
+    &.e-has-success {
+        .e-icon {
+            border-color: $e-brand-success;
+        }
+        input {
+            &:focus ~ .e-icon {
+                border-color: $e-brand-success;
+            }
+            &:checked ~ .e-icon {
+                background-color: $e-brand-success;
+                border-color: $e-brand-success;
+            }
+        }
+    }
+    &.e-has-warning {
+        .e-icon {
+            border-color: $e-brand-warning;
+        }
+        input {
+            &:focus ~ .e-icon {
+                border-color: $e-brand-warning;
+            }
+            &:checked ~ .e-icon {
+                background-color: $e-brand-warning;
+                border-color: $e-brand-warning;
+            }
+        }
+    }
+    &.e-has-danger {
+        .e-icon {
+            border-color: $e-brand-danger;
+        }
+        input {
+            &:focus ~ .e-icon {
+                border-color: $e-brand-danger;
+            }
+            &:checked ~ .e-icon {
+                background-color: $e-brand-danger;
+                border-color: $e-brand-danger;
+            }
+        }
+    }
 }
 .e-checkbox-inverse {
     .e-icon {
@@ -277,6 +334,60 @@ textarea.e-input {
 
             &:after {
                 opacity: 1;
+            }
+        }
+    }
+    &.e-has-success {
+        .e-icon {
+            border-color: $e-brand-success;
+
+            &:after {
+                border-bottom-color: $e-brand-success;
+                border-left-color: $e-brand-success;
+            }
+        }
+        input {
+            &:focus ~ .e-icon {
+                border-color: $e-brand-success;
+            }
+            &:checked ~ .e-icon {
+                border-color: $e-brand-success;
+            }
+        }
+    }
+    &.e-has-warning {
+        .e-icon {
+            border-color: $e-brand-warning;
+
+            &:after {
+                border-bottom-color: $e-brand-warning;
+                border-left-color: $e-brand-warning;
+            }
+        }
+        input {
+            &:focus ~ .e-icon {
+                border-color: $e-brand-warning;
+            }
+            &:checked ~ .e-icon {
+                border-color: $e-brand-warning;
+            }
+        }
+    }
+    &.e-has-danger {
+        .e-icon {
+            border-color: $e-brand-danger;
+
+            &:after {
+                border-bottom-color: $e-brand-danger;
+                border-left-color: $e-brand-danger;
+            }
+        }
+        input {
+            &:focus ~ .e-icon {
+                border-color: $e-brand-danger;
+            }
+            &:checked ~ .e-icon {
+                border-color: $e-brand-danger;
             }
         }
     }

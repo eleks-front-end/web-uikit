@@ -93,9 +93,50 @@ group: 'public'
 			<div class="e-col-sm-8 e-col-xs-12">
 				<div class="e-row">
 					<div class="e-col-sm-6 e-col-xs-12">
-						<!-- {% include_relative checkboxes/defaultSuccess.html %} -->
+						<div class="e-form-group">
+							{% include_relative checkboxes/defaultSuccess.html %}
+							{% include_relative checkboxes/defaultSuccessDisabled.html %}
+							{% include_relative checkboxes/defaultSuccessDisabledChecked.html %}
+						</div>
 					</div>
 					<div class="e-col-sm-6 e-col-xs-12">
+						<div class="e-form-group">
+							{% include_relative checkboxes/inverseSuccess.html %}
+							{% include_relative checkboxes/inverseSuccessDisabled.html %}
+							{% include_relative checkboxes/inverseSuccessDisabledChecked.html %}
+						</div>
+					</div>
+				</div>
+				<div class="e-row">
+					<div class="e-col-sm-6 e-col-xs-12">
+						<div class="e-form-group">
+							{% include_relative checkboxes/defaultWarning.html %}
+							{% include_relative checkboxes/defaultWarningDisabled.html %}
+							{% include_relative checkboxes/defaultWarningDisabledChecked.html %}
+						</div>
+					</div>
+					<div class="e-col-sm-6 e-col-xs-12">
+						<div class="e-form-group">
+							{% include_relative checkboxes/inverseWarning.html %}
+							{% include_relative checkboxes/inverseWarningDisabled.html %}
+							{% include_relative checkboxes/inverseWarningDisabledChecked.html %}
+						</div>
+					</div>
+				</div>
+				<div class="e-row">
+					<div class="e-col-sm-6 e-col-xs-12">
+						<div class="e-form-group">
+							{% include_relative checkboxes/defaultDanger.html %}
+							{% include_relative checkboxes/defaultDangerDisabled.html %}
+							{% include_relative checkboxes/defaultDangerDisabledChecked.html %}
+						</div>
+					</div>
+					<div class="e-col-sm-6 e-col-xs-12">
+						<div class="e-form-group">
+							{% include_relative checkboxes/inverseDanger.html %}
+							{% include_relative checkboxes/inverseDangerDisabled.html %}
+							{% include_relative checkboxes/inverseDangerDisabledChecked.html %}
+						</div>
 					</div>
 				</div>
 			</div>
