@@ -6,11 +6,11 @@ $e-gray-light:                #7c97a8 !default;
 $e-gray-lighter:              #eceeef !default;
 $e-gray-lightest:             #f7f7f9 !default;
 
-$e-brand-primary:             #0e559e !default;
+$e-brand-primary:             #146fea !default;
 $e-brand-success:             #24aa0f !default;
 $e-brand-info:                #1975d1 !default;
 $e-brand-warning:             #e8b508 !default;
-$e-brand-danger:              #ff6666 !default;
+$e-brand-danger:              #e42e2f !default;
 
 
 // Options
@@ -217,8 +217,8 @@ $e-btn-box-shadow:                 1px 1px 0 rgba(0, 0, 0, 0.075) !default;
 // Forms
 
 $e-input-padding-x:                .75rem !default;
-$e-input-padding-y-bottom:         .375rem + $e-font-align-compensation !default;
-$e-input-padding-y-top:            .375rem !default;
+$e-input-padding-y-bottom:         .4375rem + $e-font-align-compensation !default;
+$e-input-padding-y-top:            .4375rem !default;
 
 $e-input-bg:                       #fefeff !default;
 $e-input-bg-disabled:              #f7f8fa !default;
@@ -231,8 +231,8 @@ $e-input-border-radius:            $e-border-radius !default;
 $e-input-border-radius-lg:         $e-border-radius-lg !default;
 $e-input-border-radius-sm:         $e-border-radius-sm !default;
 
-$e-input-border-focus:             #0e559e !default;
-$e-input-box-shadow-focus:         rgba(14, 85, 158, 0.6) !default;
+$e-input-border-focus:             #72a9f2 !default;
+$e-input-box-shadow-focus:         rgba(20, 111, 234, 0.26) !default;
 
 $e-input-color-placeholder:        #bcc6d1 !default;
 

@@ -6,7 +6,7 @@ group: 'public'
 
 <div class="e-example-wrap">
 	<h2>Inputs</h2>
-	<p>a general description of the input fields</p>
+	<p>A general description of the input fields</p>
 
 	<div class="e-example-block">
 		<div class="e-row">
@@ -24,20 +24,86 @@ group: 'public'
 				{% include_relative inputs/readonly.html %}
 			</div>
 		</div>
+	</div>
+
+	<!-- {% highlight html %}
+	    {% include_relative inputs/default.html %}
+	{% endhighlight %} -->
+
+	<h2>Checkboxes</h2>
+	<p>A general description of the checkboxes</p>
+
+	<div class="e-example-block">
 		<div class="e-row">
-			<div class="e-col-sm-6 e-col-sm-12"></div>
-			<div class="e-col-sm-6 e-col-sm-12"></div>
+			<div class="e-col-sm-6 e-col-xs-12">
+				{% include_relative checkboxes/default.html %}
+
+				{% include_relative checkboxes/disabled.html %}
+
+				{% include_relative checkboxes/disabledChecked.html %}
+			</div>
+			<div class="e-col-sm-6 e-col-xs-12">
+				{% include_relative checkboxes/inverse.html %}
+
+				{% include_relative checkboxes/disabled.html %}
+
+				{% include_relative checkboxes/inverseDisabledChecked.html %}
+			</div>
 		</div>
 		<div class="e-row">
-			<div class="e-col-sm-6 e-col-sm-12"></div>
-			<div class="e-col-sm-6 e-col-sm-12"></div>
+			<div class="e-col-sm-6 e-col-xs-12">
+				
+			</div>
+		</div>
+	</div>
+
+	<h2>Radio Buttons</h2>
+	<p>A general description of the radio buttons</p>
+
+	<div class="e-example-block">
+		<div class="e-row">
+			<div class="e-col-sm-6 e-col-xs-12">
+				{% include_relative radio/default.html %}
+
+				{% include_relative radio/disabled.html %}
+
+				{% include_relative radio/disabledChecked.html %}
+			</div>
+			<div class="e-col-sm-6 e-col-xs-12">
+				
+			</div>
+		</div>
+		<div class="e-row">
+			<div class="e-col-sm-6 e-col-xs-12">
+				
+			</div>
+		</div>
+	</div>
+
+	<h2>Validation</h2>
+	<p>A general description of the validation states</p>
+
+	<div class="e-example-block">
+		<div class="e-row">
+			<div class="e-col-sm-4 e-col-xs-12">
+				{% include_relative inputs/success.html %}
+				{% include_relative inputs/warning.html %}
+				{% include_relative inputs/danger.html %}
+			</div>
+			<div class="e-col-sm-8 e-col-xs-12">
+				<div class="e-row">
+					<div class="e-col-sm-6 e-col-xs-12">
+						<!-- {% include_relative checkboxes/defaultSuccess.html %} -->
+					</div>
+					<div class="e-col-sm-6 e-col-xs-12">
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>	
 
 
 
-{% highlight html %}
-    {% include_relative inputs/default.html %}
-{% endhighlight %}
+
 

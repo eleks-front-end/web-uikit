@@ -19,7 +19,7 @@
     &:focus {
         border-color: $e-input-border-focus;
         outline: none;
-        $e-shadow: 0 0 8px $e-input-box-shadow-focus;
+        $e-shadow: 0 0 5px $e-input-box-shadow-focus;
         @include box-shadow($e-shadow);
     }
 
@@ -37,12 +37,11 @@
         }
     }
 
-
     &.e-success {
         border-color: $e-brand-success;
 
         &:focus {
-            $success-shadow: 0 0 8px lighten($e-brand-success, 5%);
+            $success-shadow: 0 0 5px rgba($e-brand-success, 0.26);
             @include box-shadow($success-shadow);
         }
     }
@@ -50,7 +49,7 @@
         border-color: $e-brand-warning;
 
         &:focus {
-            $warning-shadow: 0 0 8px lighten($e-brand-warning, 5%);
+            $warning-shadow: 0 0 5px rgba($e-brand-warning, 0.26);
             @include box-shadow($warning-shadow);
         }
     }
@@ -58,7 +57,7 @@
         border-color: $e-brand-danger;
 
         &:focus {
-            $error-shadow: 0 0 8px lighten($e-brand-danger, 5%);
+            $error-shadow: 0 0 5px rgba($e-brand-danger, 0.26);
             @include box-shadow($error-shadow);
         }
     }
@@ -133,13 +132,18 @@ textarea.e-input {
 //
 
 .e-checkbox,
-.e-radio  {
-    cursor: pointer;
-    padding-left: 2rem;
-    position: relative;
-
-    & + & {
-        margin-left: 15px;
+.e-checkbox-inverse,
+.e-radio,
+.e-checkbox-inline,
+.e-checkbox-inverse-inline,
+.e-radio-inline {
+    label {
+        color: $e-input-color;
+        cursor: pointer;
+        font-size: 0.8125rem;
+        line-height: 0.9375rem;
+        padding: 0.125rem 0 0.125rem 2rem;
+        position: relative;
     }
 
     input {
@@ -147,17 +151,46 @@ textarea.e-input {
         position: absolute;
         opacity: 0;
     }
+    
+    &.e-disabled {
+        label {
+            color: #bfc8d3;
+            cursor: $e-cursor-disabled;
+        }
+
+        .e-icon {
+            background-color: #f7f8fa;
+            cursor: $e-cursor-disabled;
+        }
+        input:checked ~ .e-icon {
+            opacity: 0.6;
+        }
+    }
 }
 
+.e-checkbox,
+.e-checkbox-inverse,
+.e-radio {
+    & + & {
+        margin-top: 1rem;
+    }
+}
+.e-checkbox-inline,
+.e-checkbox-inverse-inline,
+.e-radio-inline {
+    & + & {
+        margin-left: 1rem;
+    }
+}
 .e-icon {
-    background-color: $e-body-bg;
+    background-color: #fefeff;
     border: 1px solid $e-input-border;
     cursor: pointer;
-    height: 1.25rem;
+    height: 1.125rem;
     left: 0;
     position: absolute;
-    top: 1px;
-    width: 1.25rem;
+    top: 0;
+    width: 1.125rem;
     @include transition(background-color ease-in-out 150ms, border-color ease-in-out 150ms);
 
     &:after {
@@ -189,15 +222,15 @@ textarea.e-input {
 
 .e-checkbox {
     .e-icon {
-        border-radius: .25rem;
+        border-radius: .125rem;
 
         &:after {
             border-bottom: 2px solid white;
             border-left: 2px solid white;
             height: 6px;
-            left: 4px;
+            left: 3px;
             opacity: 0;
-            top: 5px;
+            top: 4px;
             width: 10px;
 
             transform: rotate(-45deg);
@@ -218,12 +251,42 @@ textarea.e-input {
         }
     }
 }
+.e-checkbox-inverse {
+    .e-icon {
+        border-radius: .125rem;
+
+        &:after {
+            border-bottom: 2px solid $e-brand-primary;
+            border-left: 2px solid $e-brand-primary;
+            height: 6px;
+            left: 3px;
+            opacity: 0;
+            top: 4px;
+            width: 10px;
+
+            transform: rotate(-45deg);
+            transition: opacity 150ms;
+        }
+    }
+    input {
+        &:focus ~ .e-icon {
+            border-color: $e-brand-primary;
+        }
+        &:checked ~ .e-icon {
+            border-color: $e-brand-primary;
+
+            &:after {
+                opacity: 1;
+            }
+        }
+    }
+}
 .e-radio {
     .e-icon {
         border-radius: 50%;
 
         &:after {
-            background-color: white;
+            background-color: $e-brand-primary;
             border-radius: 50%;
             height: 10px;
             left: 50%;
@@ -236,13 +299,7 @@ textarea.e-input {
         }
     }
     input {
-        &:focus ~ .e-icon {
-            border-color: $e-brand-primary;
-        }
         &:checked ~ .e-icon {
-            background-color: $e-brand-primary;
-            border-color: $e-brand-primary;
-
             &:after {
                 transform: scale(1);
             }
