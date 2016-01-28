@@ -39,7 +39,7 @@ $e-body-color:                 #333 !default;
 
 // Links
 
-$e-link-color:                 #0044df !default;
+$e-link-color:                 $e-brand-primary !default;
 $e-link-active-color:          darken($e-link-color, 35%) !default;
 $e-link-hover-color:           darken($e-link-color, 15%) !default;
 $e-link-visited-color:         darken($e-link-color, 55%) !default;
@@ -536,13 +536,12 @@ $e-thumbnail-border-radius:     $e-border-radius !default;
 
 // Breadcrumbs
 
-/*$breadcrumb-padding-vertical:   .75rem !default;
-$breadcrumb-padding-horizontal: 1rem !default;
+$e-breadcrumb-padding-vertical:   .75rem !default;
+$e-breadcrumb-padding-horizontal: 1rem !default;
 
-$breadcrumb-bg:                 $gray-lighter !default;
-$breadcrumb-divider-color:      $gray-light !default;
-$breadcrumb-active-color:       $gray-light !default;
-$breadcrumb-divider:            "/" !default;*/
+$e-breadcrumb-divider-color:      $e-gray-light !default;
+$e-breadcrumb-active-color:       $e-gray-light !default;
+$e-breadcrumb-divider:            "/" !default;
 
 
 // Carousel
