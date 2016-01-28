@@ -40,10 +40,10 @@ $e-body-color:                 #333 !default;
 // Links
 
 $e-link-color:                 $e-brand-primary !default;
-$e-link-active-color:          darken($e-link-color, 35%) !default;
-$e-link-hover-color:           darken($e-link-color, 15%) !default;
-$e-link-visited-color:         darken($e-link-color, 55%) !default;
-$e-link-hover-decoration:      underline !default;
+$e-link-active-color:          $e-gray-dark !default;
+$e-link-hover-color:           $e-gray-dark !default;
+$e-link-visited-color:         lighten($e-link-color, 15%) !default;
+$e-link-hover-decoration:      none !default;
 
 
 // Grid breakpoints
@@ -536,6 +536,8 @@ $e-thumbnail-border-radius:     $e-border-radius !default;
 
 // Breadcrumbs
 
+$e-breadcrumb-font-size:          0.8125rem !default;
+$e-breadcrumb-line-height:        1.063rem !default;
 $e-breadcrumb-padding-vertical:   .75rem !default;
 $e-breadcrumb-padding-horizontal: 1rem !default;
 

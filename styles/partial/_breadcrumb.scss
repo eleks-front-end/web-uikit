@@ -1,4 +1,6 @@
 .breadcrumb {
+    font-size: $e-breadcrumb-font-size;
+    line-height: $e-breadcrumb-line-height;
     list-style: none;
     margin: 0;
     padding: $e-breadcrumb-padding-vertical $e-breadcrumb-padding-horizontal;
