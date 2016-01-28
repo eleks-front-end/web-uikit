@@ -38,34 +38,35 @@
 }
 
 @mixin e-button-outline-variant($color) {
-    background-color: transparent;
+    background-color: #fff;
     background-image: none;
-    border-color: $color;
+    border-color: transparent;
     color: $color;
 
     &:focus,
     &.focus,
     &:active,
     &.active {
-        background-color: $color;
         border-color: $color;
-        color: #fff;
     }
     &:hover {
-        background-color: $color;
+        background-color: #fff;
         border-color: $color;
-        color: #fff;
     }
 
     &.disabled,
     &:disabled,
     fieldset[disabled] & {
+        background-color: $e-gray-lighter;
+        box-shadow: none !important;
+        color: $e-gray;
+
         &:focus,
         &.focus {
-            border-color: lighten($color, 20%);
+            border-color: transparent;
         }
         &:hover {
-            border-color: lighten($color, 20%);
+            border-color: transparent;
         }
     }
 }

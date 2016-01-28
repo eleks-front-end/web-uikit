@@ -142,9 +142,9 @@ $hr-border-width:             $border-width;*/
 $e-line-height-lg:         (4/3) !default;
 $e-line-height-sm:         1.5 !default;
 
-$e-border-radius:          .25rem !default;
-$e-border-radius-lg:       .3rem !default;
-$e-border-radius-sm:       .2rem !default;
+$e-border-radius:          .125rem !default;
+$e-border-radius-lg:       .125rem !default;
+$e-border-radius-sm:       .125rem !default;
 
 $e-component-active-color: #fff !default;
 $e-component-active-bg:    $e-brand-primary !default;
@@ -168,18 +168,25 @@ $table-border-color:            $gray-lighter !default;*/
 
 // Buttons
 
-$e-btn-padding-x:                  1rem;
-$e-btn-padding-y-bottom:           .375rem + $e-font-align-compensation;
-$e-btn-padding-y-top:              .375rem;
+$e-btn-font-size:                  .8125rem !default;
+$e-btn-font-size-lg:               .8125rem !default;
+$e-btn-font-size-sm:               .8125rem !default;
+$e-btn-line-height:                1.313rem !default;
+$e-btn-line-height-lg:             1.313rem !default;
+$e-btn-line-height-sm:             1.313rem !default;
+$e-btn-padding-x:                  1.25rem !default;
+$e-btn-padding-y-bottom:           .375rem + $e-font-align-compensation !default;
+$e-btn-padding-y-top:              .375rem !default;
 $e-btn-font-weight:                normal !default;
-
-$e-btn-default-color:              $e-gray-dark !default;
-$e-btn-default-bg:                 #fff !default;
-$e-btn-default-border:             #ccc !default;
+$e-btn-box-shadow:                 2px 2px 13px rgba(black, 0.21);
 
 $e-btn-primary-color:              #fff !default;
 $e-btn-primary-bg:                 $e-brand-primary !default;
 $e-btn-primary-border:             $e-btn-primary-bg !default;
+
+$e-btn-secondary-color:            $e-gray-dark !default;
+$e-btn-secondary-bg:               #fff !default;
+$e-btn-secondary-border:           #ccc !default;
 
 $e-btn-info-color:                 #fff !default;
 $e-btn-info-bg:                    $e-brand-info !default;
@@ -200,10 +207,10 @@ $e-btn-danger-border:              $e-btn-danger-bg !default;
 $e-btn-link-disabled-color:        $e-gray-light !default;
 
 $e-btn-padding-x-sm:               .75rem !default;
-$e-btn-padding-y-bottom-sm:        .25rem + $e-font-align-compensation !default;
-$e-btn-padding-y-top-sm:           .25rem !default;
+$e-btn-padding-y-bottom-sm:        .1875rem + $e-font-align-compensation !default;
+$e-btn-padding-y-top-sm:           .1875rem !default;
 
-$e-btn-padding-x-lg:               1.25rem !default;
+$e-btn-padding-x-lg:               2.25rem !default;
 $e-btn-padding-y-bottom-lg:        .75rem + $e-font-align-compensation !default;
 $e-btn-padding-y-top-lg:           .75rem !default;
 

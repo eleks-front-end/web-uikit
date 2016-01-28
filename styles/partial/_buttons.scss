@@ -8,12 +8,13 @@
     display: inline-block;
     font-weight: $e-btn-font-weight;
     text-align: center;
+    text-transform: uppercase;
     touch-action: manipulation;
     vertical-align: middle;
     white-space: nowrap;
     user-select: none;
-    @include e-button-size($e-btn-padding-y-bottom, $e-btn-padding-y-top, $e-btn-padding-x, $e-font-size-base, $e-line-height, $e-btn-border-radius);
-    @include box-shadow($e-input-box-shadow);
+    @include e-button-size($e-btn-padding-y-bottom, $e-btn-padding-y-top, $e-btn-padding-x, $e-btn-font-size, $e-btn-line-height, $e-btn-border-radius);
+    @include box-shadow($e-btn-box-shadow);
     @include transition(all 200ms ease-in-out);
 
     &,
@@ -31,15 +32,15 @@
     &:active,
     &.active {
         background-image: none;
+        box-shadow: none !important;
         outline: 0;
-        @include box-shadow(inset 0 3px 5px rgba(0, 0, 0, 0.125));
     }
 
     &.disabled,
     &:disabled {
+        box-shadow: none !important;
         cursor: $e-cursor-disabled;
         opacity: 0.65;
-        @include box-shadow(none);
     }
 }
 
@@ -48,11 +49,11 @@
 // Alternate buttons
 //
 
-.e-btn-default {
-    @include e-button-variant($e-btn-default-color, $e-btn-default-bg, $e-btn-default-border);
-}
 .e-btn-primary {
     @include e-button-variant($e-btn-primary-color, $e-btn-primary-bg, $e-btn-primary-border);
+}
+.e-btn-secondary {
+    @include e-button-variant($e-btn-secondary-color, $e-btn-secondary-bg, $e-btn-secondary-border);
 }
 .e-btn-info {
     @include e-button-variant($e-btn-info-color, $e-btn-info-bg, $e-btn-info-border);
@@ -72,11 +73,11 @@
 // Invert buttons
 //
 
-.e-btn-default-outline {
-    @include e-button-outline-variant($e-btn-default-border);
-}
 .e-btn-primary-outline {
     @include e-button-outline-variant($e-btn-primary-bg);
+}
+.e-btn-secondary-outline {
+    @include e-button-outline-variant($e-btn-secondary-border);
 }
 .e-btn-info-outline {
     @include e-button-outline-variant($e-btn-info-bg);
@@ -135,10 +136,10 @@
 //
 
 .e-btn-lg {
-  @include e-button-size($e-btn-padding-y-bottom-lg, $e-btn-padding-y-top-lg, $e-btn-padding-x-lg, $e-font-size-lg, $e-line-height-lg, $e-btn-border-radius-lg);
+  @include e-button-size($e-btn-padding-y-bottom-lg, $e-btn-padding-y-top-lg, $e-btn-padding-x-lg, $e-btn-font-size-lg, $e-btn-line-height-lg, $e-btn-border-radius-lg);
 }
 .e-btn-sm {
-  @include e-button-size($e-btn-padding-y-bottom-sm, $e-btn-padding-y-top-sm, $e-btn-padding-x-sm, $e-font-size-sm, $e-line-height-sm, $e-btn-border-radius-sm);
+  @include e-button-size($e-btn-padding-y-bottom-sm, $e-btn-padding-y-top-sm, $e-btn-padding-x-sm, $e-btn-font-size-sm, $e-btn-line-height-sm, $e-btn-border-radius-sm);
 }
 
 
