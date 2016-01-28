@@ -5,6 +5,8 @@ group: 'public'
 ---
 
 <div class="e-example-wrap">
+
+	<!-- Inputs start -->
 	<h2>Inputs</h2>
 	<p>A general description of the input fields</p>
 
@@ -29,24 +31,28 @@ group: 'public'
 	{% highlight html %}
 	    {% include_relative inputs/default.html %}
 	{% endhighlight %}
+	<!-- Inputs end -->
 
+
+	<!-- Inputs sizing start -->
 	<h2>Inputs sizing</h2>
 	<p>A general description of the input fields sizing</p>
 
 	<div class="e-example-block">
 		<div class="e-row">
-			<div class="e-col-sm-4 e-col-xs-12">
-				{% include_relative inputs/defaultLg.html %}
-			</div>
-			<div class="e-col-sm-4 e-col-xs-12">
-				{% include_relative inputs/default.html %}
-			</div>
-			<div class="e-col-sm-4 e-col-xs-12">
-				{% include_relative inputs/defaultSm.html %}
+			<div class="e-col-sm-6 e-col-xs-12">
+				{% include_relative inputs/sizing.html %}
 			</div>
 		</div>
 	</div>
 
+	{% highlight html %}
+	    {% include_relative inputs/sizing.html %}
+	{% endhighlight %}
+	<!-- Inputs sizing end -->
+
+
+	<!-- Checkboxes start -->
 	<h2>Checkboxes</h2>
 	<p>A general description of the checkboxes</p>
 
@@ -67,13 +73,23 @@ group: 'public'
 				{% include_relative checkboxes/inverseDisabledChecked.html %}
 			</div>
 		</div>
-		<div class="e-row">
-			<div class="e-col-sm-6 e-col-xs-12">
-				
-			</div>
-		</div>
 	</div>
 
+	<div class="e-row">
+		<div class="e-col-sm-6 e-col-xs-12">
+	        {% highlight html %}
+			    {% include_relative checkboxes/default.html %}
+			{% endhighlight %}		
+		</div>
+		<div class="e-col-sm-6 e-col-xs-12">
+			{% highlight html %}
+			    {% include_relative checkboxes/inverse.html %}
+			{% endhighlight %}		
+		</div>
+	</div>
+	<!-- Checkboxes end -->
+
+	<!-- Radio Buttons start -->
 	<h2>Radio Buttons</h2>
 	<p>A general description of the radio buttons</p>
 
@@ -86,17 +102,15 @@ group: 'public'
 
 				{% include_relative radio/disabledChecked.html %}
 			</div>
-			<div class="e-col-sm-6 e-col-xs-12">
-				
-			</div>
-		</div>
-		<div class="e-row">
-			<div class="e-col-sm-6 e-col-xs-12">
-				
-			</div>
 		</div>
 	</div>
 
+	{% highlight html %}
+	    {% include_relative radio/default.html %}
+	{% endhighlight %}
+	<!-- Radio Buttons end -->
+
+	<!-- Validation start -->
 	<h2>Validation</h2>
 	<p>A general description of the validation states</p>
 
@@ -159,7 +173,9 @@ group: 'public'
 			</div>
 		</div>
 	</div>
+	<!-- Validation end -->
 
+	<!-- Buttons start -->
 	<h2>Buttons</h2>
 	<p>A general description of the buttons</p>
 
@@ -171,6 +187,12 @@ group: 'public'
 		</div>
 	</div>
 
+	{% highlight html %}
+	    {% include_relative buttons/buttons.html %}
+	{% endhighlight %}
+	<!-- Buttons end -->
+
+	<!-- Buttons inverse start -->
 	<h2>Buttons inverse</h2>
 	<p>A general description of the buttons inverse</p>
 
@@ -182,6 +204,12 @@ group: 'public'
 		</div>
 	</div>
 
+	{% highlight html %}
+	    {% include_relative buttons/buttonsInverse.html %}
+	{% endhighlight %}
+	<!-- Buttons inverse end -->
+
+	<!-- Buttons disabled start -->
 	<h2>Buttons disabled</h2>
 	<p>A general description of the buttons disabled</p>
 
@@ -192,7 +220,9 @@ group: 'public'
 			</div>
 		</div>
 	</div>
+	<!-- Buttons disabled end -->
 
+	<!-- Buttons sizing start -->
 	<h2>Buttons sizing</h2>
 	<p>A general description of the buttons sizing</p>
 
@@ -204,6 +234,12 @@ group: 'public'
 		</div>
 	</div>
 
+	{% highlight html %}
+	    {% include_relative buttons/sizing.html %}
+	{% endhighlight %}
+	<!-- Buttons sizing end -->
+
+	<!-- Breadcrumbs start -->
 	<h2>Breadcrumbs</h2>
 	<p>A general description of the breadcrumbs</p>
 
@@ -215,6 +251,12 @@ group: 'public'
 		</div>
 	</div>
 
+	{% highlight html %}
+	    {% include_relative breadcrumbs/breadcrumbs.html %}
+	{% endhighlight %}
+	<!-- Breadcrumbs end -->
+
+	<!-- Links start -->
 	<h2>Links</h2>
 	<p>A general description of the links</p>
 
@@ -226,6 +268,12 @@ group: 'public'
 		</div>
 	</div>
 
+	{% highlight html %}
+	    {% include_relative links/link.html %}
+	{% endhighlight %}
+	<!-- Links end -->
+
+	<!-- Headings start -->
 	<h2>Headings</h2>
 	<p>A general description of the headings</p>
 
@@ -236,6 +284,28 @@ group: 'public'
 			</div>
 		</div>
 	</div>
+
+	{% highlight html %}
+	    {% include_relative headings/headings.html %}
+	{% endhighlight %}
+	<!-- Headings end -->
+
+	<!-- Paragraph start -->
+	<h2>Paragraph</h2>
+	<p>A general description of the headings</p>
+
+	<div class="e-example-block">
+		<div class="e-row">
+			<div class="e-col-sm-12">
+				{% include_relative paragraph/paragraph.html %}
+			</div>
+		</div>
+	</div>
+
+	{% highlight html %}
+	    {% include_relative paragraph/paragraph.html %}
+	{% endhighlight %}
+	<!-- Paragraph end -->
 </div>	
 
 

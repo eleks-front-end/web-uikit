@@ -11,7 +11,11 @@
 	background-color: #fefeff;
 	margin: 0 -1.5rem 3rem;
 	padding: 1rem 1.5rem;
-}
-.e-btn + .e-btn {
-	margin-left: 1rem;
+
+	.e-btn + .e-btn {
+		margin-left: 1rem;
+	}
+	.e-input + .e-input {
+		margin-top: 0.5rem;
+	}
 }
