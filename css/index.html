@@ -6,309 +6,321 @@ group: 'public'
 
 <div class="e-example-wrap">
 
-	<!-- Inputs start -->
-	<h2>Inputs</h2>
-	<p>A general description of the input fields</p>
+    <!-- Inputs start -->
+    <h2>Inputs</h2>
+    <p>A general description of the input fields</p>
 
-	<div class="e-example-block">
-		<div class="e-row">
-			<div class="e-col-sm-6 e-col-xs-12">
-				{% include_relative inputs/default.html %}
-			</div>
-		</div>
-		<div class="e-row">
-			<div class="e-col-sm-6 e-col-xs-12">
-				{% include_relative inputs/disabled.html %}
-			</div>
-		</div>
-		<div class="e-row">
-			<div class="e-col-sm-6 e-col-xs-12">
-				{% include_relative inputs/readonly.html %}
-			</div>
-		</div>
-	</div>
+    <div class="e-example-block">
+        <div class="e-row">
+            <div class="e-col-sm-6 e-col-xs-12">
+                {% include_relative inputs/default.html %}
+            </div>
+        </div>
+        <div class="e-row">
+            <div class="e-col-sm-6 e-col-xs-12">
+                {% include_relative inputs/disabled.html %}
+            </div>
+        </div>
+        <div class="e-row">
+            <div class="e-col-sm-6 e-col-xs-12">
+                {% include_relative inputs/readonly.html %}
+            </div>
+        </div>
+    </div>
 
-	{% highlight html %}
-	    {% include_relative inputs/default.html %}
-	{% endhighlight %}
-	<!-- Inputs end -->
-
-
-	<!-- Inputs sizing start -->
-	<h2>Inputs sizing</h2>
-	<p>A general description of the input fields sizing</p>
-
-	<div class="e-example-block">
-		<div class="e-row">
-			<div class="e-col-sm-6 e-col-xs-12">
-				{% include_relative inputs/sizing.html %}
-			</div>
-		</div>
-	</div>
-
-	{% highlight html %}
-	    {% include_relative inputs/sizing.html %}
-	{% endhighlight %}
-	<!-- Inputs sizing end -->
+    {% highlight html %}
+        {% include_relative inputs/default.html %}
+    {% endhighlight %}
+    <!-- Inputs end -->
 
 
-	<!-- Checkboxes start -->
-	<h2>Checkboxes</h2>
-	<p>A general description of the checkboxes</p>
+    <!-- Inputs sizing start -->
+    <h2>Inputs sizing</h2>
+    <p>A general description of the input fields sizing</p>
 
-	<div class="e-example-block">
-		<div class="e-row">
-			<div class="e-col-sm-6 e-col-xs-12">
-				{% include_relative checkboxes/default.html %}
+    <div class="e-example-block">
+        <div class="e-row">
+            <div class="e-col-sm-6 e-col-xs-12">
+                {% include_relative inputs/sizing.html %}
+            </div>
+        </div>
+    </div>
 
-				{% include_relative checkboxes/disabled.html %}
-
-				{% include_relative checkboxes/disabledChecked.html %}
-			</div>
-			<div class="e-col-sm-6 e-col-xs-12">
-				{% include_relative checkboxes/inverse.html %}
-
-				{% include_relative checkboxes/disabled.html %}
-
-				{% include_relative checkboxes/inverseDisabledChecked.html %}
-			</div>
-		</div>
-	</div>
-
-	<div class="e-row">
-		<div class="e-col-sm-6 e-col-xs-12">
-	        {% highlight html %}
-			    {% include_relative checkboxes/default.html %}
-			{% endhighlight %}		
-		</div>
-		<div class="e-col-sm-6 e-col-xs-12">
-			{% highlight html %}
-			    {% include_relative checkboxes/inverse.html %}
-			{% endhighlight %}		
-		</div>
-	</div>
-	<!-- Checkboxes end -->
-
-	<!-- Radio Buttons start -->
-	<h2>Radio Buttons</h2>
-	<p>A general description of the radio buttons</p>
-
-	<div class="e-example-block">
-		<div class="e-row">
-			<div class="e-col-sm-6 e-col-xs-12">
-				{% include_relative radio/default.html %}
-
-				{% include_relative radio/disabled.html %}
-
-				{% include_relative radio/disabledChecked.html %}
-			</div>
-		</div>
-	</div>
-
-	{% highlight html %}
-	    {% include_relative radio/default.html %}
-	{% endhighlight %}
-	<!-- Radio Buttons end -->
-
-	<!-- Validation start -->
-	<h2>Validation</h2>
-	<p>A general description of the validation states</p>
-
-	<div class="e-example-block">
-		<div class="e-row">
-			<div class="e-col-sm-4 e-col-xs-12">
-				{% include_relative inputs/success.html %}
-				{% include_relative inputs/warning.html %}
-				{% include_relative inputs/danger.html %}
-			</div>
-			<div class="e-col-sm-8 e-col-xs-12">
-				<div class="e-row">
-					<div class="e-col-sm-6 e-col-xs-12">
-						<div class="e-form-group">
-							{% include_relative checkboxes/defaultSuccess.html %}
-							{% include_relative checkboxes/defaultSuccessDisabled.html %}
-							{% include_relative checkboxes/defaultSuccessDisabledChecked.html %}
-						</div>
-					</div>
-					<div class="e-col-sm-6 e-col-xs-12">
-						<div class="e-form-group">
-							{% include_relative checkboxes/inverseSuccess.html %}
-							{% include_relative checkboxes/inverseSuccessDisabled.html %}
-							{% include_relative checkboxes/inverseSuccessDisabledChecked.html %}
-						</div>
-					</div>
-				</div>
-				<div class="e-row">
-					<div class="e-col-sm-6 e-col-xs-12">
-						<div class="e-form-group">
-							{% include_relative checkboxes/defaultWarning.html %}
-							{% include_relative checkboxes/defaultWarningDisabled.html %}
-							{% include_relative checkboxes/defaultWarningDisabledChecked.html %}
-						</div>
-					</div>
-					<div class="e-col-sm-6 e-col-xs-12">
-						<div class="e-form-group">
-							{% include_relative checkboxes/inverseWarning.html %}
-							{% include_relative checkboxes/inverseWarningDisabled.html %}
-							{% include_relative checkboxes/inverseWarningDisabledChecked.html %}
-						</div>
-					</div>
-				</div>
-				<div class="e-row">
-					<div class="e-col-sm-6 e-col-xs-12">
-						<div class="e-form-group">
-							{% include_relative checkboxes/defaultDanger.html %}
-							{% include_relative checkboxes/defaultDangerDisabled.html %}
-							{% include_relative checkboxes/defaultDangerDisabledChecked.html %}
-						</div>
-					</div>
-					<div class="e-col-sm-6 e-col-xs-12">
-						<div class="e-form-group">
-							{% include_relative checkboxes/inverseDanger.html %}
-							{% include_relative checkboxes/inverseDangerDisabled.html %}
-							{% include_relative checkboxes/inverseDangerDisabledChecked.html %}
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Validation end -->
-
-	<!-- Buttons start -->
-	<h2>Buttons</h2>
-	<p>A general description of the buttons</p>
-
-	<div class="e-example-block">
-		<div class="e-row">
-			<div class="e-col-sm-12">
-				{% include_relative buttons/buttons.html %}
-			</div>
-		</div>
-	</div>
-
-	{% highlight html %}
-	    {% include_relative buttons/buttons.html %}
-	{% endhighlight %}
-	<!-- Buttons end -->
-
-	<!-- Buttons inverse start -->
-	<h2>Buttons inverse</h2>
-	<p>A general description of the buttons inverse</p>
-
-	<div class="e-example-block">
-		<div class="e-row">
-			<div class="e-col-sm-12">
-				{% include_relative buttons/buttonsInverse.html %}
-			</div>
-		</div>
-	</div>
-
-	{% highlight html %}
-	    {% include_relative buttons/buttonsInverse.html %}
-	{% endhighlight %}
-	<!-- Buttons inverse end -->
-
-	<!-- Buttons disabled start -->
-	<h2>Buttons disabled</h2>
-	<p>A general description of the buttons disabled</p>
-
-	<div class="e-example-block">
-		<div class="e-row">
-			<div class="e-col-sm-12">
-				{% include_relative buttons/disabled.html %}
-			</div>
-		</div>
-	</div>
-	<!-- Buttons disabled end -->
-
-	<!-- Buttons sizing start -->
-	<h2>Buttons sizing</h2>
-	<p>A general description of the buttons sizing</p>
-
-	<div class="e-example-block">
-		<div class="e-row">
-			<div class="e-col-sm-12">
-				{% include_relative buttons/sizing.html %}
-			</div>
-		</div>
-	</div>
-
-	{% highlight html %}
-	    {% include_relative buttons/sizing.html %}
-	{% endhighlight %}
-	<!-- Buttons sizing end -->
-
-	<!-- Breadcrumbs start -->
-	<h2>Breadcrumbs</h2>
-	<p>A general description of the breadcrumbs</p>
-
-	<div class="e-example-block">
-		<div class="e-row">
-			<div class="e-col-sm-12">
-				{% include_relative breadcrumbs/breadcrumbs.html %}
-			</div>
-		</div>
-	</div>
-
-	{% highlight html %}
-	    {% include_relative breadcrumbs/breadcrumbs.html %}
-	{% endhighlight %}
-	<!-- Breadcrumbs end -->
-
-	<!-- Links start -->
-	<h2>Links</h2>
-	<p>A general description of the links</p>
-
-	<div class="e-example-block">
-		<div class="e-row">
-			<div class="e-col-sm-12">
-				{% include_relative links/link.html %}
-			</div>
-		</div>
-	</div>
-
-	{% highlight html %}
-	    {% include_relative links/link.html %}
-	{% endhighlight %}
-	<!-- Links end -->
-
-	<!-- Headings start -->
-	<h2>Headings</h2>
-	<p>A general description of the headings</p>
-
-	<div class="e-example-block">
-		<div class="e-row">
-			<div class="e-col-sm-12">
-				{% include_relative headings/headings.html %}
-			</div>
-		</div>
-	</div>
-
-	{% highlight html %}
-	    {% include_relative headings/headings.html %}
-	{% endhighlight %}
-	<!-- Headings end -->
-
-	<!-- Paragraph start -->
-	<h2>Paragraph</h2>
-	<p>A general description of the headings</p>
-
-	<div class="e-example-block">
-		<div class="e-row">
-			<div class="e-col-sm-12">
-				{% include_relative paragraph/paragraph.html %}
-			</div>
-		</div>
-	</div>
-
-	{% highlight html %}
-	    {% include_relative paragraph/paragraph.html %}
-	{% endhighlight %}
-	<!-- Paragraph end -->
-</div>	
+    {% highlight html %}
+        {% include_relative inputs/sizing.html %}
+    {% endhighlight %}
+    <!-- Inputs sizing end -->
 
 
+    <!-- Checkboxes start -->
+    <h2>Checkboxes</h2>
+    <p>A general description of the checkboxes</p>
 
+    <div class="e-example-block">
+        <div class="e-row">
+            <div class="e-col-sm-6 e-col-xs-12">
+                {% include_relative checkboxes/default.html %}
 
+                {% include_relative checkboxes/disabled.html %}
 
+                {% include_relative checkboxes/disabledChecked.html %}
+            </div>
+            <div class="e-col-sm-6 e-col-xs-12">
+                {% include_relative checkboxes/inverse.html %}
+
+                {% include_relative checkboxes/disabled.html %}
+
+                {% include_relative checkboxes/inverseDisabledChecked.html %}
+            </div>
+        </div>
+    </div>
+
+    <div class="e-row">
+        <div class="e-col-sm-6 e-col-xs-12">
+            {% highlight html %}
+                {% include_relative checkboxes/default.html %}
+            {% endhighlight %}
+        </div>
+        <div class="e-col-sm-6 e-col-xs-12">
+            {% highlight html %}
+                {% include_relative checkboxes/inverse.html %}
+            {% endhighlight %}
+        </div>
+    </div>
+    <!-- Checkboxes end -->
+
+    <!-- Radio Buttons start -->
+    <h2>Radio Buttons</h2>
+    <p>A general description of the radio buttons</p>
+
+    <div class="e-example-block">
+        <div class="e-row">
+            <div class="e-col-sm-6 e-col-xs-12">
+                {% include_relative radio/default.html %}
+
+                {% include_relative radio/disabled.html %}
+
+                {% include_relative radio/disabledChecked.html %}
+            </div>
+        </div>
+    </div>
+
+    {% highlight html %}
+        {% include_relative radio/default.html %}
+    {% endhighlight %}
+    <!-- Radio Buttons end -->
+
+    <!-- Validation start -->
+    <h2>Validation</h2>
+    <p>A general description of the validation states</p>
+
+    <div class="e-example-block">
+        <div class="e-row">
+            <div class="e-col-sm-4 e-col-xs-12">
+                {% include_relative inputs/success.html %}
+                {% include_relative inputs/warning.html %}
+                {% include_relative inputs/danger.html %}
+            </div>
+            <div class="e-col-sm-8 e-col-xs-12">
+                <div class="e-row">
+                    <div class="e-col-sm-6 e-col-xs-12">
+                        <div class="e-form-group">
+                            {% include_relative checkboxes/defaultSuccess.html %}
+                            {% include_relative checkboxes/defaultSuccessDisabled.html %}
+                            {% include_relative checkboxes/defaultSuccessDisabledChecked.html %}
+                        </div>
+                    </div>
+                    <div class="e-col-sm-6 e-col-xs-12">
+                        <div class="e-form-group">
+                            {% include_relative checkboxes/inverseSuccess.html %}
+                            {% include_relative checkboxes/inverseSuccessDisabled.html %}
+                            {% include_relative checkboxes/inverseSuccessDisabledChecked.html %}
+                        </div>
+                    </div>
+                </div>
+                <div class="e-row">
+                    <div class="e-col-sm-6 e-col-xs-12">
+                        <div class="e-form-group">
+                            {% include_relative checkboxes/defaultWarning.html %}
+                            {% include_relative checkboxes/defaultWarningDisabled.html %}
+                            {% include_relative checkboxes/defaultWarningDisabledChecked.html %}
+                        </div>
+                    </div>
+                    <div class="e-col-sm-6 e-col-xs-12">
+                        <div class="e-form-group">
+                            {% include_relative checkboxes/inverseWarning.html %}
+                            {% include_relative checkboxes/inverseWarningDisabled.html %}
+                            {% include_relative checkboxes/inverseWarningDisabledChecked.html %}
+                        </div>
+                    </div>
+                </div>
+                <div class="e-row">
+                    <div class="e-col-sm-6 e-col-xs-12">
+                        <div class="e-form-group">
+                            {% include_relative checkboxes/defaultDanger.html %}
+                            {% include_relative checkboxes/defaultDangerDisabled.html %}
+                            {% include_relative checkboxes/defaultDangerDisabledChecked.html %}
+                        </div>
+                    </div>
+                    <div class="e-col-sm-6 e-col-xs-12">
+                        <div class="e-form-group">
+                            {% include_relative checkboxes/inverseDanger.html %}
+                            {% include_relative checkboxes/inverseDangerDisabled.html %}
+                            {% include_relative checkboxes/inverseDangerDisabledChecked.html %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Validation end -->
+
+    <!-- Buttons start -->
+    <h2>Buttons</h2>
+    <p>A general description of the buttons</p>
+
+    <div class="e-example-block">
+        <div class="e-row">
+            <div class="e-col-sm-12">
+                {% include_relative buttons/buttons.html %}
+            </div>
+        </div>
+    </div>
+
+    {% highlight html %}
+        {% include_relative buttons/buttons.html %}
+    {% endhighlight %}
+    <!-- Buttons end -->
+
+    <!-- Buttons inverse start -->
+    <h2>Buttons inverse</h2>
+    <p>A general description of the buttons inverse</p>
+
+    <div class="e-example-block">
+        <div class="e-row">
+            <div class="e-col-sm-12">
+                {% include_relative buttons/buttonsInverse.html %}
+            </div>
+        </div>
+    </div>
+
+    {% highlight html %}
+        {% include_relative buttons/buttonsInverse.html %}
+    {% endhighlight %}
+    <!-- Buttons inverse end -->
+
+    <!-- Buttons disabled start -->
+    <h2>Buttons disabled</h2>
+    <p>A general description of the buttons disabled</p>
+
+    <div class="e-example-block">
+        <div class="e-row">
+            <div class="e-col-sm-12">
+                {% include_relative buttons/disabled.html %}
+            </div>
+        </div>
+    </div>
+    <!-- Buttons disabled end -->
+
+    <!-- Buttons sizing start -->
+    <h2>Buttons sizing</h2>
+    <p>A general description of the buttons sizing</p>
+
+    <div class="e-example-block">
+        <div class="e-row">
+            <div class="e-col-sm-12">
+                {% include_relative buttons/sizing.html %}
+            </div>
+        </div>
+    </div>
+
+    {% highlight html %}
+        {% include_relative buttons/sizing.html %}
+    {% endhighlight %}
+    <!-- Buttons sizing end -->
+
+    <!-- Breadcrumbs start -->
+    <h2>Breadcrumbs</h2>
+    <p>A general description of the breadcrumbs</p>
+
+    <div class="e-example-block">
+        <div class="e-row">
+            <div class="e-col-sm-12">
+                {% include_relative breadcrumbs/breadcrumbs.html %}
+            </div>
+        </div>
+    </div>
+
+    {% highlight html %}
+        {% include_relative breadcrumbs/breadcrumbs.html %}
+    {% endhighlight %}
+    <!-- Breadcrumbs end -->
+
+    <!-- Links start -->
+    <h2>Links</h2>
+    <p>A general description of the links</p>
+
+    <div class="e-example-block">
+        <div class="e-row">
+            <div class="e-col-sm-12">
+                {% include_relative links/link.html %}
+            </div>
+        </div>
+    </div>
+
+    {% highlight html %}
+        {% include_relative links/link.html %}
+    {% endhighlight %}
+    <!-- Links end -->
+
+    <!-- Headings start -->
+    <h2>Headings</h2>
+    <p>A general description of the headings</p>
+
+    <div class="e-example-block">
+        <div class="e-row">
+            <div class="e-col-sm-12">
+                {% include_relative headings/headings.html %}
+            </div>
+        </div>
+    </div>
+
+    {% highlight html %}
+        {% include_relative headings/headings.html %}
+    {% endhighlight %}
+    <!-- Headings end -->
+
+    <!-- Paragraph start -->
+    <h2>Paragraph</h2>
+    <p>A general description of the paragraph</p>
+
+    <div class="e-example-block">
+        <div class="e-row">
+            <div class="e-col-sm-12">
+                {% include_relative paragraph/paragraph.html %}
+            </div>
+        </div>
+    </div>
+
+    {% highlight html %}
+        {% include_relative paragraph/paragraph.html %}
+    {% endhighlight %}
+    <!-- Paragraph end -->
+
+    <!-- Table start -->
+    <h2>Table</h2>
+    <p>A general description of the table</p>
+
+    <div class="e-example-block">
+        <div class="e-row">
+            <div class="e-col-sm-12">
+                {% include_relative table/table.html %}
+            </div>
+        </div>
+    </div>
+
+    {% highlight html %}
+        {% include_relative table/table.html %}
+    {% endhighlight %}
+    <!-- Table end -->
+</div>

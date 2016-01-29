@@ -136,10 +136,10 @@
 //
 
 .e-btn-lg {
-  @include e-button-size($e-btn-padding-y-bottom-lg, $e-btn-padding-y-top-lg, $e-btn-padding-x-lg, $e-btn-font-size-lg, $e-btn-line-height-lg, $e-btn-border-radius-lg);
+    @include e-button-size($e-btn-padding-y-bottom-lg, $e-btn-padding-y-top-lg, $e-btn-padding-x-lg, $e-btn-font-size-lg, $e-btn-line-height-lg, $e-btn-border-radius-lg);
 }
 .e-btn-sm {
-  @include e-button-size($e-btn-padding-y-bottom-sm, $e-btn-padding-y-top-sm, $e-btn-padding-x-sm, $e-btn-font-size-sm, $e-btn-line-height-sm, $e-btn-border-radius-sm);
+    @include e-button-size($e-btn-padding-y-bottom-sm, $e-btn-padding-y-top-sm, $e-btn-padding-x-sm, $e-btn-font-size-sm, $e-btn-line-height-sm, $e-btn-border-radius-sm);
 }
 
 

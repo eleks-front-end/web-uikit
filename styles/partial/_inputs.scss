@@ -77,19 +77,19 @@ textarea.e-input {
 
 // Input sizing
 .e-input-sm {
-  height: $e-input-height-sm;
-  padding: $e-input-padding-y-top-sm $e-input-padding-x-sm $e-input-padding-y-bottom-sm;
-  font-size: $e-font-size-sm;
-  line-height: $e-line-height-sm;
-  border-radius: $e-input-border-radius-sm;
+    @include border-radius($e-input-border-radius-sm);
+    font-size: $e-font-size-sm;
+    height: $e-input-height-sm;
+    line-height: $e-line-height-sm;
+    padding: $e-input-padding-y-top-sm $e-input-padding-x-sm $e-input-padding-y-bottom-sm;
 }
 
 .e-input-lg {
-  height: $e-input-height-lg;
-  padding: $e-input-padding-y-top-lg $e-input-padding-x-lg $e-input-padding-y-bottom-lg;
-  font-size: $e-font-size-lg;
-  line-height: $e-line-height-lg;
-  border-radius: $e-input-border-radius-lg;
+    @include border-radius($e-input-border-radius-lg);
+    font-size: $e-font-size-lg;
+    height: $e-input-height-lg;
+    line-height: $e-line-height-lg;
+    padding: $e-input-padding-y-top-lg $e-input-padding-x-lg $e-input-padding-y-bottom-lg;
 }
 
 
