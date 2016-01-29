@@ -44,3 +44,13 @@ dl, ol, p, pre, ul {
 figure {
     margin: 0 0 1rem;
 }
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+td, th {
+    padding: 0;
+}
+th {
+    text-align: left;
+}

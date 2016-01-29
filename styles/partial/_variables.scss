@@ -155,15 +155,16 @@ $caret-width-lg:         $caret-width !default;*/
 
 // Tables
 
-/*$table-cell-padding:            .75rem !default;
-$table-sm-cell-padding:         .3rem !default;
+$e-table-cell-padding:            .75rem !default;
+$e-table-sm-cell-padding:         .3rem !default;
 
-$table-bg:                      transparent !default;
-$table-bg-accent:               #f9f9f9 !default;
-$table-bg-hover:                #f5f5f5 !default;
-$table-bg-active:               $table-bg-hover !default;
+$e-table-bg:                      transparent !default;
+$e-table-bg-accent:               #f9f9f9 !default;
+$e-table-bg-hover:                #f5f5f5 !default;
+$e-table-bg-active:               $e-table-bg-hover !default;
 
-$table-border-color:            $gray-lighter !default;*/
+$e-table-border-width:            $e-border-width !default;
+$e-table-border-color:            $e-gray-lighter !default;
 
 
 // Buttons
@@ -390,21 +391,21 @@ $jumbotron-bg:                   $gray-lighter !default;*/
 
 // Form states and alerts
 
-/*$state-success-text:             #3c763d !default;
-$state-success-bg:               #dff0d8 !default;
-$state-success-border:           darken($state-success-bg, 5%) !default;
+$e-state-success-text:             #3c763d !default;
+$e-state-success-bg:               #dff0d8 !default;
+$e-state-success-border:           darken($e-state-success-bg, 5%) !default;
 
-$state-info-text:                #31708f !default;
-$state-info-bg:                  #d9edf7 !default;
-$state-info-border:              darken($state-info-bg, 7%) !default;
+$e-state-info-text:                #31708f !default;
+$e-state-info-bg:                  #d9edf7 !default;
+$e-state-info-border:              darken($e-state-info-bg, 7%) !default;
 
-$state-warning-text:             #8a6d3b !default;
-$state-warning-bg:               #fcf8e3 !default;
-$state-warning-border:           darken($state-warning-bg, 5%) !default;
+$e-state-warning-text:             #8a6d3b !default;
+$e-state-warning-bg:               #fcf8e3 !default;
+$e-state-warning-border:           darken($e-state-warning-bg, 5%) !default;
 
-$state-danger-text:              #a94442 !default;
-$state-danger-bg:                #f2dede !default;
-$state-danger-border:            darken($state-danger-bg, 5%) !default;*/
+$e-state-danger-text:              #a94442 !default;
+$e-state-danger-bg:                #f2dede !default;
+$e-state-danger-border:            darken($e-state-danger-bg, 5%) !default;
 
 
 // Tooltips
