@@ -1,0 +1,23 @@
+<header class="e-navbar e-navbar-primary">
+    <div class="e-container">
+        <a href="{{ site.baseurl }}" class="e-navbar-brand">
+            <img src="{{ '/public/img/logo_white.png' | prepend: site.baseurl }}" alt="logo">
+        </a>
+
+        <ul class="e-nav e-nav-inline">
+            {% for node in site.pages %}
+              {% if 'public' == node.group %}
+                {% if page.url == node.url %}
+                    <li class="e-nav-item">
+                        <a href="{{node.url | prepend: site.baseurl }}" class="e-nav-link active">{{node.title}}</a>
+                    </li>
+                {% else %}
+                    <li class="e-nav-item">
+                        <a href="{{node.url | prepend: site.baseurl }}" class="e-nav-link">{{node.title}}</a>
+                    </li>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</header>

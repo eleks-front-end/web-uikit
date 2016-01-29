@@ -1,0 +1,19 @@
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import "partial/syntax-highlighting";
+
+.e-example-wrap {
+	padding: 1.5rem;
+}
+.e-example-block {
+	background-color: #fefeff;
+	margin: 0 -1.5rem 3rem;
+	padding: 1rem 1.5rem;
+
+	.e-btn + .e-btn {
+		margin-left: 1rem;
+	}
+	.e-input + .e-input {
+		margin-top: 0.5rem;
+	}
+}
