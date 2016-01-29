@@ -3,7 +3,7 @@
 //
 
 .e-img-fluid {
-  @include e-img-fluid();
+    @include e-img-fluid();
 }
 
 
@@ -12,7 +12,7 @@
 //
 
 .e-img-rounded {
-  @include border-radius($e-border-radius-lg);
+    @include border-radius($e-border-radius-lg);
 }
 
 
@@ -21,16 +21,16 @@
 //
 
 .e-img-thumbnail {
-  background-color: $e-thumbnail-bg;
-  border: $e-thumbnail-border-width solid $e-thumbnail-border-color;
-  border-radius: $e-thumbnail-border-radius;
-  line-height: $e-line-height;
-  padding: $e-thumbnail-padding;
+    background-color: $e-thumbnail-bg;
+    border: $e-thumbnail-border-width solid $e-thumbnail-border-color;
+    border-radius: $e-thumbnail-border-radius;
+    line-height: $e-line-height;
+    padding: $e-thumbnail-padding;
 
-  @include box-shadow(0 1px 2px rgba(0,0,0,.075));
+    @include box-shadow(0 1px 2px rgba(0,0,0,.075));
 
-  // Keep them at most 100% wide
-  @include e-img-fluid(inline-block);
+    // Keep them at most 100% wide
+    @include e-img-fluid(inline-block);
 }
 
 
@@ -39,7 +39,7 @@
 //
 
 .e-img-circle {
-  border-radius: 50%;
+    border-radius: 50%;
 }
 
 
@@ -48,16 +48,16 @@
 //
 
 .e-figure {
-  // Ensures the caption's text aligns with the image.
-  display: inline-block;
+    // Ensures the caption's text aligns with the image.
+    display: inline-block;
 }
 
 .e-figure-img {
-  line-height: 1;
-  margin-bottom: ($e-spacer-y / 2);
+    line-height: 1;
+    margin-bottom: ($e-spacer-y / 2);
 }
 
 .e-figure-caption {
-  color: $e-gray-light;
-  font-size: 90%;
+    color: $e-gray-light;
+    font-size: 90%;
 }

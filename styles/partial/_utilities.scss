@@ -3,19 +3,19 @@
 //
 
 .e-clearfix {
-  @include e-clearfix();
+    @include e-clearfix();
 }
 
 .e-center-block {
-  @include e-center-block();
+    @include e-center-block();
 }
 
 .e-pull-right {
-  @include e-pull-right();
+    @include e-pull-right();
 }
 
 .e-pull-left {
-  @include e-pull-left();
+    @include e-pull-left();
 }
 
 /*//
@@ -23,24 +23,24 @@
 //*/
 
 /*.sr-only {
-  @include sr-only();
+    @include sr-only();
 }*/
 
 /*.sr-only-focusable {
-  @include sr-only-focusable();
+    @include sr-only-focusable();
 }*/
 
 // Always hide an element with the `hidden` HTML attribute (from PureCSS).
 [hidden] {
-  display: none !important;
+    display: none !important;
 }
 
 .invisible {
-  visibility: hidden;
+    visibility: hidden;
 }
 
 /*.text-hide {
-  @include text-hide();
+    @include text-hide();
 }*/
 
 
@@ -64,27 +64,27 @@
 .text-xs-center { text-align: center; }
 
 @include media-breakpoint-up(sm) {
-  .text-sm-left   { text-align: left; }
-  .text-sm-right  { text-align: right; }
-  .text-sm-center { text-align: center; }
+    .text-sm-left   { text-align: left; }
+    .text-sm-right  { text-align: right; }
+    .text-sm-center { text-align: center; }
 }
 
 @include media-breakpoint-up(md) {
-  .text-md-left   { text-align: left; }
-  .text-md-right  { text-align: right; }
-  .text-md-center { text-align: center; }
+    .text-md-left   { text-align: left; }
+    .text-md-right  { text-align: right; }
+    .text-md-center { text-align: center; }
 }
 
 @include media-breakpoint-up(lg) {
-  .text-lg-left   { text-align: left; }
-  .text-lg-right  { text-align: right; }
-  .text-lg-center { text-align: center; }
+    .text-lg-left   { text-align: left; }
+    .text-lg-right  { text-align: right; }
+    .text-lg-center { text-align: center; }
 }
 
 @include media-breakpoint-up(xl) {
-  .text-xl-left   { text-align: left; }
-  .text-xl-right  { text-align: right; }
-  .text-xl-center { text-align: center; }
+    .text-xl-left   { text-align: left; }
+    .text-xl-right  { text-align: right; }
+    .text-xl-center { text-align: center; }
 }*/
 
 // Transformation
@@ -117,12 +117,12 @@
 // Inverse
 // Todo: redo this as a proper class*/
 /*.bg-inverse {
-  color: $gray-lighter;
-  background-color: $gray-dark;
+    color: $gray-lighter;
+    background-color: $gray-dark;
 }*/
 
 /*.bg-faded {
-  background-color: $gray-lightest;
+    background-color: $gray-lightest;
 }*/
 
 /*@include bg-variant('.bg-primary', $brand-primary);
