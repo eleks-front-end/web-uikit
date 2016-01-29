@@ -1,10 +1,59 @@
----
-layout: page
-title: CSS
-group: 'public'
----
+<!DOCTYPE html>
+<html>
 
-<div class="e-example-wrap">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>CSS</title>
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+    <link rel="icon" href="http://media.eleks.com/media/Content/assets/ico/favicon.ico">
+    <link rel="stylesheet" href="/public/styles/preview.css">
+    <link rel="stylesheet" href="/public/styles/eleks-ui-kit.css">
+    <link rel="canonical" href="http://yourdomain.com/css/">
+    <link rel="alternate" type="application/rss+xml" title="Eleks web ui kit" href="http://yourdomain.com/feed.xml">
+</head>
+
+
+    <body>
+
+        <header class="e-navbar e-navbar-primary">
+    <div class="e-container">
+        <a href="http://eleks.com" class="e-navbar-brand" target="_blank">
+            <img src="/public/img/logo_white.png" alt="logo">
+        </a>
+
+        <ul class="e-nav e-nav-inline">
+            
+              
+                
+                    <li class="e-nav-item">
+                        <a href="/css/" class="e-nav-link active">CSS</a>
+                    </li>
+                
+              
+            
+              
+                
+                    <li class="e-nav-item">
+                        <a href="/getting_started/" class="e-nav-link">Getting started</a>
+                    </li>
+                
+              
+            
+              
+            
+        </ul>
+    </div>
+</header>
+
+
+    <div class="e-container">
+        <div>
+    <div class="e-example-wrap">
 
     <!-- Inputs start -->
     <h2>Inputs</h2>
@@ -13,24 +62,37 @@ group: 'public'
     <div class="e-example-block">
         <div class="e-row">
             <div class="e-col-sm-6 e-col-xs-12">
-                {% include_relative inputs/default.html %}
+                <div class="e-form-group">
+    <label for="inputNormal" class="e-input-label e-required">Label</label>
+    <input id="inputNormal" type="text" placeholder="Normal state" class="e-input">
+    <small class="e-text-muted">We'll never share your email with anyone else.</small>
+</div>
             </div>
         </div>
         <div class="e-row">
             <div class="e-col-sm-6 e-col-xs-12">
-                {% include_relative inputs/disabled.html %}
+                <div class="e-form-group">
+    <label for="inputDisabled" class="e-input-label">Label</label>
+    <input id="inputDisabled" type="text" placeholder="Disabled state" disabled class="e-input">
+</div>
             </div>
         </div>
         <div class="e-row">
             <div class="e-col-sm-6 e-col-xs-12">
-                {% include_relative inputs/readonly.html %}
+                <div class="e-form-group">
+    <label for="inputReadonly" class="e-input-label">Label</label>
+    <input id="inputReadonly" type="text" placeholder="Readonly state" readonly class="e-input">
+</div>
             </div>
         </div>
     </div>
 
-    {% highlight html %}
-        {% include_relative inputs/default.html %}
-    {% endhighlight %}
+    <figure class="highlight"><pre><code class="language-html" data-lang="html">        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-form-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"inputNormal"</span> <span class="na">class=</span><span class="s">"e-input-label e-required"</span><span class="nt">&gt;</span>Label<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"inputNormal"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"Normal state"</span> <span class="na">class=</span><span class="s">"e-input"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"e-text-muted"</span><span class="nt">&gt;</span>We'll never share your email with anyone else.<span class="nt">&lt;/small&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+    </code></pre></figure>
     <!-- Inputs end -->
 
 
@@ -41,14 +103,17 @@ group: 'public'
     <div class="e-example-block">
         <div class="e-row">
             <div class="e-col-sm-6 e-col-xs-12">
-                {% include_relative inputs/sizing.html %}
+                <input type="text" placeholder="Normal state for input lg" class="e-input e-input-lg">
+<input type="text" placeholder="Normal state for input default" class="e-input">
+<input type="text" placeholder="Normal state for input sm" class="e-input e-input-sm">
             </div>
         </div>
     </div>
 
-    {% highlight html %}
-        {% include_relative inputs/sizing.html %}
-    {% endhighlight %}
+    <figure class="highlight"><pre><code class="language-html" data-lang="html">        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"Normal state for input lg"</span> <span class="na">class=</span><span class="s">"e-input e-input-lg"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"Normal state for input default"</span> <span class="na">class=</span><span class="s">"e-input"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"Normal state for input sm"</span> <span class="na">class=</span><span class="s">"e-input e-input-sm"</span><span class="nt">&gt;</span>
+    </code></pre></figure>
     <!-- Inputs sizing end -->
 
 
@@ -59,32 +124,78 @@ group: 'public'
     <div class="e-example-block">
         <div class="e-row">
             <div class="e-col-sm-6 e-col-xs-12">
-                {% include_relative checkboxes/default.html %}
+                <div class="e-checkbox">
+    <label>
+        <input type="checkbox">
+        <span class="e-icon"></span>
+        Check this custom checkbox
+    </label>
+</div>
 
-                {% include_relative checkboxes/disabled.html %}
+                <div class="e-checkbox e-disabled">
+    <label>
+        <input type="checkbox" disabled>
+        <span class="e-icon"></span>
+        Disable state for custom checkbox
+    </label>
+</div>
 
-                {% include_relative checkboxes/disabledChecked.html %}
+                <div class="e-checkbox e-disabled">
+    <label>
+        <input type="checkbox" disabled checked>
+        <span class="e-icon"></span>
+        Disable state for custom checked checkbox
+    </label>
+</div>
             </div>
             <div class="e-col-sm-6 e-col-xs-12">
-                {% include_relative checkboxes/inverse.html %}
+                <div class="e-checkbox-inverse">
+    <label>
+        <input type="checkbox">
+        <span class="e-icon"></span>
+        Check this custom inverse checkbox
+    </label>
+</div>
 
-                {% include_relative checkboxes/disabled.html %}
+                <div class="e-checkbox e-disabled">
+    <label>
+        <input type="checkbox" disabled>
+        <span class="e-icon"></span>
+        Disable state for custom checkbox
+    </label>
+</div>
 
-                {% include_relative checkboxes/inverseDisabledChecked.html %}
+                <div class="e-checkbox-inverse e-disabled">
+    <label>
+        <input type="checkbox" disabled checked>
+        <span class="e-icon"></span>
+        Disable state for custom inverse checkbox
+    </label>
+</div>
             </div>
         </div>
     </div>
 
     <div class="e-row">
         <div class="e-col-sm-6 e-col-xs-12">
-            {% highlight html %}
-                {% include_relative checkboxes/default.html %}
-            {% endhighlight %}
+            <figure class="highlight"><pre><code class="language-html" data-lang="html">                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-checkbox"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"e-icon"</span><span class="nt">&gt;&lt;/span&gt;</span>
+        Check this custom checkbox
+    <span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+            </code></pre></figure>
         </div>
         <div class="e-col-sm-6 e-col-xs-12">
-            {% highlight html %}
-                {% include_relative checkboxes/inverse.html %}
-            {% endhighlight %}
+            <figure class="highlight"><pre><code class="language-html" data-lang="html">                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-checkbox-inverse"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"e-icon"</span><span class="nt">&gt;&lt;/span&gt;</span>
+        Check this custom inverse checkbox
+    <span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+            </code></pre></figure>
         </div>
     </div>
     <!-- Checkboxes end -->
@@ -96,18 +207,41 @@ group: 'public'
     <div class="e-example-block">
         <div class="e-row">
             <div class="e-col-sm-6 e-col-xs-12">
-                {% include_relative radio/default.html %}
+                <div class="e-radio">
+    <label>
+        <input type="radio">
+        <span class="e-icon"></span>
+        Check this custom radio
+    </label>
+</div>
 
-                {% include_relative radio/disabled.html %}
+                <div class="e-radio e-disabled">
+    <label>
+        <input type="radio" disabled>
+        <span class="e-icon"></span>
+        This is custom disabled radio button
+    </label>
+</div>
 
-                {% include_relative radio/disabledChecked.html %}
+                <div class="e-radio e-disabled">
+    <label>
+        <input type="radio" disabled checked>
+        <span class="e-icon"></span>
+        This is custom checked disabled radio button
+    </label>
+</div>
             </div>
         </div>
     </div>
 
-    {% highlight html %}
-        {% include_relative radio/default.html %}
-    {% endhighlight %}
+    <figure class="highlight"><pre><code class="language-html" data-lang="html">        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-radio"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"e-icon"</span><span class="nt">&gt;&lt;/span&gt;</span>
+        Check this custom radio
+    <span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+    </code></pre></figure>
     <!-- Radio Buttons end -->
 
     <!-- Validation start -->
@@ -117,56 +251,176 @@ group: 'public'
     <div class="e-example-block">
         <div class="e-row">
             <div class="e-col-sm-4 e-col-xs-12">
-                {% include_relative inputs/success.html %}
-                {% include_relative inputs/warning.html %}
-                {% include_relative inputs/danger.html %}
+                <div class="e-form-group e-has-success">
+    <label for="inputNormal" class="e-input-label e-required">Label</label>
+    <input id="inputNormal" type="text" placeholder="Normal state" class="e-input e-success" value="Simple text">
+    <small class="e-text-muted">Text of the success</small>
+</div>
+                <div class="e-form-group e-has-warning">
+    <label for="inputNormal" class="e-input-label e-required">Label</label>
+    <input id="inputNormal" type="text" placeholder="Normal state" class="e-input e-warning" value="Simple text">
+    <small class="e-text-muted">Text of the warning</small>
+</div>
+                <div class="e-form-group e-has-danger">
+    <label for="inputNormal" class="e-input-label e-required">Label</label>
+    <input id="inputNormal" type="text" placeholder="Normal state" class="e-input e-danger" value="Simple text">
+    <small class="e-text-muted">Text of the error</small>
+</div>
             </div>
             <div class="e-col-sm-8 e-col-xs-12">
                 <div class="e-row">
                     <div class="e-col-sm-6 e-col-xs-12">
                         <div class="e-form-group">
-                            {% include_relative checkboxes/defaultSuccess.html %}
-                            {% include_relative checkboxes/defaultSuccessDisabled.html %}
-                            {% include_relative checkboxes/defaultSuccessDisabledChecked.html %}
+                            <div class="e-checkbox e-has-success">
+    <label>
+        <input type="checkbox">
+        <span class="e-icon"></span>
+        Default checkbox with success
+    </label>
+</div>
+                            <div class="e-checkbox e-disabled e-has-success">
+    <label>
+        <input type="checkbox" disabled>
+        <span class="e-icon"></span>
+        Default disabled checkbox with success
+    </label>
+</div>
+                            <div class="e-checkbox e-disabled e-has-success">
+    <label>
+        <input type="checkbox" disabled checked>
+        <span class="e-icon"></span>
+        Default disabled checked checkbox with success
+    </label>
+</div>
                         </div>
                     </div>
                     <div class="e-col-sm-6 e-col-xs-12">
                         <div class="e-form-group">
-                            {% include_relative checkboxes/inverseSuccess.html %}
-                            {% include_relative checkboxes/inverseSuccessDisabled.html %}
-                            {% include_relative checkboxes/inverseSuccessDisabledChecked.html %}
+                            <div class="e-checkbox-inverse e-has-success">
+    <label>
+        <input type="checkbox">
+        <span class="e-icon"></span>
+        Default inverse checkbox with success
+    </label>
+</div>
+                            <div class="e-checkbox-inverse e-disabled e-has-success">
+    <label>
+        <input type="checkbox" disabled>
+        <span class="e-icon"></span>
+        Default inverse checkbox with success
+    </label>
+</div>
+                            <div class="e-checkbox-inverse e-disabled e-has-success">
+    <label>
+        <input type="checkbox" disabled checked>
+        <span class="e-icon"></span>
+        Default inverse checkbox with success
+    </label>
+</div>
                         </div>
                     </div>
                 </div>
                 <div class="e-row">
                     <div class="e-col-sm-6 e-col-xs-12">
                         <div class="e-form-group">
-                            {% include_relative checkboxes/defaultWarning.html %}
-                            {% include_relative checkboxes/defaultWarningDisabled.html %}
-                            {% include_relative checkboxes/defaultWarningDisabledChecked.html %}
+                            <div class="e-checkbox e-has-warning">
+    <label>
+        <input type="checkbox">
+        <span class="e-icon"></span>
+        Default checkbox with warning
+    </label>
+</div>
+                            <div class="e-checkbox e-disabled e-has-warning">
+    <label>
+        <input type="checkbox" disabled>
+        <span class="e-icon"></span>
+        Default disabled checkbox with warning
+    </label>
+</div>
+                            <div class="e-checkbox e-disabled e-has-warning">
+    <label>
+        <input type="checkbox" disabled checked>
+        <span class="e-icon"></span>
+        Default disabled checked checkbox with warning
+    </label>
+</div>
                         </div>
                     </div>
                     <div class="e-col-sm-6 e-col-xs-12">
                         <div class="e-form-group">
-                            {% include_relative checkboxes/inverseWarning.html %}
-                            {% include_relative checkboxes/inverseWarningDisabled.html %}
-                            {% include_relative checkboxes/inverseWarningDisabledChecked.html %}
+                            <div class="e-checkbox-inverse e-has-warning">
+    <label>
+        <input type="checkbox">
+        <span class="e-icon"></span>
+        Default inverse checkbox with warning
+    </label>
+</div>
+                            <div class="e-checkbox-inverse e-disabled e-has-warning">
+    <label>
+        <input type="checkbox" disabled>
+        <span class="e-icon"></span>
+        Default inverse checkbox with warning
+    </label>
+</div>
+                            <div class="e-checkbox-inverse e-disabled e-has-warning">
+    <label>
+        <input type="checkbox" disabled checked>
+        <span class="e-icon"></span>
+        Default inverse checkbox with warning
+    </label>
+</div>
                         </div>
                     </div>
                 </div>
                 <div class="e-row">
                     <div class="e-col-sm-6 e-col-xs-12">
                         <div class="e-form-group">
-                            {% include_relative checkboxes/defaultDanger.html %}
-                            {% include_relative checkboxes/defaultDangerDisabled.html %}
-                            {% include_relative checkboxes/defaultDangerDisabledChecked.html %}
+                            <div class="e-checkbox e-has-danger">
+    <label>
+        <input type="checkbox">
+        <span class="e-icon"></span>
+        Default checkbox with danger
+    </label>
+</div>
+                            <div class="e-checkbox e-disabled e-has-danger">
+    <label>
+        <input type="checkbox" disabled>
+        <span class="e-icon"></span>
+        Default disabled checkbox with danger
+    </label>
+</div>
+                            <div class="e-checkbox e-disabled e-has-danger">
+    <label>
+        <input type="checkbox" disabled checked>
+        <span class="e-icon"></span>
+        Default disabled checked checkbox with danger
+    </label>
+</div>
                         </div>
                     </div>
                     <div class="e-col-sm-6 e-col-xs-12">
                         <div class="e-form-group">
-                            {% include_relative checkboxes/inverseDanger.html %}
-                            {% include_relative checkboxes/inverseDangerDisabled.html %}
-                            {% include_relative checkboxes/inverseDangerDisabledChecked.html %}
+                            <div class="e-checkbox-inverse e-has-danger">
+    <label>
+        <input type="checkbox">
+        <span class="e-icon"></span>
+        Default inverse checkbox with danger
+    </label>
+</div>
+                            <div class="e-checkbox-inverse e-disabled e-has-danger">
+    <label>
+        <input type="checkbox" disabled>
+        <span class="e-icon"></span>
+        Default inverse checkbox with danger
+    </label>
+</div>
+                            <div class="e-checkbox-inverse e-disabled e-has-danger">
+    <label>
+        <input type="checkbox" disabled checked>
+        <span class="e-icon"></span>
+        Default inverse checkbox with danger
+    </label>
+</div>
                         </div>
                     </div>
                 </div>
@@ -182,14 +436,25 @@ group: 'public'
     <div class="e-example-block">
         <div class="e-row">
             <div class="e-col-sm-12">
-                {% include_relative buttons/buttons.html %}
+                <button class="e-btn e-btn-primary" type="button">Primary</button>
+<button class="e-btn e-btn-secondary" type="button">Secondary</button>
+<button class="e-btn e-btn-success" type="button">Success</button>
+<button class="e-btn e-btn-info" type="button">Info</button>
+<button class="e-btn e-btn-warning" type="button">Warning</button>
+<button class="e-btn e-btn-danger" type="button">Danger</button>
+<button class="e-btn e-btn-link" type="button">Link</button>
             </div>
         </div>
     </div>
 
-    {% highlight html %}
-        {% include_relative buttons/buttons.html %}
-    {% endhighlight %}
+    <figure class="highlight"><pre><code class="language-html" data-lang="html">        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"e-btn e-btn-primary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Primary<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"e-btn e-btn-secondary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Secondary<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"e-btn e-btn-success"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Success<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"e-btn e-btn-info"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Info<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"e-btn e-btn-warning"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Warning<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"e-btn e-btn-danger"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Danger<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"e-btn e-btn-link"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/button&gt;</span>
+    </code></pre></figure>
     <!-- Buttons end -->
 
     <!-- Buttons inverse start -->
@@ -199,14 +464,21 @@ group: 'public'
     <div class="e-example-block">
         <div class="e-row">
             <div class="e-col-sm-12">
-                {% include_relative buttons/buttonsInverse.html %}
+                <button class="e-btn e-btn-primary-outline" type="button">Primary</button>
+<button class="e-btn e-btn-secondary-outline" type="button">Secondary</button>
+<button class="e-btn e-btn-success-outline" type="button">Success</button>
+<button class="e-btn e-btn-warning-outline" type="button">Warning</button>
+<button class="e-btn e-btn-danger-outline" type="button">Danger</button>
             </div>
         </div>
     </div>
 
-    {% highlight html %}
-        {% include_relative buttons/buttonsInverse.html %}
-    {% endhighlight %}
+    <figure class="highlight"><pre><code class="language-html" data-lang="html">        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"e-btn e-btn-primary-outline"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Primary<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"e-btn e-btn-secondary-outline"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Secondary<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"e-btn e-btn-success-outline"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Success<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"e-btn e-btn-warning-outline"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Warning<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"e-btn e-btn-danger-outline"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Danger<span class="nt">&lt;/button&gt;</span>
+    </code></pre></figure>
     <!-- Buttons inverse end -->
 
     <!-- Buttons disabled start -->
@@ -216,7 +488,14 @@ group: 'public'
     <div class="e-example-block">
         <div class="e-row">
             <div class="e-col-sm-12">
-                {% include_relative buttons/disabled.html %}
+                <button class="e-btn e-btn-primary" type="button" disabled>Primary</button>
+<button class="e-btn e-btn-secondary" type="button" disabled>Secondary</button>
+<button class="e-btn e-btn-success" type="button" disabled>Success</button>
+<button class="e-btn e-btn-info" type="button" disabled>Info</button>
+<button class="e-btn e-btn-warning" type="button" disabled>Warning</button>
+<button class="e-btn e-btn-danger" type="button" disabled>Danger</button>
+<button class="e-btn e-btn-link" type="button" disabled>Link</button>
+<button class="e-btn e-btn-primary-outline" type="button" disabled>All inverse disabled</button>
             </div>
         </div>
     </div>
@@ -229,14 +508,17 @@ group: 'public'
     <div class="e-example-block">
         <div class="e-row">
             <div class="e-col-sm-12">
-                {% include_relative buttons/sizing.html %}
+                <button class="e-btn e-btn-primary e-btn-lg" type="button">Large button</button>
+<button class="e-btn e-btn-primary" type="button">Normal button</button>
+<button class="e-btn e-btn-primary e-btn-sm" type="button">Small button</button>
             </div>
         </div>
     </div>
 
-    {% highlight html %}
-        {% include_relative buttons/sizing.html %}
-    {% endhighlight %}
+    <figure class="highlight"><pre><code class="language-html" data-lang="html">        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"e-btn e-btn-primary e-btn-lg"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Large button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"e-btn e-btn-primary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Normal button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"e-btn e-btn-primary e-btn-sm"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Small button<span class="nt">&lt;/button&gt;</span>
+    </code></pre></figure>
     <!-- Buttons sizing end -->
 
     <!-- Breadcrumbs start -->
@@ -246,14 +528,21 @@ group: 'public'
     <div class="e-example-block">
         <div class="e-row">
             <div class="e-col-sm-12">
-                {% include_relative breadcrumbs/breadcrumbs.html %}
+                <ol class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Library</a></li>
+    <li class="active">Data</li>
+</ol>
             </div>
         </div>
     </div>
 
-    {% highlight html %}
-        {% include_relative breadcrumbs/breadcrumbs.html %}
-    {% endhighlight %}
+    <figure class="highlight"><pre><code class="language-html" data-lang="html">        <span class="nt">&lt;ol</span> <span class="na">class=</span><span class="s">"breadcrumb"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Library<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;</span>Data<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ol&gt;</span>
+    </code></pre></figure>
     <!-- Breadcrumbs end -->
 
     <!-- Links start -->
@@ -263,14 +552,15 @@ group: 'public'
     <div class="e-example-block">
         <div class="e-row">
             <div class="e-col-sm-12">
-                {% include_relative links/link.html %}
+                <a href="#">Link</a>
+
             </div>
         </div>
     </div>
 
-    {% highlight html %}
-        {% include_relative links/link.html %}
-    {% endhighlight %}
+    <figure class="highlight"><pre><code class="language-html" data-lang="html">        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;</span>
+
+    </code></pre></figure>
     <!-- Links end -->
 
     <!-- Headings start -->
@@ -280,14 +570,23 @@ group: 'public'
     <div class="e-example-block">
         <div class="e-row">
             <div class="e-col-sm-12">
-                {% include_relative headings/headings.html %}
+                <h1>Test h1</h1>
+<h2>Test h2</h2>
+<h3>Test h3</h3>
+<h4>Test h4</h4>
+<h5>Test h5</h5>
+<h6>Test h6</h6>
             </div>
         </div>
     </div>
 
-    {% highlight html %}
-        {% include_relative headings/headings.html %}
-    {% endhighlight %}
+    <figure class="highlight"><pre><code class="language-html" data-lang="html">        <span class="nt">&lt;h1&gt;</span>Test h1<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;h2&gt;</span>Test h2<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;h3&gt;</span>Test h3<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;h4&gt;</span>Test h4<span class="nt">&lt;/h4&gt;</span>
+<span class="nt">&lt;h5&gt;</span>Test h5<span class="nt">&lt;/h5&gt;</span>
+<span class="nt">&lt;h6&gt;</span>Test h6<span class="nt">&lt;/h6&gt;</span>
+    </code></pre></figure>
     <!-- Headings end -->
 
     <!-- Paragraph start -->
@@ -297,14 +596,21 @@ group: 'public'
     <div class="e-example-block">
         <div class="e-row">
             <div class="e-col-sm-12">
-                {% include_relative paragraph/paragraph.html %}
+                <p>Nullam quis risus eget urna mollis ornare vel eu leo.
+Cum sociis natoque penatibus et magnis dis parturient montes,
+nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+<p>Test another paragraph</p>
+<p>Test another paragraph</p>
             </div>
         </div>
     </div>
 
-    {% highlight html %}
-        {% include_relative paragraph/paragraph.html %}
-    {% endhighlight %}
+    <figure class="highlight"><pre><code class="language-html" data-lang="html">        <span class="nt">&lt;p&gt;</span>Nullam quis risus eget urna mollis ornare vel eu leo.
+Cum sociis natoque penatibus et magnis dis parturient montes,
+nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>Test another paragraph<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>Test another paragraph<span class="nt">&lt;/p&gt;</span>
+    </code></pre></figure>
     <!-- Paragraph end -->
 
     <!-- Table start -->
@@ -314,14 +620,83 @@ group: 'public'
     <div class="e-example-block">
         <div class="e-row">
             <div class="e-col-sm-12">
-                {% include_relative table/table.html %}
+                <table class="e-table e-table-hover e-table-striped e-table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+        </tr>
+        <tr>
+            <th scope="row">4</th>
+            <td>Tvist</td>
+            <td>the Own</td>
+            <td>@facebook</td>
+        </tr>
+    </tbody>
+</table>
             </div>
         </div>
     </div>
 
-    {% highlight html %}
-        {% include_relative table/table.html %}
-    {% endhighlight %}
+    <figure class="highlight"><pre><code class="language-html" data-lang="html">        <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"e-table e-table-hover e-table-striped e-table-bordered"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;thead&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th&gt;</span>#<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>First Name<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Last Name<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Username<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;tbody&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Mark<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Otto<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>@mdo<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Jacob<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Thornton<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>@fat<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Larry<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>the Bird<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>@twitter<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>4<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Tvist<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>the Own<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>@facebook<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+    </code></pre></figure>
     <!-- Table end -->
 
     <!-- Inverse table start -->
@@ -331,14 +706,71 @@ group: 'public'
     <div class="e-example-block">
         <div class="e-row">
             <div class="e-col-sm-12">
-                {% include_relative table/inverseTable.html %}
+                <table class="e-table e-table-inverse e-table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+        </tr>
+    </tbody>
+</table>
             </div>
         </div>
     </div>
 
-    {% highlight html %}
-        {% include_relative table/inverseTable.html %}
-    {% endhighlight %}
+    <figure class="highlight"><pre><code class="language-html" data-lang="html">        <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"e-table e-table-inverse e-table-hover"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;thead&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th&gt;</span>#<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>First Name<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Last Name<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Username<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;tbody&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Mark<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Otto<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>@mdo<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Jacob<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Thornton<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>@fat<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Larry<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>the Bird<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>@twitter<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+    </code></pre></figure>
     <!-- Inverse table end -->
 
     <!-- Table head options start -->
@@ -348,14 +780,133 @@ group: 'public'
     <div class="e-example-block">
         <div class="e-row">
             <div class="e-col-sm-12">
-                {% include_relative table/tableHeadOptions.html %}
+                <table class="e-table e-table-hover">
+    <thead class="e-thead-inverse">
+        <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="e-table e-table-hover">
+    <thead class="e-thead-default">
+        <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+        </tr>
+    </tbody>
+</table>
             </div>
         </div>
     </div>
 
-    {% highlight html %}
-        {% include_relative table/tableHeadOptions.html %}
-    {% endhighlight %}
+    <figure class="highlight"><pre><code class="language-html" data-lang="html">        <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"e-table e-table-hover"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;thead</span> <span class="na">class=</span><span class="s">"e-thead-inverse"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th&gt;</span>#<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>First Name<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Last Name<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Username<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;tbody&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Mark<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Otto<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>@mdo<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Jacob<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Thornton<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>@fat<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Larry<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>the Bird<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>@twitter<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+
+<span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"e-table e-table-hover"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;thead</span> <span class="na">class=</span><span class="s">"e-thead-default"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th&gt;</span>#<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>First Name<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Last Name<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Username<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;tbody&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Mark<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Otto<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>@mdo<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Jacob<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Thornton<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>@fat<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Larry<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>the Bird<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>@twitter<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+    </code></pre></figure>
     <!-- Table head options end -->
 
     <!-- Small table start -->
@@ -365,14 +916,71 @@ group: 'public'
     <div class="e-example-block">
         <div class="e-row">
             <div class="e-col-sm-12">
-                {% include_relative table/smallTable.html %}
+                <table class="e-table e-table-sm">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+        </tr>
+    </tbody>
+</table>
             </div>
         </div>
     </div>
 
-    {% highlight html %}
-        {% include_relative table/smallTable.html %}
-    {% endhighlight %}
+    <figure class="highlight"><pre><code class="language-html" data-lang="html">        <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"e-table e-table-sm"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;thead&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th&gt;</span>#<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>First Name<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Last Name<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Username<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;tbody&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Mark<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Otto<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>@mdo<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Jacob<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Thornton<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>@fat<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Larry<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>the Bird<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>@twitter<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+    </code></pre></figure>
     <!-- Small table end -->
 
     <!-- Contextual classes start -->
@@ -382,14 +990,155 @@ group: 'public'
     <div class="e-example-block">
         <div class="e-row">
             <div class="e-col-sm-12">
-                {% include_relative table/contextualClasses.html %}
+                <table class="e-table e-table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Column heading</th>
+            <th>Column heading</th>
+            <th>Column heading</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="e-table-active">
+            <th scope="row">1</th>
+            <td>Column content</td>
+            <td>Column content</td>
+            <td>Column content</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Column content</td>
+            <td>Column content</td>
+            <td>Column content</td>
+        </tr>
+        <tr class="e-table-success">
+            <th scope="row">3</th>
+            <td>Column content</td>
+            <td>Column content</td>
+            <td>Column content</td>
+        </tr>
+        <tr>
+            <th scope="row">4</th>
+            <td>Column content</td>
+            <td>Column content</td>
+            <td>Column content</td>
+        </tr>
+        <tr class="e-table-warning">
+            <th scope="row">5</th>
+            <td>Column content</td>
+            <td>Column content</td>
+            <td>Column content</td>
+        </tr>
+        <tr>
+            <th scope="row">6</th>
+            <td>Column content</td>
+            <td>Column content</td>
+            <td>Column content</td>
+        </tr>
+        <tr class="e-table-danger">
+            <th scope="row">7</th>
+            <td>Column content</td>
+            <td>Column content</td>
+            <td>Column content</td>
+        </tr>
+        <tr>
+            <th scope="row">8</th>
+            <td>Column content</td>
+            <td>Column content</td>
+            <td>Column content</td>
+        </tr>
+        <tr class="e-table-info">
+            <th scope="row">9</th>
+            <td>Column content</td>
+            <td>Column content</td>
+            <td>Column content</td>
+        </tr>
+    </tbody>
+</table>
             </div>
         </div>
     </div>
 
-    {% highlight html %}
-        {% include_relative table/contextualClasses.html %}
-    {% endhighlight %}
+    <figure class="highlight"><pre><code class="language-html" data-lang="html">        <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"e-table e-table-hover"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;thead&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th&gt;</span>#<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Column heading<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Column heading<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Column heading<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;tbody&gt;</span>
+        <span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">"e-table-active"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">"e-table-success"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>4<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">"e-table-warning"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>5<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>6<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">"e-table-danger"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>7<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>8<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">"e-table-info"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>9<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Column content<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+    </code></pre></figure>
     <!-- Contextual classes end -->
 
 </div>
+
+</div>
+
+
+    </div>
+
+        <footer class="e-footer e-container">© 1999-2016 ELEKS, All rights reserved</footer>
+
+
+    </body>
+
+</html>
