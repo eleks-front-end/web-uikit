@@ -1,0 +1,18 @@
+<ul class="e-nav e-nav-fixed">
+    {% for node in site.css.pages %}
+    <li class="e-nav-item">
+                <a href="{{node.url | prepend: site.baseurl }}" class="e-nav-link">{{node.title}}</a>
+            </li>
+      {% if 'public' == node.group %}
+        {% if page.url == node.url %}
+            <li class="e-nav-item">
+                <a href="{{node.url | prepend: site.baseurl }}" class="e-nav-link active">{{node.title}}</a>
+            </li>
+        {% else %}
+            <li class="e-nav-item">
+                <a href="{{node.url | prepend: site.baseurl }}" class="e-nav-link">{{node.title}}</a>
+            </li>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+</ul>

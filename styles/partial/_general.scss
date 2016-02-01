@@ -35,6 +35,10 @@ input::-moz-focus-inner {
     padding: 0;
 }
 
+textarea {
+    resize: vertical;
+}
+
 address, dl, ol, p, ul {
     margin-bottom: 1rem;
 }
