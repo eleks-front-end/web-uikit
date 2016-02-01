@@ -3,7 +3,7 @@ var browserSync = require('browser-sync');
 var sass        = require('gulp-sass');
 var prefix      = require('gulp-autoprefixer');
 var cp          = require('child_process');
-var ghPages = require('gulp-gh-pages');
+var ghPages     = require('gulp-gh-pages');
 
 var jekyll   = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 var messages = {
@@ -46,7 +46,7 @@ gulp.task('sass', function () {
             includePaths: ['styles'],
             onError: browserSync.notify
         }))
-        .pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
+        .pipe(prefix(['last 2 versions'], { cascade: true }))
         .pipe(gulp.dest('_site/public/styles'))
         .pipe(browserSync.reload({stream:true}))
         .pipe(gulp.dest('public/styles'));
@@ -58,7 +58,11 @@ gulp.task('sass', function () {
  */
 gulp.task('watch', function () {
     gulp.watch('styles/**/*.scss', ['sass']);
-    gulp.watch(['*.html', '_layouts/*.html'], ['jekyll-rebuild']);
+    gulp.watch([
+        '**/*.html',
+        '_layouts/*.html',
+        '!_site/**/*.html'
+    ], ['jekyll-rebuild']);
 });
 
 /**
