@@ -1,0 +1,21 @@
+.e-sidenav {
+    background-color: #fefeff;
+    bottom: 0;
+    font-size: 1.25rem;
+    overflow: auto;
+    padding: 1.5rem;
+    position: fixed;
+    top: 0;
+
+    &.e-sidenav-left {
+        left: 0;
+    }
+    &.e-sidenav-right {
+        right: 0;
+    }
+
+    .e-nav .e-nav {
+        font-size: 1rem;
+        margin-left: 1.25rem;
+    }
+}

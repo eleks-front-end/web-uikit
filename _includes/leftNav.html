@@ -1,23 +1,113 @@
-<ul class="e-nav e-leftNav">
-    <li class="e-nav-item">
-        <a href="{{ "/css/#inputs" | prepend: site.baseurl }}" class="e-nav-link">Inputs</a>
-    </li>
-    <li class="e-nav-item">
-        <a href="{{ "/css/#buttons" | prepend: site.baseurl }}" class="e-nav-link">Buttons</a>
-    </li>
-    <li class="e-nav-item">
-        <a href="{{ "/css/#breadcrumb" | prepend: site.baseurl }}" class="e-nav-link">Breadcrumb</a>
-    </li>
-    <li class="e-nav-item">
-        <a href="{{ "/css/#links" | prepend: site.baseurl }}" class="e-nav-link">Links</a>
-    </li>
-    <li class="e-nav-item">
-        <a href="{{ "/css/#headings" | prepend: site.baseurl }}" class="e-nav-link">Headings</a>
-    </li>
-    <li class="e-nav-item">
-        <a href="{{ "/css/#paragraphs" | prepend: site.baseurl }}" class="e-nav-link">Paragraphs</a>
-    </li>
-    <li class="e-nav-item">
-        <a href="{{ "/css/#table" | prepend: site.baseurl }}" class="e-nav-link">Table</a>
-    </li>
-</ul>
+<div class="e-sidenav e-sidenav-left">
+    <ul class="e-nav">
+        <!-- Navigation for layout page start -->
+        {% if page.url contains '/layout/' %}
+        <li class="e-nav-item">
+            <a href="{{ "#" | prepend: site.baseurl }}" class="e-nav-link disabled">Grid</a>
+        </li>
+        {% endif %}
+        <!-- Navigation for layout page end -->
+
+        <!-- Navigation for content page start -->
+        {% if page.url contains '/content/' %}
+        <li class="e-nav-item">
+            <a href="{{ "/content/#links" | prepend: site.baseurl }}" class="e-nav-link">Links</a>
+            <ul class="e-nav">
+                <li class="e-nav-item">
+                    <a href="{{ "/content/#links-example" | prepend: site.baseurl }}" class="e-nav-link">Example</a>
+                </li>
+            </ul>
+        </li>
+        <li class="e-nav-item">
+            <a href="{{ "/content/#headings" | prepend: site.baseurl }}" class="e-nav-link">Headings</a>
+            <ul class="e-nav">
+                <li class="e-nav-item">
+                    <a href="{{ "/content/#headings-example" | prepend: site.baseurl }}" class="e-nav-link">Example</a>
+                </li>
+            </ul>
+        </li>
+        <li class="e-nav-item">
+            <a href="{{ "/content/#paragraphs" | prepend: site.baseurl }}" class="e-nav-link">Paragraphs</a>
+            <ul class="e-nav">
+                <li class="e-nav-item">
+                    <a href="{{ "/content/#paragraphs-example" | prepend: site.baseurl }}" class="e-nav-link">Example</a>
+                </li>
+            </ul>
+        </li>
+        <li class="e-nav-item">
+            <a href="{{ "/content/#table" | prepend: site.baseurl }}" class="e-nav-link">Table</a>
+            <ul class="e-nav">
+                <li class="e-nav-item">
+                    <a href="{{ "/content/#table-example" | prepend: site.baseurl }}" class="e-nav-link">Example</a>
+                </li>
+                <li class="e-nav-item">
+                    <a href="{{ "/content/#table-inverse" | prepend: site.baseurl }}" class="e-nav-link">Inverse table</a>
+                </li>
+                <li class="e-nav-item">
+                    <a href="{{ "/content/#table-head-options" | prepend: site.baseurl }}" class="e-nav-link">Table head options</a>
+                </li>
+                <li class="e-nav-item">
+                    <a href="{{ "/content/#table-small" | prepend: site.baseurl }}" class="e-nav-link">Small table</a>
+                </li>
+                <li class="e-nav-item">
+                    <a href="{{ "/content/#table-contextual-classes" | prepend: site.baseurl }}" class="e-nav-link">Contextual classes</a>
+                </li>
+                <li class="e-nav-item">
+                    <a href="{{ "/content/#table-responsive" | prepend: site.baseurl }}" class="e-nav-link">Responsive table</a>
+                </li>
+            </ul>
+        </li>
+        {% endif %}
+        <!-- Navigation for content page end -->
+
+        <!-- Navigation for components page start -->
+        {% if page.url contains '/components/' %}
+        <li class="e-nav-item">
+            <a href="{{ "/components/#inputs" | prepend: site.baseurl }}" class="e-nav-link">Inputs</a>
+            <ul class="e-nav">
+                <li class="e-nav-item">
+                    <a href="{{ "/components/#inputs-example" | prepend: site.baseurl }}" class="e-nav-link">Example</a>
+                </li>
+                <li class="e-nav-item">
+                    <a href="{{ "/components/#inputs-sizing" | prepend: site.baseurl }}" class="e-nav-link">Inputs sizing</a>
+                </li>
+                <li class="e-nav-item">
+                    <a href="{{ "/components/#inputs-checkboxes" | prepend: site.baseurl }}" class="e-nav-link">Checkboxes</a>
+                </li>
+                <li class="e-nav-item">
+                    <a href="{{ "/components/#inputs-radio" | prepend: site.baseurl }}" class="e-nav-link">Radio Buttons</a>
+                </li>
+                <li class="e-nav-item">
+                    <a href="{{ "/components/#inputs-validation" | prepend: site.baseurl }}" class="e-nav-link">Validation</a>
+                </li>
+            </ul>
+        </li>
+        <li class="e-nav-item">
+            <a href="{{ "/components/#buttons" | prepend: site.baseurl }}" class="e-nav-link">Buttons</a>
+            <ul class="e-nav">
+                <li class="e-nav-item">
+                    <a href="{{ "/components/#buttons-example" | prepend: site.baseurl }}" class="e-nav-link">Example</a>
+                </li>
+                <li class="e-nav-item">
+                    <a href="{{ "/components/#buttons-inverse" | prepend: site.baseurl }}" class="e-nav-link">Buttons inverse</a>
+                </li>
+                <li class="e-nav-item">
+                    <a href="{{ "/components/#buttons-disabled" | prepend: site.baseurl }}" class="e-nav-link">Buttons disabled</a>
+                </li>
+                <li class="e-nav-item">
+                    <a href="{{ "/components/#buttons-sizing" | prepend: site.baseurl }}" class="e-nav-link">Buttons sizing</a>
+                </li>
+            </ul>
+        </li>
+        <li class="e-nav-item">
+            <a href="{{ "/components/#breadcrumb" | prepend: site.baseurl }}" class="e-nav-link">Breadcrumb</a>
+            <ul class="e-nav">
+                <li class="e-nav-item">
+                    <a href="{{ "/components/#breadcrumb-example" | prepend: site.baseurl }}" class="e-nav-link">Example</a>
+                </li>
+            </ul>
+        </li>
+        {% endif %}
+        <!-- Navigation for components page end -->
+    </ul>
+</div>

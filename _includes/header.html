@@ -4,7 +4,8 @@
             <img src="{{ '/public/img/logo_white.png' | prepend: site.baseurl }}" alt="logo">
         </a>
         <ul class="e-nav e-nav-inline">
-            {% for node in site.pages %}
+            {% assign sorted_pages = (site.pages | sort: 'positionInTopNavigation') %}
+            {% for node in sorted_pages %}
                 {% if 'public' == node.group %}
                     <li class="e-nav-item">
                         <a href="{{node.url | prepend: site.baseurl }}" class="e-nav-link{% if page.url == node.url %} active {% endif %}">{{node.title}}</a>
