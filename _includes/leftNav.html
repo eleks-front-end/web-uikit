@@ -1,18 +1,23 @@
-<ul class="e-nav e-nav-fixed">
-    {% for node in site.css.pages %}
+<ul class="e-nav e-leftNav">
     <li class="e-nav-item">
-                <a href="{{node.url | prepend: site.baseurl }}" class="e-nav-link">{{node.title}}</a>
-            </li>
-      {% if 'public' == node.group %}
-        {% if page.url == node.url %}
-            <li class="e-nav-item">
-                <a href="{{node.url | prepend: site.baseurl }}" class="e-nav-link active">{{node.title}}</a>
-            </li>
-        {% else %}
-            <li class="e-nav-item">
-                <a href="{{node.url | prepend: site.baseurl }}" class="e-nav-link">{{node.title}}</a>
-            </li>
-        {% endif %}
-      {% endif %}
-    {% endfor %}
+        <a href="/css/#inputs" class="e-nav-link">Inputs</a>
+    </li>
+    <li class="e-nav-item">
+        <a href="/css/#buttons" class="e-nav-link">Buttons</a>
+    </li>
+    <li class="e-nav-item">
+        <a href="/css/#breadcrumb" class="e-nav-link">Breadcrumb</a>
+    </li>
+    <li class="e-nav-item">
+        <a href="/css/#links" class="e-nav-link">Links</a>
+    </li>
+    <li class="e-nav-item">
+        <a href="/css/#headings" class="e-nav-link">Headings</a>
+    </li>
+    <li class="e-nav-item">
+        <a href="/css/#paragraphs" class="e-nav-link">Paragraphs</a>
+    </li>
+    <li class="e-nav-item">
+        <a href="/css/#table" class="e-nav-link">Table</a>
+    </li>
 </ul>
