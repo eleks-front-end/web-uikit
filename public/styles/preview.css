@@ -3,7 +3,8 @@
  */
 .highlight {
   background: #fff;
-  margin: 0 -1.5rem 3rem;
+  margin: 0 -1.5rem 2rem;
+  overflow: auto;
   padding: 1.5rem; }
   .highlighter-rouge .highlight {
     background: #eef; }
@@ -143,14 +144,21 @@
   .highlight .il {
     color: #099; }
 
+section {
+  margin-bottom: 4rem; }
+
 .e-example-wrap {
   padding: 1.5rem; }
 
 .e-example-block {
   background-color: #fefeff;
-  margin: 0 -1.5rem 3rem;
+  margin: 0 -1.5rem 2rem;
   padding: 1.5rem; }
   .e-example-block .e-btn + .e-btn {
     margin-left: 1rem; }
   .e-example-block .e-input + .e-input {
     margin-top: 0.5rem; }
+
+/*e-leftNav*/
+.e-leftNav {
+  position: fixed; }

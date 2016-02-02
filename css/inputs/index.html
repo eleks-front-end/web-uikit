@@ -1,0 +1,159 @@
+<section id="inputs">
+    <header>
+        <h1>Inputs</h1>
+        <p>A general description of the inputs</p>
+    </header>
+    <article>
+        <!-- Inputs fields start -->
+        <h2>Example</h2>
+        <div class="e-example-block">
+            <div class="e-row">
+                <div class="e-col-sm-6 e-col-xs-12">
+                    {% include_relative inputs/default.html %}
+                    {% include_relative inputs/disabled.html %}
+                    {% include_relative inputs/readonly.html %}
+                </div>
+                <div class="e-col-sm-6 e-col-xs-12">
+                    {% include_relative inputs/textarea.html %}
+                </div>
+            </div>
+        </div>
+
+        {% highlight html %}{% include_relative inputs/default.html %}{% endhighlight %}
+        <!-- Inputs fields end -->
+
+
+        <!-- Inputs sizing start -->
+        <h2>Inputs sizing</h2>
+        <p>A general description of the input fields sizing</p>
+
+        <div class="e-example-block">
+            <div class="e-row">
+                <div class="e-col-sm-6 e-col-xs-12">
+                    {% include_relative inputs/sizing.html %}
+                </div>
+            </div>
+        </div>
+
+        {% highlight html %}{% include_relative inputs/sizing.html %}{% endhighlight %}
+        <!-- Inputs sizing end -->
+
+
+        <!-- Checkboxes start -->
+        <h2>Checkboxes</h2>
+        <p>A general description of the checkboxes</p>
+
+        <div class="e-example-block">
+            <div class="e-row">
+                <div class="e-col-sm-6 e-col-xs-12">
+                    {% include_relative inputs/checkboxes/default.html %}
+
+                    {% include_relative inputs/checkboxes/disabled.html %}
+
+                    {% include_relative inputs/checkboxes/disabledChecked.html %}
+                </div>
+                <div class="e-col-sm-6 e-col-xs-12">
+                    {% include_relative inputs/checkboxes/inverse.html %}
+
+                    {% include_relative inputs/checkboxes/disabled.html %}
+
+                    {% include_relative inputs/checkboxes/inverseDisabledChecked.html %}
+                </div>
+            </div>
+        </div>
+
+        <div class="e-row">
+            <div class="e-col-sm-6 e-col-xs-12">
+                {% highlight html %}{% include_relative inputs/checkboxes/default.html %}{% endhighlight %}
+            </div>
+            <div class="e-col-sm-6 e-col-xs-12">
+                {% highlight html %}{% include_relative inputs/checkboxes/inverse.html %}{% endhighlight %}
+            </div>
+        </div>
+        <!-- Checkboxes end -->
+
+        <!-- Radio Buttons start -->
+        <h2>Radio Buttons</h2>
+        <p>A general description of the radio buttons</p>
+
+        <div class="e-example-block">
+            <div class="e-row">
+                <div class="e-col-sm-6 e-col-xs-12">
+                    {% include_relative inputs/radio/default.html %}
+
+                    {% include_relative inputs/radio/disabled.html %}
+
+                    {% include_relative inputs/radio/disabledChecked.html %}
+                </div>
+            </div>
+        </div>
+
+        {% highlight html %}{% include_relative inputs/radio/default.html %}{% endhighlight %}
+        <!-- Radio Buttons end -->
+
+        <!-- Validation start -->
+        <h2>Validation</h2>
+        <p>A general description of the validation states</p>
+
+        <div class="e-example-block">
+            <div class="e-row">
+                <div class="e-col-sm-4 e-col-xs-12">
+                    {% include_relative inputs/success.html %}
+                    {% include_relative inputs/warning.html %}
+                    {% include_relative inputs/danger.html %}
+                </div>
+                <div class="e-col-sm-8 e-col-xs-12">
+                    <div class="e-row">
+                        <div class="e-col-sm-6 e-col-xs-12">
+                            <div class="e-form-group">
+                                {% include_relative inputs/checkboxes/defaultSuccess.html %}
+                                {% include_relative inputs/checkboxes/defaultSuccessDisabled.html %}
+                                {% include_relative inputs/checkboxes/defaultSuccessDisabledChecked.html %}
+                            </div>
+                        </div>
+                        <div class="e-col-sm-6 e-col-xs-12">
+                            <div class="e-form-group">
+                                {% include_relative inputs/checkboxes/inverseSuccess.html %}
+                                {% include_relative inputs/checkboxes/inverseSuccessDisabled.html %}
+                                {% include_relative inputs/checkboxes/inverseSuccessDisabledChecked.html %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="e-row">
+                        <div class="e-col-sm-6 e-col-xs-12">
+                            <div class="e-form-group">
+                                {% include_relative inputs/checkboxes/defaultWarning.html %}
+                                {% include_relative inputs/checkboxes/defaultWarningDisabled.html %}
+                                {% include_relative inputs/checkboxes/defaultWarningDisabledChecked.html %}
+                            </div>
+                        </div>
+                        <div class="e-col-sm-6 e-col-xs-12">
+                            <div class="e-form-group">
+                                {% include_relative inputs/checkboxes/inverseWarning.html %}
+                                {% include_relative inputs/checkboxes/inverseWarningDisabled.html %}
+                                {% include_relative inputs/checkboxes/inverseWarningDisabledChecked.html %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="e-row">
+                        <div class="e-col-sm-6 e-col-xs-12">
+                            <div class="e-form-group">
+                                {% include_relative inputs/checkboxes/defaultDanger.html %}
+                                {% include_relative inputs/checkboxes/defaultDangerDisabled.html %}
+                                {% include_relative inputs/checkboxes/defaultDangerDisabledChecked.html %}
+                            </div>
+                        </div>
+                        <div class="e-col-sm-6 e-col-xs-12">
+                            <div class="e-form-group">
+                                {% include_relative inputs/checkboxes/inverseDanger.html %}
+                                {% include_relative inputs/checkboxes/inverseDangerDisabled.html %}
+                                {% include_relative inputs/checkboxes/inverseDangerDisabledChecked.html %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Validation end -->
+    </article>
+</section>
