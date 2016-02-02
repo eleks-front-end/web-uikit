@@ -158,7 +158,3 @@ section {
     margin-left: 1rem; }
   .e-example-block .e-input + .e-input {
     margin-top: 0.5rem; }
-
-/*e-leftNav*/
-.e-leftNav {
-  position: fixed; }

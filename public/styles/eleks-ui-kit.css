@@ -195,16 +195,6 @@ $carousel-caption-color:                      #fff !default;*/
 /*$close-font-weight:           bold !default;
 $close-color:                 #000 !default;
 $close-text-shadow:           0 1px 0 #fff !default;*/
-/*$code-color:                  #bd4147 !default;
-$code-bg:                     #f7f7f9 !default;
-
-$kbd-color:                   #fff !default;
-$kbd-bg:                      #333 !default;
-
-$pre-bg:                      #f7f7f9 !default;
-$pre-color:                   $gray-dark !default;
-$pre-border-color:            #ccc !default;
-$pre-scrollable-max-height:   340px !default;*/
 @font-face {
   font-family: 'ProximaNova-Regular';
   src: url("../fonts/ProximaNova-Regular.ttf");
@@ -1459,6 +1449,22 @@ a.e-label {
   }
 }
 */
+.e-sidenav {
+  background-color: #fefeff;
+  bottom: 0;
+  font-size: 1.25rem;
+  overflow: auto;
+  padding: 1.5rem;
+  position: fixed;
+  top: 0; }
+  .e-sidenav.e-sidenav-left {
+    left: 0; }
+  .e-sidenav.e-sidenav-right {
+    right: 0; }
+  .e-sidenav .e-nav .e-nav {
+    font-size: 1rem;
+    margin-left: 1.25rem; }
+
 .e-container {
   margin-right: auto;
   margin-left: auto;
@@ -2480,3 +2486,46 @@ a.e-label {
       text-decoration: none; }
   .breadcrumb > .active {
     color: #7c97a8; }
+
+code,
+kbd,
+pre,
+samp {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace; }
+
+code {
+  padding: .2rem .4rem;
+  font-size: 90%;
+  color: #bd4147;
+  background-color: #fbf9e0;
+  border-radius: 0.125rem; }
+
+kbd {
+  padding: .2rem .4rem;
+  font-size: 90%;
+  color: #fff;
+  background-color: #333;
+  border-radius: 0.125rem;
+  box-shadow: inset 0 -0.1rem 0 rgba(0, 0, 0, 0.25); }
+  kbd kbd {
+    padding: 0;
+    font-size: 100%;
+    box-shadow: none; }
+
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 90%;
+  line-height: 1.5;
+  color: #373a3c; }
+  pre code {
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+    border-radius: 0; }
+
+.pre-scrollable {
+  max-height: 340px;
+  overflow-y: scroll; }
