@@ -41,9 +41,20 @@ textarea {
 
 address, dl, ol, p, ul {
     margin-bottom: 1rem;
+    margin-top: 0;
+}
+ol ol, ol ul, ul ol, ul ul {
+    margin-bottom: 0;
 }
 dl, ol, p, pre, ul {
     margin-top: 0;
+}
+dt {
+    font-family: $e-font-family-bold-sans-serif;
+}
+dd {
+    margin-bottom: 0.5rem;
+    margin-left: 0;
 }
 figure {
     margin: 0 0 1rem;

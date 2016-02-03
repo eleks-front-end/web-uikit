@@ -6,6 +6,7 @@
     padding: 1.5rem;
     position: fixed;
     top: 0;
+    width: 250px;
 
     &.e-sidenav-left {
         left: 0;
@@ -15,7 +16,11 @@
     }
 
     .e-nav .e-nav {
-        font-size: 1rem;
+        font-size: 81%;
         margin-left: 1.25rem;
+    }
+
+    .e-nav-link {
+        display: block;
     }
 }

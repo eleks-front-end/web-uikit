@@ -2,7 +2,15 @@
 layout: default
 ---
 
-{% include leftNav.html %}
+<!-- Sidenav for layout page layout start -->
+<div class="e-sidenav e-sidenav-left">
+    <ul class="e-nav">
+        <li class="e-nav-item">
+            <a href="{{ "#" | prepend: site.baseurl }}" class="e-nav-link disabled">Grid</a>
+        </li>
+    </ul>
+</div>
+<!-- Sidenav for layout page layout end -->
 
 <div class="e-container">
     {{ content }}

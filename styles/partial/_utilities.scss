@@ -55,7 +55,7 @@
 .e-text-center         { text-align: center; }
 .e-text-justify        { text-align: justify; }
 .e-text-nowrap         { white-space: nowrap; }
-/*.text-truncate       { @include text-truncate; }*/
+.e-text-truncate       { @include e-text-truncate; }
 
 /*// Responsive alignment
 
