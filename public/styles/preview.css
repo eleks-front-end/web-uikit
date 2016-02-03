@@ -144,6 +144,9 @@
   .highlight .il {
     color: #099; }
 
+body {
+  padding-top: 40px; }
+
 section {
   margin-bottom: 4rem; }
 
@@ -158,3 +161,6 @@ section {
     margin-left: 1rem; }
   .e-example-block .e-input + .e-input {
     margin-top: 0.5rem; }
+
+.e-sidenav {
+  top: 40px; }
