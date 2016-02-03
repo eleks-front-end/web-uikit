@@ -1,17 +1,23 @@
-<header class="e-navbar e-navbar-primary">
+<header class="e-navbar e-navbar-primary e-navbar-fixed-top">
     <div class="e-container">
-        <a href="{{site.baseurl}}" class="e-navbar-brand" target="_blank">
-            <img src="{{ '/public/img/logo_white.png' | prepend: site.baseurl }}" alt="logo">
-        </a>
-        <ul class="e-nav e-nav-inline">
-            {% assign sorted_pages = (site.pages | sort: 'positionInTopNavigation') %}
-            {% for node in sorted_pages %}
-                {% if 'public' == node.group %}
-                    <li class="e-nav-item">
-                        <a href="{{node.url | prepend: site.baseurl }}" class="e-nav-link{% if page.url == node.url %} active {% endif %}">{{node.title}}</a>
-                    </li>
-                {% endif %}
-            {% endfor %}
-        </ul>
+        <div class="e-row">
+            <div class="e-col-xs-3">
+                <a href="{{site.baseurl}}" class="e-navbar-brand" target="_blank">
+                    <img src="{{ '/public/img/logo_white.png' | prepend: site.baseurl }}" alt="logo">
+                </a>
+            </div>
+            <div class="e-col-xs-9">
+                <ul class="e-nav e-nav-inline">
+                    {% assign sorted_pages = (site.pages | sort: 'positionInTopNavigation') %}
+                    {% for node in sorted_pages %}
+                        {% if 'public' == node.group %}
+                            <li class="e-nav-item">
+                                <a href="{{node.url | prepend: site.baseurl }}" class="e-nav-link{% if page.url == node.url %} active {% endif %}">{{node.title}}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
     </div>
 </header>

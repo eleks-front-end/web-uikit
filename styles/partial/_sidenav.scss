@@ -1,19 +1,12 @@
-.e-sidenav {
+.e-sidenavWrap {
     background-color: #fefeff;
-    bottom: 0;
+}
+.e-sidenav {
     font-size: 1.25rem;
     overflow: auto;
     padding: 1.5rem;
     position: fixed;
-    top: 0;
-    width: 250px;
-
-    &.e-sidenav-left {
-        left: 0;
-    }
-    &.e-sidenav-right {
-        right: 0;
-    }
+    width: 100%;
 
     .e-nav .e-nav {
         font-size: 81%;
