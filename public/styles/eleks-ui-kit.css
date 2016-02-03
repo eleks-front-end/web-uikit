@@ -245,10 +245,21 @@ textarea {
   resize: vertical; }
 
 address, dl, ol, p, ul {
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+  margin-top: 0; }
+
+ol ol, ol ul, ul ol, ul ul {
+  margin-bottom: 0; }
 
 dl, ol, p, pre, ul {
   margin-top: 0; }
+
+dt {
+  font-family: "ProximaNova-Bold", Arial, sans-serif; }
+
+dd {
+  margin-bottom: 0.5rem;
+  margin-left: 0; }
 
 figure {
   margin: 0 0 1rem; }
@@ -336,7 +347,11 @@ th {
 .e-text-nowrap {
   white-space: nowrap; }
 
-/*.text-truncate       { @include text-truncate; }*/
+.e-text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
 /*// Responsive alignment
 
 .text-xs-left   { text-align: left; }
@@ -1456,14 +1471,17 @@ a.e-label {
   overflow: auto;
   padding: 1.5rem;
   position: fixed;
-  top: 0; }
+  top: 0;
+  width: 250px; }
   .e-sidenav.e-sidenav-left {
     left: 0; }
   .e-sidenav.e-sidenav-right {
     right: 0; }
   .e-sidenav .e-nav .e-nav {
-    font-size: 1rem;
+    font-size: 81%;
     margin-left: 1.25rem; }
+  .e-sidenav .e-nav-link {
+    display: block; }
 
 .e-container {
   margin-right: auto;
@@ -2529,3 +2547,25 @@ pre {
 .pre-scrollable {
   max-height: 340px;
   overflow-y: scroll; }
+
+.e-list-unstyled {
+  padding-left: 0;
+  list-style: none; }
+
+.e-list-inline {
+  padding-left: 0;
+  list-style: none; }
+
+.e-list-inline-item {
+  display: inline-block; }
+  .e-list-inline-item:not(:last-child) {
+    margin-right: 5px; }
+
+.e-dl-horizontal {
+  margin-right: -1.875rem;
+  margin-left: -1.875rem; }
+  .e-dl-horizontal:before, .e-dl-horizontal:after {
+    content: "";
+    display: table; }
+  .e-dl-horizontal:after {
+    clear: both; }
