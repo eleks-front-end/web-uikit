@@ -19,6 +19,7 @@
 
 @mixin e-make-col-span($size, $columns: $e-grid-columns) {
     flex: 0 0 percentage($size / $columns);
+    max-width: percentage($size / $columns);
 }
 
 @mixin e-make-col-offset($size, $columns: $e-grid-columns) {
