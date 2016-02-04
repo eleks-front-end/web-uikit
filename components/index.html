@@ -104,6 +104,17 @@
                             </ul>
                         </li>
                         <li class="e-nav-item">
+                            <a href="/web-uikit/components/#labels" class="e-nav-link">Labels</a>
+                            <ul class="e-nav">
+                                <li class="e-nav-item">
+                                    <a href="/web-uikit/components/#labels-example" class="e-nav-link">Example</a>
+                                </li>
+                                <li class="e-nav-item">
+                                    <a href="/web-uikit/components/#labels-pill" class="e-nav-link">Pill labels</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="e-nav-item">
                             <a href="/web-uikit/components/#breadcrumb" class="e-nav-link">Breadcrumb</a>
                             <ul class="e-nav">
                                 <li class="e-nav-item">
@@ -313,7 +324,7 @@
 
         <div class="e-example-block">
             <div class="e-row">
-                <div class="e-col-sm-4 e-col-xs-12">
+                <div class="e-col-sm-6 e-col-xs-12">
                     <div class="e-form-group e-has-success">
     <label for="inputNormal" class="e-input-label e-required">Label</label>
     <input id="inputNormal" type="text" placeholder="Normal state" class="e-input e-success" value="Simple text">
@@ -330,7 +341,9 @@
     <small class="e-text-muted">Text of the error</small>
 </div>
                 </div>
-                <div class="e-col-sm-8 e-col-xs-12">
+            </div>
+            <div class="e-row">
+                <div class="e-col-sm-12">
                     <div class="e-row">
                         <div class="e-col-sm-6 e-col-xs-12">
                             <div class="e-form-group">
@@ -593,6 +606,56 @@
 </section>
 
     <!-- Buttons end -->
+
+    <!-- Labels start -->
+    <section id="labels">
+    <header>
+        <h1>Labels</h1>
+        <p>A general description of the labels</p>
+    </header>
+    <article>
+        <h2 id="labels-example">Example</h2>
+        <div class="e-example-block">
+            <div class="e-row">
+                <div class="e-col-sm-12">
+                    <span class="e-label e-label-default">Default</span>
+<span class="e-label e-label-primary">Primary</span>
+<span class="e-label e-label-success">Success</span>
+<span class="e-label e-label-info">Info</span>
+<span class="e-label e-label-warning">Warning</span>
+<span class="e-label e-label-danger">Danger</span>
+                </div>
+            </div>
+        </div>
+        <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"e-label e-label-default"</span><span class="nt">&gt;</span>Default<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"e-label e-label-primary"</span><span class="nt">&gt;</span>Primary<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"e-label e-label-success"</span><span class="nt">&gt;</span>Success<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"e-label e-label-info"</span><span class="nt">&gt;</span>Info<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"e-label e-label-warning"</span><span class="nt">&gt;</span>Warning<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"e-label e-label-danger"</span><span class="nt">&gt;</span>Danger<span class="nt">&lt;/span&gt;</span></code></pre></figure>
+
+        <h2 id="labels-pill">Pill labels</h2>
+        <div class="e-example-block">
+            <div class="e-row">
+                <div class="e-col-sm-12">
+                    <a class="e-label e-label-pill e-label-default" href="#">Default</a>
+<a class="e-label e-label-pill e-label-primary" href="#">Primary</a>
+<a class="e-label e-label-pill e-label-success" href="#">Success</a>
+<a class="e-label e-label-pill e-label-info" href="#">Info</a>
+<a class="e-label e-label-pill e-label-warning" href="#">Warning</a>
+<a class="e-label e-label-pill e-label-danger" href="#">Danger</a>
+                </div>
+            </div>
+        </div>
+        <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"e-label e-label-pill e-label-default"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Default<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"e-label e-label-pill e-label-primary"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Primary<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"e-label e-label-pill e-label-success"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Success<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"e-label e-label-pill e-label-info"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Info<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"e-label e-label-pill e-label-warning"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Warning<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"e-label e-label-pill e-label-danger"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Danger<span class="nt">&lt;/a&gt;</span></code></pre></figure>
+    </article>
+</section>
+    <!-- Labels end -->
 
     <!-- Breadcrumbs start -->
     <section id="breadcrumb">

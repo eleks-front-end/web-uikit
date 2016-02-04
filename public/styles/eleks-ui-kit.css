@@ -1466,11 +1466,11 @@ a.e-label {
   background-color: #fefeff; }
 
 .e-sidenav {
+  bottom: 0;
   font-size: 1.25rem;
   overflow: auto;
   padding: 1.5rem;
-  position: fixed;
-  width: 100%; }
+  position: fixed; }
   .e-sidenav .e-nav .e-nav {
     font-size: 81%;
     margin-left: 1.25rem; }
