@@ -207,6 +207,13 @@ $close-text-shadow:           0 1px 0 #fff !default;*/
   font-style: normal;
   -webkit-font-smoothing: antialiased; }
 
+@font-face {
+  font-family: 'ProximaNova-Italic';
+  src: url("../fonts/ProximaNova-Italic.ttf");
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased; }
+
 html {
   box-sizing: border-box;
   font-size: 16px; }
@@ -387,6 +394,18 @@ th {
 
 .e-text-capitalize {
   text-transform: capitalize; }
+
+.e-font-weight-normal {
+  font-family: 'ProximaNova-Regular';
+  font-weight: normal; }
+
+.e-font-weight-bold {
+  font-family: 'ProximaNova-Bold';
+  font-weight: normal; }
+
+.e-font-italic {
+  font-family: 'ProximaNova-Italic';
+  font-weight: normal; }
 
 .e-text-muted {
   color: #7c97a8; }
@@ -1463,7 +1482,8 @@ a.e-label {
 }
 */
 .e-sidenavWrap {
-  background-color: #fefeff; }
+  background-color: #fefeff;
+  background-clip: content-box; }
 
 .e-sidenav {
   bottom: 0;
