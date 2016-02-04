@@ -93,6 +93,21 @@
 .e-text-uppercase      { text-transform: uppercase; }
 .e-text-capitalize     { text-transform: capitalize; }
 
+// Weight and italics
+
+.e-font-weight-normal {
+    font-family: 'ProximaNova-Regular';
+    font-weight: normal;
+}
+.e-font-weight-bold {
+    font-family: 'ProximaNova-Bold';
+    font-weight: normal;
+}
+.e-font-italic {
+    font-family: 'ProximaNova-Italic';
+    font-weight: normal;
+}
+
 // Contextual colors
 
 .e-text-muted {
