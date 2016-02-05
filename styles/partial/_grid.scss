@@ -16,3 +16,37 @@
 
 // Columns
 @include e-make-grid-columns();
+
+// Flex variation
+//
+// Custom styles for additional flex alignment options.
+
+
+// Flex column reordering
+
+@each $breakpoint in map-keys($e-grid-breakpoints) {
+    @include e-media-breakpoint-up($breakpoint) {
+      .e-col-#{$breakpoint}-first { order: -1; }
+      .e-col-#{$breakpoint}-last  { order: 1; }
+    }
+}
+
+// Alignment for every column in row
+
+@each $breakpoint in map-keys($e-grid-breakpoints) {
+    @include e-media-breakpoint-up($breakpoint) {
+      .e-row-#{$breakpoint}-top    { align-items: flex-start; }
+      .e-row-#{$breakpoint}-center { align-items: center; }
+      .e-row-#{$breakpoint}-bottom { align-items: flex-end; }
+    }
+}
+
+// Alignment per column
+
+@each $breakpoint in map-keys($e-grid-breakpoints) {
+    @include e-media-breakpoint-up($breakpoint) {
+      .e-col-#{$breakpoint}-top    { align-self: flex-start; }
+      .e-col-#{$breakpoint}-center { align-self: center; }
+      .e-col-#{$breakpoint}-bottom { align-self: flex-end; }
+    }
+}
