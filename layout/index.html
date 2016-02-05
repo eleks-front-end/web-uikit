@@ -66,14 +66,205 @@
             <div class="e-sidenav e-sidenav-left">
                 <ul class="e-nav">
                     <li class="e-nav-item">
-                        <a href="/web-uikit#" class="e-nav-link disabled">Grid</a>
+                        <a href="/web-uikit/layout/#grid" class="e-nav-link">Grid system</a>
+                        <ul class="e-nav">
+                            <li class="e-nav-item">
+                                <a href="/web-uikit/layout/#grid-how-it-works" class="e-nav-link">How it works</a>
+                            </li>
+                            <li class="e-nav-item">
+                                <a href="/web-uikit/layout/#grid-quick-start-example" class="e-nav-link">Quick start example</a>
+                            </li>
+                            <li class="e-nav-item">
+                                <a href="/web-uikit/layout/#grid-grid-options" class="e-nav-link">Grid options</a>
+                            </li>
+                            <li class="e-nav-item">
+                                <a href="/web-uikit/layout/#grid-sass-mixins" class="e-nav-link">Sass mixins</a>
+                                <ul class="e-nav">
+                                    <li class="e-nav-item">
+                                        <a href="/web-uikit/layout/#grid-variables" class="e-nav-link">Variables</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
             <!-- Sidenav for layout page layout end -->
         </div>
         <div class="e-col-xs-9">
-            <p>Here will be our layout guide</p>
+            <div class="e-example-wrap">
+
+    <!-- Headings start -->
+    <section id="grid">
+    <header>
+        <h1>Grid system</h1>
+        <p>Web UIKit includes a powerful mobile-first grid system for building layouts of all shapes and sizes based on <strong>flexboxes</strong>. It’s based on a 12 column layout and has multiple tiers, one for each media query range. You can use it with Sass mixins or our predefined classes.</p>
+    </header>
+    <article>
+        <!-- How it works start -->
+        <h2 id="grid-how-it-works">How it works</h2>
+        <p>At a high level, here’s how the grid system works:</p>
+        <ul>
+            <li>There are three major components&mdash;containers, rows, and columns.</li>
+            <li>Containers&mdash;<code>.e-container</code> for fixed width or <code>.e-container-fluid</code> for full width&mdash;center your site’s contents and help align your grid content.</li>
+            <li>Rows are horizontal groups of columns that ensure your columns are lined up properly.</li>
+            <li>Content should be placed within columns, and only columns may be immediate children of rows.</li>
+            <li>Column classes indicate the number of columns you’d like to use out of the possible 12 per row. So if you want three equal-width columns, you’d use <code>.e-col-sm-4</code>.</li>
+            <li>Column <code>width</code>s are set in percentages, so they’re always fluid and sized relative to their parent element.</li>
+            <li>Columns have horizontal <code>padding</code> to create the gutters between individual columns.</li>
+            <li>There are five grid tiers, one for each <a href="/layout/overview/#responsive-breakpoints">responsive breakpoint</a>: extra small, small, medium, large, and extra large.</li>
+            <li>Grid tiers are based on minimum widths, meaning they apply to that one tier and all those above it (e.g., <code>.e-col-sm-4</code> applies to small, medium, large, and extra large devices).</li>
+            <li>You can use predefined grid classes or Sass mixins for more semantic markup.</li>
+        </ul>
+        <!-- How it works end -->
+
+        <!-- Quick start example start -->
+        <h2 id="grid-quick-start-example">Quick start example</h2>
+        <p>If you’re using Web UIKit’s compiled CSS, this the example you’ll want to start with.</p>
+
+        <div class="e-example-block">
+            <div class="e-row">
+                <div class="e-col-sm-12">
+                    <div class="e-container">
+    <div class="e-row">
+        <div class="e-col-sm-4">
+            One of three columns
+        </div>
+        <div class="e-col-sm-4">
+            One of three columns
+        </div>
+        <div class="e-col-sm-4">
+            One of three columns
+        </div>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+
+        <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-container"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-row"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-col-sm-4"</span><span class="nt">&gt;</span>
+            One of three columns
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-col-sm-4"</span><span class="nt">&gt;</span>
+            One of three columns
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-col-sm-4"</span><span class="nt">&gt;</span>
+            One of three columns
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+        <p>The above example creates three equal-width columns on small, medium, large, and extra large devices using our <a href="#predefined-classes">predefined grid classes</a>. Those columns are centered in the page with the parent <code>.e-container</code>.</p>
+        <!-- Quick start example end -->
+
+        <!-- Grid options start-->
+        <h2 id="grid-grid-options">Grid options</h2>
+        <p>Web UIKit uses <code>px</code>s for grid breakpoints and container widths.</p>
+        <p>See how aspects of the Web UIKit grid system work across multiple devices with a handy table.</p>
+        <div class="e-table-responsive">
+            <table class="e-table e-table-bordered e-table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th class="e-text-xs-center">
+                            Extra small<br>
+                            <small>&lt;544px</small>
+                        </th>
+                        <th class="e-text-xs-center">
+                            Small<br>
+                            <small>≥544px</small>
+                        </th>
+                        <th class="e-text-xs-center">
+                            Medium<br>
+                            <small>≥768px</small>
+                        </th>
+                        <th class="e-text-xs-center">
+                            Large<br>
+                            <small>≥992px</small>
+                        </th>
+                        <th class="e-text-xs-center">
+                            Extra large<br>
+                            <small>≥1200px</small>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="e-text-nowrap">Grid behavior</th>
+                        <td>Horizontal at all times</td>
+                        <td colspan="4">Collapsed to start, horizontal above breakpoints</td>
+                    </tr>
+                    <tr>
+                        <th class="e-text-nowrap">Container width</th>
+                        <td>None (auto)</td>
+                        <td>576px</td>
+                        <td>720px</td>
+                        <td>940px</td>
+                        <td>1140px</td>
+                    </tr>
+                    <tr>
+                        <th class="e-text-nowrap">Class prefix</th>
+                        <td><code>.e-col-xs-</code></td>
+                        <td><code>.e-col-sm-</code></td>
+                        <td><code>.e-col-md-</code></td>
+                        <td><code>.e-col-lg-</code></td>
+                        <td><code>.e-col-xl-</code></td>
+                    </tr>
+                    <tr>
+                        <th class="e-text-nowrap"># of columns</th>
+                        <td colspan="5">12</td>
+                    </tr>
+                    <tr>
+                        <th class="e-text-nowrap">Gutter width</th>
+                        <td colspan="5">1.875rem / 30px (15px on each side of a column)</td>
+                    </tr>
+                    <tr>
+                        <th class="e-text-nowrap">Nestable</th>
+                        <td colspan="5">Yes</td>
+                    </tr>
+                    <tr>
+                        <th class="e-text-nowrap">Offsets</th>
+                        <td colspan="5">Yes</td>
+                    </tr>
+                    <tr>
+                        <th class="e-text-nowrap">Column ordering</th>
+                        <td colspan="5">Yes</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Grid options end-->
+
+        <!-- Sass mixins start -->
+        <h2 id="grid-sass-mixins">Sass mixins</h2>
+        <p>When using Web UIKit’s source Sass files, you have the option of using Sass variables and mixins to create custom, semantic, and responsive page layouts. Our <a href="#predefined-classes">predefined grid classes</a> use these same variables and mixins to provide a whole suite of ready-to-use classes for fast responsive layouts.</p>
+
+        <h3 id="grid-variables">Variables</h3>
+        <p>Variables determine the number of columns, the gutter width, and the media query point at which to begin floating columns. We use these to generate the predefined grid classes documented above, as well as for the custom mixins listed below.</p>
+        <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="err">$</span><span class="nt">e-grid-breakpoints</span><span class="o">:</span> <span class="o">(</span>
+  <span class="o">//</span> <span class="nt">Extra</span> <span class="nt">small</span> <span class="nt">screen</span> <span class="o">/</span> <span class="nt">phone</span>
+  <span class="nt">xs</span><span class="o">:</span> <span class="nt">0</span><span class="o">,</span>
+  <span class="o">//</span> <span class="nt">Small</span> <span class="nt">screen</span> <span class="o">/</span> <span class="nt">phone</span>
+  <span class="nt">sm</span><span class="o">:</span> <span class="nt">544px</span><span class="o">,</span>
+  <span class="o">//</span> <span class="nt">Medium</span> <span class="nt">screen</span> <span class="o">/</span> <span class="nt">tablet</span>
+  <span class="nt">md</span><span class="o">:</span> <span class="nt">768px</span><span class="o">,</span>
+  <span class="o">//</span> <span class="nt">Large</span> <span class="nt">screen</span> <span class="o">/</span> <span class="nt">desktop</span>
+  <span class="nt">lg</span><span class="o">:</span> <span class="nt">992px</span><span class="o">,</span>
+  <span class="o">//</span> <span class="nt">Extra</span> <span class="nt">large</span> <span class="nt">screen</span> <span class="o">/</span> <span class="nt">wide</span> <span class="nt">desktop</span>
+  <span class="nt">xl</span><span class="o">:</span> <span class="nt">1200px</span>
+<span class="o">);</span>
+
+
+<span class="err">$</span><span class="nt">e-grid-columns</span><span class="o">:</span>      <span class="nt">12</span><span class="o">;</span>
+<span class="err">$</span><span class="nt">e-grid-gutter-width</span><span class="o">:</span> <span class="nt">1</span><span class="nc">.875rem</span><span class="o">;</span></code></pre></figure>
+        <!-- Sass mixins end -->
+    </article>
+</section>
+    <!-- Headings end -->
+
+</div>
 
         </div>
     </div>
