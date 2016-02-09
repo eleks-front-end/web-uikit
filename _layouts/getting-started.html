@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<div class="e-container">
+    <div class="e-row">
+        <div class="e-col-xs-3 e-sidenavWrap">
+            <!-- Sidenav for getting-started page layout start -->
+            <div class="e-sidenav e-sidenav-left">
+                <ul class="e-nav">
+                    <li class="e-nav-item">
+                        <a href="{{ "getting-started/#getting-started" | prepend: site.baseurl }}" class="e-nav-link">Getting started</a>
+                        <ul class="e-nav">
+                            <li class="e-nav-item">
+                                <a href="{{ "/getting-started/#getting-started-introduction" | prepend: site.baseurl }}" class="e-nav-link">Introduction</a>
+                                <ul class="e-nav">
+                                    <li class="e-nav-item">
+                                        <a href="{{ "/getting-started/#getting-started-quick-start" | prepend: site.baseurl }}" class="e-nav-link">Quick start</a>
+                                    </li>
+                                    <li class="e-nav-item">
+                                        <a href="{{ "/getting-started/#getting-started-starter-template" | prepend: site.baseurl }}" class="e-nav-link">Starter template</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="e-nav-item">
+                                <a href="{{ "/getting-started/#getting-started-options" | prepend: site.baseurl }}" class="e-nav-link">Options</a>
+                                <ul class="e-nav">
+                                    <li class="e-nav-item">
+                                        <a href="{{ "/getting-started/#getting-started-available-variables" | prepend: site.baseurl }}" class="e-nav-link">Available variables</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- Sidenav for getting-started page layout end -->
+        </div>
+        <div class="e-col-xs-9">
+            {{ content }}
+        </div>
+    </div>
+</div>
