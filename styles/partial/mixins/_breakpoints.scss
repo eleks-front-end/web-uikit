@@ -14,7 +14,7 @@
 //    md
 //    >> e-breakpoint-next(sm, $e-breakpoint-names: (xs sm md))
 //    md
-@function e-breakpoint-next($name, $breakpoints: $e-grid-breakpoints, $breakpoint-names: map-keys($e-breakpoints)) {
+@function e-breakpoint-next($name, $breakpoints: $e-grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
   $n: index($breakpoint-names, $name);
   @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
 }
@@ -34,8 +34,8 @@
 //    >> e-breakpoint-max(sm, (xs: 0, sm: 544px, md: 768px))
 //    767px
 @function e-breakpoint-max($name, $breakpoints: $e-grid-breakpoints) {
-  $next: breakpoint-next($name, $breakpoints);
-  @return if($next, breakpoint-min($next, $breakpoints) - 1px, null);
+  $next: e-breakpoint-next($name, $breakpoints);
+  @return if($next, e-breakpoint-min($next, $breakpoints) - 1px, null);
 }
 
 // Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
@@ -54,7 +54,7 @@
 // Media of at most the maximum breakpoint width. No query for the largest breakpoint.
 // Makes the @content apply to the given breakpoint and narrower.
 @mixin e-media-breakpoint-down($name, $breakpoints: $e-grid-breakpoints) {
-  $max: breakpoint-max($name, $breakpoints);
+  $max: e-breakpoint-max($name, $breakpoints);
   @if $max {
     @media (max-width: $max) {
       @content;
