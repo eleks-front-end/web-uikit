@@ -1,7 +1,7 @@
 <section id="grid">
     <header>
         <h1>Grid system</h1>
-        <p>Web UIKit includes a powerful mobile-first grid system for building layouts of all shapes and sizes based on <strong>flexboxes</strong>. It’s based on a 12 column layout and has multiple tiers, one for each media query range. You can use it with Sass mixins or our predefined classes.</p>
+        <p>Web UI Kit provides a powerful mobile-first grid system for building layouts of all shapes and sizes based on <strong>flexboxes</strong>. It’s based on a 12-column layout and has multiple tiers, one for each media query range. You can use it with Sass mixins or our predefined classes.</p>
     </header>
     <article>
         <!-- How it works start -->
@@ -12,8 +12,8 @@
             <li>Containers&mdash;<code>.e-container</code> for fixed width or <code>.e-container-fluid</code> for full width&mdash;center your site’s contents and help align your grid content.</li>
             <li>Rows are horizontal groups of columns that ensure your columns are lined up properly.</li>
             <li>Content should be placed within columns, and only columns may be immediate children of rows.</li>
-            <li>Column classes indicate the number of columns you’d like to use out of the possible 12 per row. So if you want three equal-width columns, you’d use <code>.e-col-sm-4</code>.</li>
-            <li>Column <code>width</code>s are set in percentages, so they’re always fluid and sized relative to their parent element.</li>
+            <li>Column classes indicate the number of columns you’d like to use out of the possible 12 per row. So if you need three equal-width columns, use <code>.e-col-sm-4</code>.</li>
+            <li>Column <code>width</code>s are set in percentage, so they’re always fluid and sized correspondingly to their parent element.</li>
             <li>Columns have horizontal <code>padding</code> to create the gutters between individual columns.</li>
             <li>There are five grid tiers, one for each <a href="/layout/overview/#responsive-breakpoints">responsive breakpoint</a>: extra small, small, medium, large, and extra large.</li>
             <li>Grid tiers are based on minimum widths, meaning they apply to that one tier and all those above it (e.g., <code>.e-col-sm-4</code> applies to small, medium, large, and extra large devices).</li>
@@ -23,7 +23,7 @@
 
         <!-- Quick start example start -->
         <h2 id="grid-quick-start-example">Quick start example</h2>
-        <p>If you’re using Web UIKit’s compiled CSS, this the example you’ll want to start with.</p>
+        <p>If you’re using Web UI Kit’s compiled CSS, this the example you’ll want to start with.</p>
 
         <div class="e-example-block">
             <div class="e-row">
@@ -40,8 +40,8 @@
 
         <!-- Grid options start-->
         <h2 id="grid-grid-options">Grid options</h2>
-        <p>Web UIKit uses <code>px</code>s for grid breakpoints and container widths.</p>
-        <p>See how aspects of the Web UIKit grid system work across multiple devices with a handy table.</p>
+        <p>Web UI Kit uses <code>px</code>s for grid breakpoints and container widths.</p>
+        <p>In the table below, you can view how aspects of the Web UI Kit grid system work across multiple devices.</p>
         <div class="e-table-responsive">
             <table class="e-table e-table-bordered e-table-striped">
                 <thead>
@@ -118,10 +118,10 @@
 
         <!-- Sass mixins start -->
         <h2 id="grid-sass-mixins">Sass mixins</h2>
-        <p>When using Web UIKit’s source Sass files, you have the option of using Sass variables and mixins to create custom, semantic, and responsive page layouts. Our <a href="#predefined-classes">predefined grid classes</a> use these same variables and mixins to provide a whole suite of ready-to-use classes for fast responsive layouts.</p>
+        <p>When using Web UI Kit’s source Sass files, you can use Sass variables and mixins to create custom, semantic, and responsive page layouts. Our <a href="#predefined-classes">predefined grid classes</a> use these same variables and mixins to provide a whole suite of ready-to-use classes for fast responsive layouts.</p>
 
         <h3 id="grid-variables">Variables</h3>
-        <p>Variables determine the number of columns, the gutter width, and the media query point at which to begin floating columns. We use these to generate the predefined grid classes documented above, as well as for the custom mixins listed below.</p>
+        <p>By using variables, you can determine the number of columns, the gutter width, and the media query point at which floating columns begin. We use these to generate the predefined grid classes documented above, as well as for the custom mixins listed below.</p>
         {% highlight css %}{% include_relative grid/gridVariables.html %}{% endhighlight %}
         <!-- Sass mixins end -->
     </article>
