@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Getting started</title>
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+    <link rel="icon" href="http://media.eleks.com/media/Content/assets/ico/favicon.ico">
+    <link rel="stylesheet" href="/web-uikit/public/styles/eleks-ui-kit.css">
+    <link rel="stylesheet" href="/web-uikit/public/styles/preview.css">
+    <link rel="canonical" href="http://yourdomain.com/web-uikit/getting-started/">
+    <link rel="alternate" type="application/rss+xml" title="Eleks web ui kit" href="http://yourdomain.com/web-uikit/feed.xml">
+</head>
+
+
+    <body>
+
+        <header class="e-navbar e-navbar-primary e-navbar-fixed-top">
+    <div class="e-container">
+        <div class="e-row">
+            <div class="e-col-xs-3">
+                <a href="/web-uikit" class="e-navbar-brand">
+                    <img src="/web-uikit/public/img/logo_white.png" alt="logo">
+                </a>
+            </div>
+            <div class="e-col-xs-9">
+                <ul class="e-nav e-nav-inline">
+                    
+                    
+                        
+                    
+                        
+                            <li class="e-nav-item">
+                                <a href="/web-uikit/getting-started/" class="e-nav-link active ">Getting started</a>
+                            </li>
+                        
+                    
+                        
+                            <li class="e-nav-item">
+                                <a href="/web-uikit/layout/" class="e-nav-link">Layout</a>
+                            </li>
+                        
+                    
+                        
+                            <li class="e-nav-item">
+                                <a href="/web-uikit/content/" class="e-nav-link">Content</a>
+                            </li>
+                        
+                    
+                        
+                            <li class="e-nav-item">
+                                <a href="/web-uikit/components/" class="e-nav-link">Components</a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+        <div class="e-container">
+    <div class="e-row">
+        <div class="e-col-xs-3 e-sidenavWrap">
+            <!-- Sidenav for getting-started page layout start -->
+            <div class="e-sidenav e-sidenav-left">
+                <ul class="e-nav">
+                    <li class="e-nav-item">
+                        <a href="/web-uikitgetting-started/#getting-started" class="e-nav-link">Getting started</a>
+                        <ul class="e-nav">
+                            <li class="e-nav-item">
+                                <a href="/web-uikit/getting-started/#getting-started-introduction" class="e-nav-link">Introduction</a>
+                                <ul class="e-nav">
+                                    <li class="e-nav-item">
+                                        <a href="/web-uikit/getting-started/#getting-started-quick-start" class="e-nav-link">Quick start</a>
+                                    </li>
+                                    <li class="e-nav-item">
+                                        <a href="/web-uikit/getting-started/#getting-started-starter-template" class="e-nav-link">Starter template</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="e-nav-item">
+                                <a href="/web-uikit/getting-started/#getting-started-options" class="e-nav-link">Options</a>
+                                <ul class="e-nav">
+                                    <li class="e-nav-item">
+                                        <a href="/web-uikit/getting-started/#getting-started-available-variables" class="e-nav-link">Available variables</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- Sidenav for getting-started page layout end -->
+        </div>
+        <div class="e-col-xs-9">
+            <div class="e-example-wrap">
+    <section id="getting-started">
+        <header>
+            <h1>Getting started</h1>
+            <p>An overview of Web UIKit, including how to download and use it, some basic templates and examples, and more. </p>
+        </header>
+        <article>
+            <!-- Introduction start -->
+            <h2 id="getting-started-introduction">Introduction</h2>
+            <p>Web UIKit is ELEKS framework for building responsive, mobile-first sites and applications. Inside you’ll find high quality HTML, CSS, and JavaScript to make starting any project easier than ever.</p>
+
+            <h3 id="getting-started-quick-start">Quick start</h3>
+            <p>Copy-paste the stylesheet <code>&lt;link&gt;</code> into your <code>&lt;head&gt;</code> before all other stylesheets to load our CSS.</p></p>
+
+            <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"eleks-ui-kit.css"</span><span class="nt">&gt;</span></code></pre></figure>
+
+            <h3 id="getting-started-starter-template">Starter template</h3>
+            <p>Be sure to have your pages set up with the latest design and development standards. That means:</p>
+            <ul>
+                <li>Using an HTML5 doctype</li>
+                <li>Forcing Internet Explorer to use its latest rendering mode (<a href="http://stackoverflow.com/q/6771258" target="_blank">read more</a>)</li>
+                <li>And, utilizing the viewport meta tag.</li>
+            </ul>
+            <p>Put it all together and your pages should look like this:</p>
+
+            <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="c">&lt;!-- Required meta tags always come first --&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1, shrink-to-fit=no"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"x-ua-compatible"</span> <span class="na">content=</span><span class="s">"ie=edge"</span><span class="nt">&gt;</span>
+
+        <span class="c">&lt;!-- Web UIKit CSS --&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"eleks-ui-kit.css"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;h1&gt;</span>Hello, world!<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></figure>
+            <!-- Introduction end -->
+
+            <!-- Options start -->
+            <h2 id="getting-started-options">Customization options</h2>
+            <p>Web UIKit has a handful of global options for easily customizing all the components in your project. These options are handled by Sass variables. Simply change a variable’s value and recompile with the included Gulpfile.</p>
+
+            <h3 id="getting-started-available-variables">Available variables</h3>
+            <p>You can find and customize these variables in our <code>_variables.scss</code> file.</p>
+
+            <div class="e-example-block">
+                <table class="e-table">
+                    <thead>
+                        <tr>
+                            <th>Variable</th>
+                            <th>Values</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>$e-spacer</code></td>
+                            <td><code>1rem</code> (default), or any value &gt; 0</td>
+                            <td>Specifies the default spacer value for our spacer utilities.</td>
+                        </tr>
+                        <tr>
+                            <td><code>$e-enable-rounded</code></td>
+                            <td><code>true</code> (default) or <code>false</code></td>
+                            <td>Enables predefined <code>border-radius</code> styles on various components.</td>
+                        </tr>
+                        <tr>
+                            <td><code>$e-enable-shadows</code></td>
+                            <td><code>true</code> or <code>false</code> (default)</td>
+                            <td>Enables predefined <code>box-shadow</code> styles on various components.</td>
+                        </tr>
+                        <tr>
+                            <td><code>$e-enable-gradients</code></td>
+                            <td><code>true</code> or <code>false</code> (default)</td>
+                            <td>Enables predefined gradients via <code>background-image</code> various components.</td>
+                        </tr>
+                        <tr>
+                            <td><code>$e-enable-transitions</code></td>
+                            <td><code>true</code> (default) or <code>false</code></td>
+                            <td>Enables predefined <code>transition</code>s on various components.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Options end -->
+
+
+        </article>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+
+
+        <footer class="e-footer e-container">
+    <div class="e-row">
+        <div class="e-col-xs-9 e-col-xs-offset-3">
+            © 1999-2016 ELEKS, All rights reserved
+        </div>
+    </div>
+</footer>
+
+
+    </body>
+
+</html>

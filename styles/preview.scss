@@ -27,3 +27,19 @@ section {
 .e-sidenav {
     top: 40px;
 }
+.e-example {
+    padding: 0 0.9375rem;
+
+    .e-row {
+        & + .e-row {
+            margin-top: 1rem;
+        }
+
+        & > [class^="e-col-"] {
+            background-color: #ccc;
+            border: 1px solid #bbb;
+            padding-bottom: 0.5rem;
+            padding-top: 0.5rem;
+        }
+    }
+}
