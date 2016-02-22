@@ -1,8 +1,8 @@
-.e-sidenavWrap {
+.sidenavWrap {
     background-color: #fefeff;
     background-clip: content-box;
 }
-.e-sidenav {
+.sidenav {
     bottom: 0;
     font-size: 1.25rem;
     max-width: 260px;
@@ -10,12 +10,12 @@
     padding: 1.5rem;
     position: fixed;
 
-    .e-nav .e-nav {
+    .nav .nav {
         font-size: 81%;
         margin-left: 1.25rem;
     }
 
-    .e-nav-link {
+    .nav-link {
         display: block;
         padding: 2px 0;
     }

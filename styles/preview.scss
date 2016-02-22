@@ -8,34 +8,34 @@ body {
 section {
     margin-bottom: 4rem;
 }
-.e-example-wrap {
+.example-wrap {
     padding: 1.5rem;
 }
-.e-example-block {
+.example-block {
     background-color: #fefeff;
     margin: 0 -1.5rem 2rem;
     padding: 1.5rem;
 
-    .e-btn + .e-btn {
+    .btn + .btn {
         margin-left: 1rem;
     }
-    .e-input + .e-input {
+    .form-control + .form-control {
         margin-top: 0.5rem;
     }
 }
 
-.e-sidenav {
+.sidenav {
     top: 40px;
 }
-.e-example {
+.example {
     padding: 0 0.9375rem;
 
-    .e-row {
-        & + .e-row {
+    .row {
+        & + .row {
             margin-top: 1rem;
         }
 
-        & > [class^="e-col-"] {
+        & > [class^="col-"] {
             background-color: #ccc;
             border: 1px solid #bbb;
             padding-bottom: 0.5rem;

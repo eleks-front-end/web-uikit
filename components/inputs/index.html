@@ -8,14 +8,14 @@
         <h2 id="inputs-example">Example</h2>
         <p>Use class <code>.e-input</code> for <code>input</code> and <code>textarea</code>.</p>
 
-        <div class="e-example-block">
-            <div class="e-row">
-                <div class="e-col-sm-6 e-col-xs-12">
+        <div class="example-block">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
                     {% include_relative inputs/default.html %}
                     {% include_relative inputs/disabled.html %}
                     {% include_relative inputs/readonly.html %}
                 </div>
-                <div class="e-col-sm-6 e-col-xs-12">
+                <div class="col-sm-6 col-xs-12">
                     {% include_relative inputs/textarea.html %}
                 </div>
             </div>
@@ -27,11 +27,11 @@
 
         <!-- Inputs sizing start -->
         <h2 id="inputs-sizing">Inputs sizing</h2>
-        <p>Set heights using classes like <code>.e-input-lg</code>, and set widths using grid column classes like <code>.e-col-lg-*</code>.</p>
+        <p>Set heights using classes like <code>.e-input-lg</code>, and set widths using grid column classes like <code>.col-lg-*</code>.</p>
 
-        <div class="e-example-block">
-            <div class="e-row">
-                <div class="e-col-sm-6 e-col-xs-12">
+        <div class="example-block">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
                     {% include_relative inputs/sizing.html %}
                 </div>
             </div>
@@ -45,16 +45,16 @@
         <h2 id="inputs-checkboxes">Check boxes</h2>
         <p>This is custom design for <code>&lt;input tyle="checkbox"&gt;</code>.</p>
 
-        <div class="e-example-block">
-            <div class="e-row">
-                <div class="e-col-sm-6 e-col-xs-12">
+        <div class="example-block">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
                     {% include_relative inputs/checkboxes/default.html %}
 
                     {% include_relative inputs/checkboxes/disabled.html %}
 
                     {% include_relative inputs/checkboxes/disabledChecked.html %}
                 </div>
-                <div class="e-col-sm-6 e-col-xs-12">
+                <div class="col-sm-6 col-xs-12">
                     {% include_relative inputs/checkboxes/inverse.html %}
 
                     {% include_relative inputs/checkboxes/disabled.html %}
@@ -64,11 +64,11 @@
             </div>
         </div>
 
-        <div class="e-row">
-            <div class="e-col-sm-6 e-col-xs-12">
+        <div class="row">
+            <div class="col-sm-6 col-xs-12">
                 {% highlight html %}{% include_relative inputs/checkboxes/default.html %}{% endhighlight %}
             </div>
-            <div class="e-col-sm-6 e-col-xs-12">
+            <div class="col-sm-6 col-xs-12">
                 {% highlight html %}{% include_relative inputs/checkboxes/inverse.html %}{% endhighlight %}
             </div>
         </div>
@@ -78,9 +78,9 @@
         <h2 id="inputs-radio">Radio buttons</h2>
         <p>This is custom design for <code>&lt;input tyle="radio"&gt;</code>.</p>
 
-        <div class="e-example-block">
-            <div class="e-row">
-                <div class="e-col-sm-6 e-col-xs-12">
+        <div class="example-block">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
                     {% include_relative inputs/radio/default.html %}
 
                     {% include_relative inputs/radio/disabled.html %}
@@ -97,58 +97,58 @@
         <h2 id="inputs-validation">Validation</h2>
         <p>Web UIKit includes validation styles for danger, warning, and success states on form controls. To use, add <code>.e-has-warning</code>, <code>.e-has-danger</code>, or <code>.e-has-success</code> to the parent element. Any <code>.e-input-label</code>, <code>.e-input</code>, and <code>.e-text-muted</code> within that element will receive the validation styles.</p>
 
-        <div class="e-example-block">
-            <div class="e-row">
-                <div class="e-col-sm-6 e-col-xs-12">
+        <div class="example-block">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
                     {% include_relative inputs/success.html %}
                     {% include_relative inputs/warning.html %}
                     {% include_relative inputs/danger.html %}
                 </div>
             </div>
-            <div class="e-row">
-                <div class="e-col-sm-12">
-                    <div class="e-row">
-                        <div class="e-col-sm-6 e-col-xs-12">
-                            <div class="e-form-group">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="form-group">
                                 {% include_relative inputs/checkboxes/defaultSuccess.html %}
                                 {% include_relative inputs/checkboxes/defaultSuccessDisabled.html %}
                                 {% include_relative inputs/checkboxes/defaultSuccessDisabledChecked.html %}
                             </div>
                         </div>
-                        <div class="e-col-sm-6 e-col-xs-12">
-                            <div class="e-form-group">
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="form-group">
                                 {% include_relative inputs/checkboxes/inverseSuccess.html %}
                                 {% include_relative inputs/checkboxes/inverseSuccessDisabled.html %}
                                 {% include_relative inputs/checkboxes/inverseSuccessDisabledChecked.html %}
                             </div>
                         </div>
                     </div>
-                    <div class="e-row">
-                        <div class="e-col-sm-6 e-col-xs-12">
-                            <div class="e-form-group">
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="form-group">
                                 {% include_relative inputs/checkboxes/defaultWarning.html %}
                                 {% include_relative inputs/checkboxes/defaultWarningDisabled.html %}
                                 {% include_relative inputs/checkboxes/defaultWarningDisabledChecked.html %}
                             </div>
                         </div>
-                        <div class="e-col-sm-6 e-col-xs-12">
-                            <div class="e-form-group">
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="form-group">
                                 {% include_relative inputs/checkboxes/inverseWarning.html %}
                                 {% include_relative inputs/checkboxes/inverseWarningDisabled.html %}
                                 {% include_relative inputs/checkboxes/inverseWarningDisabledChecked.html %}
                             </div>
                         </div>
                     </div>
-                    <div class="e-row">
-                        <div class="e-col-sm-6 e-col-xs-12">
-                            <div class="e-form-group">
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="form-group">
                                 {% include_relative inputs/checkboxes/defaultDanger.html %}
                                 {% include_relative inputs/checkboxes/defaultDangerDisabled.html %}
                                 {% include_relative inputs/checkboxes/defaultDangerDisabledChecked.html %}
                             </div>
                         </div>
-                        <div class="e-col-sm-6 e-col-xs-12">
-                            <div class="e-form-group">
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="form-group">
                                 {% include_relative inputs/checkboxes/inverseDanger.html %}
                                 {% include_relative inputs/checkboxes/inverseDangerDisabled.html %}
                                 {% include_relative inputs/checkboxes/inverseDangerDisabledChecked.html %}

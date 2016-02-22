@@ -2,31 +2,31 @@
 layout: default
 ---
 
-<div class="e-container">
-    <div class="e-row">
-        <div class="e-col-xs-3 e-sidenavWrap">
+<div class="container">
+    <div class="row">
+        <div class="col-xs-3 sidenavWrap">
             <!-- Sidenav for getting-started page layout start -->
-            <div class="e-sidenav e-sidenav-left">
-                <ul class="e-nav">
-                    <li class="e-nav-item">
-                        <a href="{{ "getting-started/#getting-started" | prepend: site.baseurl }}" class="e-nav-link">Getting started</a>
-                        <ul class="e-nav">
-                            <li class="e-nav-item">
-                                <a href="{{ "/getting-started/#getting-started-introduction" | prepend: site.baseurl }}" class="e-nav-link">Introduction</a>
-                                <ul class="e-nav">
-                                    <li class="e-nav-item">
-                                        <a href="{{ "/getting-started/#getting-started-quick-start" | prepend: site.baseurl }}" class="e-nav-link">Quick start</a>
+            <div class="sidenav sidenav-left">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a href="{{ "getting-started/#getting-started" | prepend: site.baseurl }}" class="nav-link">Getting started</a>
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a href="{{ "/getting-started/#getting-started-introduction" | prepend: site.baseurl }}" class="nav-link">Introduction</a>
+                                <ul class="nav">
+                                    <li class="nav-item">
+                                        <a href="{{ "/getting-started/#getting-started-quick-start" | prepend: site.baseurl }}" class="nav-link">Quick start</a>
                                     </li>
-                                    <li class="e-nav-item">
-                                        <a href="{{ "/getting-started/#getting-started-starter-template" | prepend: site.baseurl }}" class="e-nav-link">Starter template</a>
+                                    <li class="nav-item">
+                                        <a href="{{ "/getting-started/#getting-started-starter-template" | prepend: site.baseurl }}" class="nav-link">Starter template</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="e-nav-item">
-                                <a href="{{ "/getting-started/#getting-started-options" | prepend: site.baseurl }}" class="e-nav-link">Options</a>
-                                <ul class="e-nav">
-                                    <li class="e-nav-item">
-                                        <a href="{{ "/getting-started/#getting-started-available-variables" | prepend: site.baseurl }}" class="e-nav-link">Available variables</a>
+                            <li class="nav-item">
+                                <a href="{{ "/getting-started/#getting-started-options" | prepend: site.baseurl }}" class="nav-link">Options</a>
+                                <ul class="nav">
+                                    <li class="nav-item">
+                                        <a href="{{ "/getting-started/#getting-started-available-variables" | prepend: site.baseurl }}" class="nav-link">Available variables</a>
                                     </li>
                                 </ul>
                             </li>
@@ -36,7 +36,7 @@ layout: default
             </div>
             <!-- Sidenav for getting-started page layout end -->
         </div>
-        <div class="e-col-xs-9">
+        <div class="col-xs-9" style="max-width: 75%;">
             {{ content }}
         </div>
     </div>
