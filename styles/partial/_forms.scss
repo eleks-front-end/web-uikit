@@ -1,22 +1,13 @@
-//
-// Form groups
-//
-
-.e-form-group {
-  margin-bottom: $e-form-group-margin-bottom;
+label {
+  &.required:after {
+    color: $brand-primary;
+    content: '*';
+    font-size: 1.125rem;
+    line-height: 1.25rem;
+    margin-left: 5px;
+  }
 }
-.e-has-success {
-    .e-text-muted {
-        color: $e-brand-success;
-    }
-}
-.e-has-warning {
-    .e-text-muted {
-        color: $e-brand-warning;
-    }
-}
-.e-has-danger {
-    .e-text-muted {
-        color: $e-brand-danger;
-    }
+.form-control-label {
+  padding-left: 0;
+  padding-right: 0;
 }

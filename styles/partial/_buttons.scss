@@ -2,166 +2,19 @@
 // Base styles
 //
 
-.e-btn {
-    border: $e-border-width solid transparent;
-    cursor: pointer;
-    display: inline-block;
-    font-weight: $e-btn-font-weight;
-    text-align: center;
-    text-transform: uppercase;
-    touch-action: manipulation;
-    vertical-align: middle;
-    white-space: nowrap;
-    user-select: none;
-    @include e-button-size($e-btn-padding-y-bottom, $e-btn-padding-y-top, $e-btn-padding-x, $e-btn-font-size, $e-btn-line-height, $e-btn-border-radius);
-    @include box-shadow($e-btn-box-shadow);
-    @include transition(all 200ms ease-in-out);
-
-    &,
-    &:active,
-    &.active {
-        &:focus {
-            @include tab-focus();
-        }
-    }
-
-    @include hover-focus {
-        text-decoration: none;
-    }
-
-    &:active,
-    &.active {
-        background-image: none;
-        box-shadow: none !important;
-        outline: 0;
-    }
-
-    &.disabled,
-    &:disabled {
-        box-shadow: none !important;
-        cursor: $e-cursor-disabled;
-        opacity: 0.65;
-    }
+.btn {
+  font-size: 0.8125rem;
+  text-transform: uppercase;
 }
-
-
-//
-// Alternate buttons
-//
-
-.e-btn-primary {
-    @include e-button-variant($e-btn-primary-color, $e-btn-primary-bg, $e-btn-primary-border);
-}
-.e-btn-secondary {
-    @include e-button-variant($e-btn-secondary-color, $e-btn-secondary-bg, $e-btn-secondary-border);
-}
-.e-btn-info {
-    @include e-button-variant($e-btn-info-color, $e-btn-info-bg, $e-btn-info-border);
-}
-.e-btn-success {
-    @include e-button-variant($e-btn-success-color, $e-btn-success-bg, $e-btn-success-border);
-}
-.e-btn-warning {
-    @include e-button-variant($e-btn-warning-color, $e-btn-warning-bg, $e-btn-warning-border);
-}
-.e-btn-danger {
-    @include e-button-variant($e-btn-danger-color, $e-btn-danger-bg, $e-btn-danger-border);
-}
-
-
-//
-// Invert buttons
-//
-
-.e-btn-primary-outline {
-    @include e-button-outline-variant($e-btn-primary-bg);
-}
-.e-btn-secondary-outline {
-    @include e-button-outline-variant($e-btn-secondary-border);
-}
-.e-btn-info-outline {
-    @include e-button-outline-variant($e-btn-info-bg);
-}
-.e-btn-success-outline {
-    @include e-button-outline-variant($e-btn-success-bg);
-}
-.e-btn-warning-outline {
-    @include e-button-outline-variant($e-btn-warning-bg);
-}
-.e-btn-danger-outline {
-    @include e-button-outline-variant($e-btn-danger-bg);
-}
-
-//
-// Link buttons
-//
-
-.e-btn-link {
-    border-radius: 0;
-    color: $e-link-color;
-    font-weight: normal;
-
-    &,
-    &:active,
-    &.active,
-    &:disabled {
-        background-color: transparent;
-        @include box-shadow(none);
-    }
-    &,
-    &:focus,
-    &:active {
-        border-color: transparent;
-    }
-    @include hover {
-        border-color: transparent;
-    }
-    @include hover-focus {
-        background-color: transparent;
-        color: $e-link-hover-color;
-        text-decoration: $e-link-hover-decoration;
-    }
-    &:disabled {
-        &:focus,
-        &:hover {
-            color: $e-btn-link-disabled-color;
-            text-decoration: none;
-        }
-    }
-}
-
 
 //
 // Button Sizes
 //
 
-.e-btn-lg {
-    @include e-button-size($e-btn-padding-y-bottom-lg, $e-btn-padding-y-top-lg, $e-btn-padding-x-lg, $e-btn-font-size-lg, $e-btn-line-height-lg, $e-btn-border-radius-lg);
+.btn-lg {
+  font-size: 0.8125rem;
 }
-.e-btn-sm {
-    @include e-button-size($e-btn-padding-y-bottom-sm, $e-btn-padding-y-top-sm, $e-btn-padding-x-sm, $e-btn-font-size-sm, $e-btn-line-height-sm, $e-btn-border-radius-sm);
-}
-
-
-//
-// Block button
-//
-
-.e-btn-block {
-    display: block;
-    width: 100%;
+.btn-sm {
+  font-size: 0.8125rem;
 }
 
-// Vertically space out multiple block buttons
-.e-btn-block + .e-btn-block {
-    margin-top: 5px;
-}
-
-// Specificity overrides
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
-    &.btn-block {
-        width: 100%;
-    }
-}

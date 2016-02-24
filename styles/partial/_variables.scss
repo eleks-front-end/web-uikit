@@ -45,9 +45,9 @@ $brand-danger:              #e42e2f !default;
 
 $enable-flex:               true !default;
 $enable-rounded:            true !default;
-$enable-shadows:            false !default;
+$enable-shadows:            true !default;
 $enable-gradients:          false !default;
-$enable-transitions:        false !default;
+$enable-transitions:        true !default;
 $enable-hover-media-query:  false !default;
 $enable-grid-classes:       true !default;
 
@@ -149,10 +149,7 @@ $font-family-monospace:      Menlo, Monaco, Consolas, "Courier New", monospace !
 $font-family-base:           $font-family-sans-serif !default;
 
 // Pixel value used to responsively scale all typography. Applied to the `<html>` element.
-$e-font-size-root-value:     16;
-$font-size-root:             #{$e-font-size-root-value}px !default;
-$e-font-align-compensation:  0; // 1/$e-font-size-root-value !default; //1px from $e-font-size-root-value
-
+$font-size-root:             16px !default;
 
 $font-size-base:             1rem !default;
 $font-size-lg:               1.25rem !default;
@@ -212,9 +209,9 @@ $list-inline-padding:         5px !default;
 $line-height-lg:         (4 / 3) !default;
 $line-height-sm:         1.5 !default;
 
-$border-radius:          .25rem !default;
-$border-radius-lg:       .3rem !default;
-$border-radius-sm:       .2rem !default;
+$border-radius:          .125rem !default;
+$border-radius-lg:       .125rem !default;
+$border-radius-sm:       .125rem !default;
 
 $component-active-color: #fff !default;
 $component-active-bg:    $brand-primary !default;
@@ -243,8 +240,8 @@ $table-border-color:            $gray-lighter !default;
 //
 // For each of Bootstrap's buttons, define text, background and border color.
 
-$btn-padding-x:                  1rem !default;
-$btn-padding-y:                  .375rem !default;
+$btn-padding-x:                  1.25rem !default;
+$btn-padding-y:                  .3125rem !default;
 $btn-font-weight:                normal !default;
 
 $btn-primary-color:              #fff !default;
@@ -294,9 +291,9 @@ $input-bg:                       #fefeff !default;
 $input-bg-disabled:              #f7f8fa !default;
 
 $input-color:                    #131619 !default;
-$input-border-color:             #ccc !default;
+$input-border-color:             #e9eef5 !default;
 $input-btn-border-width:         $border-width !default; // For form controls and buttons
-$input-box-shadow:               inset 0 1px 1px rgba(0,0,0,.075) !default;
+$input-box-shadow:               0 0 !default;
 
 $input-border-radius:            $border-radius !default;
 $input-border-radius-lg:         $border-radius-lg !default;

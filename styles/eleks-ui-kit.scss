@@ -1,6 +1,7 @@
 // Core variables and mixins
 @import "partial/variables";
 @import "../node_modules/bootstrap/scss/mixins";
+@import "partial/mixins/custom-forms";
 
 // Reset and dependencies
 @import "../node_modules/bootstrap/scss/normalize";
@@ -8,13 +9,16 @@
 
 // Core CSS
 @import "../node_modules/bootstrap/scss/reboot";
+@import "partial/reboot";
 @import "../node_modules/bootstrap/scss/type";
 @import "../node_modules/bootstrap/scss/images";
 @import "../node_modules/bootstrap/scss/code";
 @import "../node_modules/bootstrap/scss/grid";
 @import "../node_modules/bootstrap/scss/tables";
 @import "../node_modules/bootstrap/scss/forms";
+@import "partial/forms";
 @import "../node_modules/bootstrap/scss/buttons";
+@import "partial/buttons";
 
 // Components
 @import "../node_modules/bootstrap/scss/animation";
@@ -22,6 +26,7 @@
 @import "../node_modules/bootstrap/scss/button-group";
 @import "../node_modules/bootstrap/scss/input-group";
 @import "../node_modules/bootstrap/scss/custom-forms";
+@import "partial/custom-forms";
 @import "../node_modules/bootstrap/scss/nav";
 @import "../node_modules/bootstrap/scss/navbar";
 @import "../node_modules/bootstrap/scss/card";
@@ -60,7 +65,6 @@
     /*"partial/links",*/
     /*"partial/headers",*/
     /*"partial/inputs",*/
-    /*"partial/forms",*/
     /*"partial/buttons",*/
     /*"partial/labels",*/
     /*"partial/nav",*/
