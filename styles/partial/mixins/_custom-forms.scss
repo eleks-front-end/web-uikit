@@ -50,7 +50,6 @@
   }
 
   // Radios
-
   .c-radio {
     .c-indicator {
       border-color: $color;
@@ -61,6 +60,13 @@
     }
     input:checked ~ .c-indicator {
       border-color: $input-border-color;
+    }
+  }
+
+  //Default form control validation on focus
+  .form-control {
+    &:focus {
+      @include box-shadow(0 0 5px rgba($color, 0.26));
     }
   }
 }
