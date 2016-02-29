@@ -1,9 +1,14 @@
 var gulp        = require('gulp');
-var browserSync = require('browser-sync');
+var browserSync = require('browser-sync').create();
 var sass        = require('gulp-sass');
 var prefix      = require('gulp-autoprefixer');
 var cp          = require('child_process');
 var ghPages     = require('gulp-gh-pages');
+
+var concat = require('gulp-concat');
+var babelify = require('babelify');
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
 
 var jekyll   = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 var messages = {
@@ -29,13 +34,15 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
 /**
  * Wait for jekyll-build, then launch the Server
  */
-gulp.task('browser-sync', ['sass', 'jekyll-build'], function() {
-    browserSync({
+gulp.task('browser-sync', ['sass', /*'jekyll-build'*/], function() {
+    browserSync.init({
         server: {
             baseDir: '_site'
         }
     });
 });
+
+gulp.task('js', ['js:vendor', 'js:app']);
 
 /**
  * Compile files from _scss into both _site/css (for live injecting) and site (for future jekyll builds)
@@ -51,6 +58,28 @@ gulp.task('sass', function () {
         .pipe(browserSync.reload({stream:true}))
         .pipe(gulp.dest('public/styles'));
 });
+
+// Собираем JS
+gulp.task('js:app', () => {
+  const bundler = browserify('./scripts/main.js');
+
+    bundler.transform(babelify.configure({
+        "presets": ["es2015"]
+    }));
+
+    bundler.bundle()
+        .on('error', function (err) { console.error(err); })
+        .pipe(source('main.js'))
+        .pipe(gulp.dest('./_site/public/scripts'));
+});
+
+gulp.task('js:vendor', () => {
+
+    return gulp.src(['./node_modules/jquery/dist/jquery.min.js', './node_modules/bootstrap/dist/js/bootstrap.min.js'])
+        .pipe(concat('vendors.js'))
+        .pipe(gulp.dest('./_site/public/scripts/'));
+});
+
 
 /**
  * Watch scss files for changes & recompile
@@ -69,7 +98,7 @@ gulp.task('watch', function () {
  * Default task, running just `gulp` will compile the sass,
  * compile the jekyll site, launch BrowserSync & watch files.
  */
-gulp.task('default', ['browser-sync', 'watch']);
+gulp.task('default', ['js:vendor', 'js:app' , 'browser-sync']);
 
 
 /**

@@ -17,11 +17,20 @@
   },
   "homepage": "https://github.com/eleks-front-end/web-uikit",
   "devDependencies": {
+    "babel-core": "^6.5.2",
+    "babel-preset-es2015": "^6.5.0",
+    "babelify": "^7.2.0",
     "browser-sync": "^2.11.1",
+    "browserify": "^13.0.0",
+    "browserify-shim": "^3.8.12",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.0",
     "gulp-gh-pages": "^0.5.4",
-    "gulp-sass": "^2.1.1"
+    "gulp-sass": "^2.1.1",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.2",
