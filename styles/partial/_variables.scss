@@ -43,7 +43,7 @@ $brand-danger:              #e42e2f !default;
 //
 // Quickly modify global styling by enabling or disabling optional features.
 
-$enable-flex:               true !default;
+$enable-flex:               false !default;
 $enable-rounded:            true !default;
 $enable-shadows:            true !default;
 $enable-gradients:          false !default;
@@ -142,7 +142,6 @@ $grid-gutter-width:          1.875rem !default; // 30px
 //
 // Font, line-height, and color for body text, headings, and more.
 $font-family-sans-serif:     'Open Sans', Arial, sans-serif !default;
-$font-family-bold-sans-serif:'Open Sans', Arial, sans-serif !default;
 $font-family-serif:          Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace:      Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base:           $font-family-sans-serif !default;
@@ -240,7 +239,7 @@ $table-border-color:            $gray-lighter !default;
 // For each of Bootstrap's buttons, define text, background and border color.
 
 $btn-padding-x:                  1.25rem !default;
-$btn-padding-y:                  .3125rem !default;
+$btn-padding-y:                  0.5rem !default;
 $btn-font-weight:                normal !default;
 
 $btn-primary-color:              #fff !default;
