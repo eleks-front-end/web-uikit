@@ -1,0 +1,1 @@
+{"version":3,"sources":["search.js"],"names":[],"mappings":";;;;IAAM,SACF,SADE,MACF,GAAc;0BADZ,QACY;;AACV,YAAQ,GAAR,CAAY,UAAZ,EADU;CAAd;;AAKJ,IAAI,SAAS,IAAI,MAAJ,EAAT","file":"search.js","sourcesContent":["class Search {\r\n    constructor() {\r\n        console.log('test es6')\r\n    }\r\n}\r\n\r\nvar search = new Search()"],"sourceRoot":"/source/"}

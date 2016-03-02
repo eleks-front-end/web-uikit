@@ -1,6 +1,22 @@
-var gulp        = require('gulp');
-var sass        = require('gulp-sass');
-var prefix      = require('gulp-autoprefixer');
+"use strict"
+
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var prefix = require('gulp-autoprefixer');
+var babel = require('gulp-babel');
+var sourcemaps = require('gulp-sourcemaps');
+
+gulp.task('run', ['watch', 'compile']);
+
+gulp.task('compile', ['javascript', 'sass']);
+
+gulp.task("javascript", function(){
+    return gulp.src("./scripts/*.js")
+        .pipe(sourcemaps.init())
+        .pipe(babel())
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest("./public/scripts"));
+});
 
 /**
  * Compile files from _scss into both _site/css (for live injecting) and site (for future jekyll builds)
@@ -20,4 +36,5 @@ gulp.task('sass', function () {
  */
 gulp.task('watch', function () {
     gulp.watch('styles/**/*.scss', ['sass']);
+    gulp.watch('./scripts/**/*.js', ['javascript']);
 });
