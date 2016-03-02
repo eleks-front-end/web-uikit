@@ -42,6 +42,7 @@
 @import "../node_modules/bootstrap/scss/responsive-embed";
 @import "../node_modules/bootstrap/scss/close";
 
+
 // Components w/ JavaScript
 @import "../node_modules/bootstrap/scss/modal";
 @import "../node_modules/bootstrap/scss/tooltip";
@@ -69,11 +70,12 @@
     /*"partial/labels",*/
     /*"partial/nav",*/
     /*"partial/navbar",*/
-    "partial/sidenav"
+    "partial/sidenav",
     /*"partial/grid",*/
     /*"partial/tables",*/
     /*"partial/images",*/
     /*"partial/breadcrumb",*/
     /*"partial/code",*/
     /*"partial/lists"*/
+    "partial/search"
 ;
