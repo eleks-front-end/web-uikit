@@ -1,2 +1,51 @@
-<h2 id="autocomplete">Autocomplete</h2>
-<input type="text" placeholder="autocomplete" class="form-control">
+
+<h1 id="autocomplete">Autocomplete</h1>
+
+<h2>Usage</h2>
+<p>To apply this component, add the <code>.ui-autocomplete</code> class to a input element.</p>
+<p>To enable the necessary JavaScript for the autocomplete input, you also need to add the <code>data-ui-autocomplete</code> attribute.
+    Add <code>{source:'SOURCE-URL'}</code> to the data attribute and set the path to your autocomplete list, which needs to be formatted in JSON.</p>
+
+<ul>
+    <li>описати хот кеї</li>
+    <li>винести випадайку в боді</li>
+</ul>
+
+<h2>Example</h2>
+<input type="text" data-ui-autocomplete="{'source':'./blabla/','speed': '200'}" placeholder="autocomplete" class="form-control">
+
+<h2>Markup</h2>
+
+<h2>Options</h2>
+
+<h2>Customize</h2>
+
+<h3>Init element manually</h3>
+
+<h2>Events</h2>
+
+<h2>Api</h2>
+<ul>
+    <li>open()</li>
+    <li>close()</li>
+    <li>next()</li>
+    <li>previous()</li>
+    <li>select()</li>
+</ul>
+
+
+<!--script>
+    var element = document.getElementById('autocomplete-1');
+
+    var options = {
+        serviceUrl: 'http://api-mockapitron.rhcloud.com/?size=10&value=name',
+        minChars: 1,
+        autoSelectFirst: true,
+        appendTo: element.parentNode,
+        formatResult: function (suggestion) {
+            return "<span class='suggestion-value'>" + suggestion.value + "</span>"
+        }
+    };
+
+    var instance = new VanillaAutocomplete(element, options);
+</script-->
