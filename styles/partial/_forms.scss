@@ -1,3 +1,8 @@
+@if $enable-flex {  //TODO hack
+  .form-control {
+    min-width: 0;
+  }
+}
 label {
   &.required:after {
     color: $brand-primary;

@@ -3,43 +3,70 @@
 @import "partial/syntax-highlighting";
 
 body {
-    padding-top: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 section {
-    margin-bottom: 4rem;
+  margin-bottom: 4rem;
+}
+footer {
+  padding: 0.5rem !important;
 }
 .example-wrap {
-    padding: 1.5rem;
+  padding: 1.5rem;
 }
 .example-block {
-    background-color: #fefeff;
-    margin: 0 -1.5rem 2rem;
-    padding: 1.5rem;
+  background-color: #fefeff;
+  margin: 0 -1.5rem 2rem;
+  padding: 1.5rem;
 
-    .btn + .btn {
-        margin-left: 1rem;
-    }
-    .form-control + .form-control {
-        margin-top: 0.5rem;
-    }
+  .btn + .btn {
+    margin-left: 1rem;
+  }
+  .form-control + .form-control {
+    margin-top: 0.5rem;
+  }
 }
 
 .sidenav {
-    top: 40px;
+  bottom: 40px;
+  top: 40px;
 }
 .example {
-    padding: 0 0.9375rem;
+  padding: 0 0.9375rem;
 
-    .row {
-        & + .row {
-            margin-top: 1rem;
-        }
-
-        & > [class^="col-"] {
-            background-color: #ccc;
-            border: 1px solid #bbb;
-            padding-bottom: 0.5rem;
-            padding-top: 0.5rem;
-        }
+  .row {
+    & + .row {
+      margin-top: 1rem;
     }
+
+    & > [class^="col-"] {
+      background-color: #ccc;
+      border: 1px solid #bbb;
+      padding-bottom: 0.5rem;
+      padding-top: 0.5rem;
+    }
+  }
+}
+
+/*default-custom*/
+.default-custom {
+  .sidenavWrap {
+    background-clip: inherit;
+    min-width: 275px;
+    max-width: 275px;
+    padding-left: 0;
+    padding-right: 0;
+
+    .sidenav {
+      background-color: #fefeff;
+      max-width: 275px;
+      width: 275px;
+    }
+
+    & + [class*="col-"] {
+      flex: 1 1 0;
+      max-width: inherit;
+    }
+  }
 }

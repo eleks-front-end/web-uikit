@@ -43,7 +43,7 @@ $brand-danger:              #e42e2f !default;
 //
 // Quickly modify global styling by enabling or disabling optional features.
 
-$enable-flex:               false !default;
+$enable-flex:               true !default;
 $enable-rounded:            true !default;
 $enable-shadows:            true !default;
 $enable-gradients:          false !default;
@@ -365,7 +365,7 @@ $zindex-modal:             1050 !default;
 
 $navbar-border-radius:              $border-radius !default;
 $navbar-padding-horizontal:         $spacer !default;
-$navbar-padding-vertical:           ($spacer / 2) !default;
+$navbar-padding-vertical:           1px !default;
 
 $navbar-dark-color:                 rgba(255,255,255,.5) !default;
 $navbar-dark-hover-color:           rgba(255,255,255,.75) !default;
