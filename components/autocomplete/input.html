@@ -1,0 +1,13 @@
+<input type="text"
+    class="e-autocomplete"
+    data-api="/public/getEmployes"
+    data-search-fields="name,title"
+    data-item-tpl="templ2"
+    placeholder="autocomplete"
+/>
+{% raw %}
+<script type="text/template" id="templ2">
+    <h1>{{value1}}</h1>
+    <h1>{{value2}}</h1>
+</script>
+{% endraw %}

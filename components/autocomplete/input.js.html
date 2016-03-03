@@ -1,0 +1,17 @@
+<script>
+    var element = document.getElementById('autocomplete');
+
+    var options = {
+        api: '/public/getEmployees',
+        searchFields: ['name', 'surname'],
+        minChars: 1,
+        maxItems: 10,
+        autoSelectFirst: true,
+        render: function (suggestion) {
+            return "<span class='e-name'>" + suggestion.name + "</span>" +
+                    "<span class='e-surname'>" + suggestion.surname + "</span>";
+        }
+    };
+
+    var instance = new eAutocomplete(element, options);
+</script>

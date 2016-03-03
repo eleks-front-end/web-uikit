@@ -1,51 +1,148 @@
 
 <h1 id="autocomplete">Autocomplete</h1>
+<br>
+<h2>Design requirements</h2>
+<br>
+<ul>
+    <li>Create input component that allows users to choose from a list of pre-generated values while typing.</li>
+    <li>Component should be built with ES6 without dependencies.</li>
+    <li>Automatically and manual initializing component.</li>
+    <li>Component options can be defined using data attribute.</li>
+    <li>Developer can set several search API and predefined render templates for popup list or write these templates by himself.</li>
+    <li>Select dropdown item pressing appropriate buttons on keyboard (Enter, Up and Down buttons).</li>
+    <li>Closing dropdown with ESC key.</li>
+</ul>
+<br>
 
 <h2>Usage</h2>
-<p>To apply this component, add the <code>.ui-autocomplete</code> class to a input element.</p>
-<p>To enable the necessary JavaScript for the autocomplete input, you also need to add the <code>data-ui-autocomplete</code> attribute.
-    Add <code>{source:'SOURCE-URL'}</code> to the data attribute and set the path to your autocomplete list, which needs to be formatted in JSON.</p>
+<p>To apply this component, add the <code>.e-autocomplete</code> class to a input element.</p>
 
-<ul>
-    <li>описати хот кеї</li>
-    <li>винести випадайку в боді</li>
-</ul>
+<br>
+<h2>Markup</h2>
+<p>An approximate version of input markup and customizing template</p>
+{% highlight html %}{% include_relative autocomplete/input.html %}{% endhighlight %}
 
 <h2>Example</h2>
-<input type="text" data-ui-autocomplete="{'source':'./blabla/','speed': '200'}" placeholder="autocomplete" class="form-control">
+<p>Example not ready yet</p>
+<!-- {% include_relative autocomplete/input.html %} -->
 
-<h2>Markup</h2>
-
-<h2>Options</h2>
+<br>
 
 <h2>Customize</h2>
+<p>All settings are settable via either a <code>data-</code> attribute on the <code>input</code> element or a JS property on the second argument of the eAutocomplete constructor.</p>
+<p>You can of course combine both HTML attributes and JS properties. <strong>In case of conflict</strong>
+    (e.g. you’ve specified both a <code>data-minchars</code> on the text field and a <code>minChars</code> JS property,
+    <strong>the HTML attribute wins</strong>. You can also use the JS properties to change a parameter <strong>after</strong>
+    the object has been created, in which case the change will apply even if there is a conflicting HTML attribute.</p>
+<br>
+<h2>Options</h2>
+<table class="table" style="background-color: #fff;">
+    <tr>
+        <th>JS property</th>
+        <th>HTML attribute</th>
+        <th>Description</th>
+        <th>Value</th>
+        <th>Default</th>
+    </tr>
 
-<h3>Init element manually</h3>
+    <tr>
+        <td><code>api</code></td>
+        <td><code>data-api</code></td>
+        <td>Where to find the list of suggestions.</td>
+        <td>Object</td>
+        <td>N/A</td>
+    </tr>
+
+    <tr>
+        <td><code>searchFields</code></td>
+        <td><code>data-search-fields</code></td>
+        <td>Key values for search pairs.</td>
+        <td>Array</td>
+        <td>N/A</td>
+    </tr>
+
+    <tr>
+        <td><code>minChars</code></td>
+        <td><code>data-minchars</code></td>
+        <td>Minimum characters the user has to type before the autocomplete popup shows up.</td>
+        <td>Number</td>
+        <td>2</td>
+    </tr>
+
+    <tr>
+        <td><code>maxItems</code></td>
+        <td><code>data-max-items</code></td>
+        <td>Maximum number of suggestions to display.</td>
+        <td>Number</td>
+        <td>10</td>
+    </tr>
+
+    <tr>
+        <td><code>autoFirst</code></td>
+        <td><code>data-auto-first</code></td>
+        <td>Should the first element be automatically selected?</td>
+        <td>Number</td>
+        <td>false</td>
+    </tr>
+</table>
+<br>
+
+<br>
+<h2>Init element manually</h2>
+<p>An approximate version of input manual initialization</p>
+{% highlight html %}{% include_relative autocomplete/input.js.html %}{% endhighlight %}
 
 <h2>Events</h2>
+<p>To avoid conflicts, all custom events are prefixed with <code>e-autocomplete</code>.</p>
+<table class="table" style="background-color: #fff;">
+    <tr>
+        <th width="250">Name</th>
+        <th>Description</th>
+    </tr>
+
+    <tr>
+        <td><code>e-autocomplete-select</code></td>
+        <td>The user has made a selection (either via pressing enter or clicking on an item).</td>
+    </tr>
+
+    <tr>
+        <td><code>e-autocomplete-open</code></td>
+        <td>The popup just appeared.</td>
+    </tr>
+
+    <tr>
+        <td><code>e-autocomplete-close</code></td>
+        <td>The popup just closed.</td>
+    </tr>
+</table>
+<br>
 
 <h2>Api</h2>
-<ul>
-    <li>open()</li>
-    <li>close()</li>
-    <li>next()</li>
-    <li>previous()</li>
-    <li>select()</li>
-</ul>
+<p>There are several methods on every eAutocomplete instance that you can call to customize behavior:</p>
+<table class="table" style="background-color: #fff;">
+    <tr>
+        <th>Method</th>
+        <th>Description</th>
+    </tr>
 
-
-<!--script>
-    var element = document.getElementById('autocomplete-1');
-
-    var options = {
-        serviceUrl: 'http://api-mockapitron.rhcloud.com/?size=10&value=name',
-        minChars: 1,
-        autoSelectFirst: true,
-        appendTo: element.parentNode,
-        formatResult: function (suggestion) {
-            return "<span class='suggestion-value'>" + suggestion.value + "</span>"
-        }
-    };
-
-    var instance = new VanillaAutocomplete(element, options);
-</script-->
+    <tr>
+        <td><code>select()</code></td>
+        <td>Selects the currently highlighted item, replaces the text field’s value with it and closes the popup.</td>
+    </tr>
+    <tr>
+        <td><code>next()</code></td>
+        <td>Highlights the next item in the popup.</td>
+    </tr>
+    <tr>
+        <td><code>previous()</code></td>
+        <td>Highlights the previous item in the popup.</td>
+    </tr>
+    <tr>
+        <td><code>open()</code></td>
+        <td>Opens the popup.</td>
+    </tr>
+    <tr>
+        <td><code>close()</code></td>
+        <td>Closes the popup.</td>
+    </tr>
+</table>
