@@ -6,5 +6,3 @@ Web uikit for eleks projects
 ### For development:
 1. ```npm i```
 1. ```gulp```
-
-***To deploy changes to gh-pages run ```gulp deploy```***
