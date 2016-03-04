@@ -5,8 +5,627 @@
     <title>Title</title>
     <link rel="stylesheet" href="./public/styles/eleks-ui-kit.css">
     <script src="./public/scripts/search.js"></script>
+
+    <style>
+        .e-autocomplete {
+            width: 100%;
+            border: 1px solid #355089;
+            border-radius: 4px;
+            height: 26px;
+            padding-left: 5px;
+            font-size: .875em;
+        }
+
+        .autocomplete-suggestions {
+            background-color: #fff;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 6px 2px rgba(0, 0, 0, 0.1);
+            font-size: .875em;
+            margin-left: 1px;
+            clear: both;
+            overflow-y: auto;
+        }
+        .autocomplete-suggestion {
+            position: relative;
+            cursor: pointer;
+        }
+        .autocomplete-selected {
+            background-color: #EBEEF4;
+        }
+        .autocomplete-suggestions strong {
+            font-weight: 700;
+        }
+        .suggestion-img {
+            float: left;
+            height: 40px;
+            line-height: 40px;
+            margin: 4px 8px 0 6px;
+            overflow: hidden;
+            text-align: center;
+            vertical-align: middle;
+            width: 40px;
+        }
+        .suggestion-img img {
+            max-width: 100%;
+            max-height: 40px;
+            display: block;
+        }
+        .suggestion-wrapper {
+            display: block;
+            height: 48px;
+            overflow: hidden;
+            position: relative;
+            text-overflow: ellipsis;
+            vertical-align: middle;
+            line-height: 16px;
+            padding: 7px 0;
+        }
+        .suggestion-value {
+            display: block;
+            line-height: normal;
+            font-weight: 700;
+        }
+        .sub-text {
+            color: #999;
+            font-size: 11px;
+            font-weight: normal;
+        }
+    </style>
 </head>
 <body>
-    <input type="text">
+
+<input type="text" class="e-autocomplete" placeholder="Search..."/>
+
+
+<script>
+    var lookup = {
+        "suggestions": [
+            {
+                "value": "Chicago Blackhawks",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Chicago, IL",
+                    "type": "Sports Team",
+                    "likes": "2,620,264 like this"
+
+                }
+            },
+            {
+                "value": "Anaheim Ducks",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Anaheim, California",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Arizona Coyotes",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Glendale, Arizona",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Edmonton Oilers",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Edmonton, Alberta",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Los Angeles Kings",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Los Angeles, California",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Vancouver Canucks",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Cancouver, British Columbia",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Colorado Avalanche",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Denver, Colorado",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Dallas Stars",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Frisco, Texas",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Minnesota Wild",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Saint Paul, Minnesota",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Nashville Predators",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Nashville, Tennessee",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "St. Louis Blues",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "St. Louis, Missouri",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Winnipeg Jets",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Winnipeg, Manitoba",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Boston Bruins",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Boston, Massachusetts",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Buffalo Sabres",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Buffalo, New York",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Detroit Red Wings",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Detroit, Michigan",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Florida Panthers",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Sunrise, Florida",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Montréal Canadiens",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Montreal, Quebec",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Ottawa Senators",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Ottawa, Ontario",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Tampa Bay Lightning",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Tampa, Florida",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Toronto Maple Leafs",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Toronto, Ontario",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Carolina Hurricanes",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Releigh, North Carolina",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Columbus Blue Jackets",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Columbus, Ohio",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "New Jersey Devils",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Newark, New Jersey",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "New York Islanders",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Uniondale, New York",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "New York Rangers",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "New York, New York",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Philadelphia Flyers",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Philadelphia, Pennsylvania",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Pittsburgh Penguins",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Pittsburgh, Pennsylvania",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Washington Capitals",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Washington, District of Columbia",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Chicago Bulls",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Chicago, IL",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Boston Celtics",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Boston, Massachusetts",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Brooklyn Nets",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Brooklyn, New York",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "New York Knicks",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "New York, New York",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Philadelphia 76ers",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Philadelphia, Pennsylvania",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Toronto Raptors",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Toronto, Ontario",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Golden State Warriors",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Oakland, California",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Los Angeles Clippers",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Los Angeles, California",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Los Angeles Lakers",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Los Angeles, California",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Phoenix Suns",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Phoenix, Arizona",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Sacramento Kings",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Sacramento, California",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Cleveland Cavaliers",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Cleveland, Ohio",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Detroit Pistons",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Auburn Hills, Michigan",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Indiana Pacers",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Indianapolis, Indiana",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Milwaukee Bucks",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Milwaukee, Wisconsin",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Dallas Mavericks",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Dallas, Texas",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Houston Rockets",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Houston, Texas",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Memphis Grizzlies",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Memphis, Tennessee",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "New Orleans Pelicans",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Metairie, Louisiana",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "San Antonio Spurs",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "San Antonio, Texas",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Atlanta Hawks",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Atlanta, Georgia",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Charlotte Hortnets",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Charlotte, North Carolina",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Miami Heat",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Miami, Florida",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Orlando Magic",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Orlando, Florida",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Washington Wizards",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Washington, Disctrict of Columbia",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Denver Nuggets",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Denver, Colorado",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Minesota Timberwolves",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Minneapolis, Minnesota",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Oklahoma City Thunder",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Oklahoma City, Oklahoma",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Portland Trail Blazers",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Portland, Oregon ",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            },
+            {
+                "value": "Utah Jazz",
+                "data": {
+                    "img": "http://vignette1.wikia.nocookie.net/legomessageboards/images/9/91/Avatar-placeholder.png/revision/latest?cb=20150616201536",
+                    "location": "Salt Lake City, Utah",
+                    "type": "Sports Team",
+                    "likes": "17,963,054 like this"
+                }
+            }
+        ]
+    };
+
+    var element = document.querySelector(".e-autocomplete");
+
+    var options = {
+        lookup: lookup.suggestions,
+        minChars: 1,
+        noCache: true,
+        autoSelectFirst: true,
+        appendTo: element.parentNode,
+        formatResult: function (suggestion) {
+            return "<span class='suggestion-img'><img src='" + suggestion.data.img + "'/>" +
+                    "</span><span class='suggestion-wrapper'><span class='suggestion-value'>" + suggestion.value + "</span>" +
+                    "<span class='sub-text'>" + suggestion.data.location + "</span>" +
+                    "<span class='sub-text'>" + suggestion.data.likes + "</span></span>";
+        }
+    };
+
+    var instance = new eAutocomplete(element, options);
+
+    console.log('Page loaded: ', instance);
+</script>
 </body>
 </html>

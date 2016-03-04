@@ -5,8 +5,9 @@ var sass = require('gulp-sass');
 var prefix = require('gulp-autoprefixer');
 var babel = require('gulp-babel');
 var sourcemaps = require('gulp-sourcemaps');
+var webserver = require('gulp-webserver');
 
-gulp.task('run', ['watch', 'compile']);
+gulp.task('run', ['compile', 'webserver', 'watch']);
 
 gulp.task('compile', ['javascript', 'sass']);
 
@@ -30,11 +31,20 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('./public/styles'));
 });
 
+gulp.task('webserver', function() {
+    gulp.src('')
+        .pipe(webserver({
+            livereload: true,
+            directoryListing: true,
+            open: true
+        }));
+});
+
 /**
  * Watch scss files for changes & recompile
  * Watch html/md files, run jekyll & reload BrowserSync
  */
 gulp.task('watch', function () {
     gulp.watch('styles/**/*.scss', ['sass']);
-    gulp.watch('./scripts/**/*.js', ['javascript']);
+    gulp.watch('./scripts/*.js', ['javascript']);
 });
