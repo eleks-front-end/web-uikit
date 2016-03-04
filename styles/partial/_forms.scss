@@ -30,12 +30,12 @@ label {
 .form-control-feedback {
   display: block;
   height: $input-height;
-  left: 0;
+  left: $input-btn-border-width;
   line-height: $input-height;
   pointer-events: none;
   position: absolute;
   text-align: center;
-  top: 0;
+  top: $input-btn-border-width;
   width: $input-height;
   z-index: 4; // Ensure icon is above input groups
 }

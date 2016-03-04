@@ -9,83 +9,86 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 sidenavWrap">
-          <!-- Sidenav for getting-started page layout start -->
-            <div class="sidenav sidenav-left">
+        <div id="sidenav" class="col-sm-3 sidenavWrap">
+          <!-- Sidenav for default-custom page layout start -->
+            <div id="sidenav-toggle" class="sidenav-toggle">
+              <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>
+            </div>
+            <div class="sidenav sidenav-left with-icons">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link">Menu level 1</a>
+                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link"><span class="glyphicon glyphicon-music" aria-hidden="true"></span>Menu level 1</a>
                         <ul class="nav">
                             <li class="nav-item">
-                                <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link">Menu level 2 long name</a>
+                                <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link"><span class="glyphicon glyphicon-film" aria-hidden="true"></span>Menu level 2 long name</a>
                                 <ul class="nav">
                                     <li class="nav-item">
-                                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link">Menu level 3 long</a>
+                                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>Menu level 3 long</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link">Menu level 3</a>
+                                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>Menu level 3</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link">Menu level 3 long name</a>
+                                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Menu level 3 long name</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link">Menu level 3</a>
+                                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>Menu level 3</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link">Menu level 2</a>
+                                <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Menu level 2</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link">Menu level 2</a>
+                                <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link"><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>Menu level 2</a>
                                 <ul class="nav">
                                     <li class="nav-item">
-                                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link">Menu level 3</a>
+                                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link"><span class="glyphicon glyphicon-road" aria-hidden="true"></span>Menu level 3</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link">Menu level 3</a>
+                                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link"><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>Menu level 3</a>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link">Menu level 1</a>
+                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span>Menu level 1</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link">Menu level 1 long name</a>
+                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>Menu level 1 long name</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link">Menu level 1</a>
+                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link"><span class="glyphicon glyphicon-apple" aria-hidden="true"></span>Menu level 1</a>
                         <ul class="nav">
                             <li class="nav-item">
-                                <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link">Menu level 2 long name</a>
+                                <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link"><span class="glyphicon glyphicon-film" aria-hidden="true"></span>Menu level 2 long name</a>
                                 <ul class="nav">
                                     <li class="nav-item">
-                                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link">Menu level 3 long</a>
+                                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link"><span class="glyphicon glyphicon-file-o" aria-hidden="true"></span>Menu level 3 long</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link">Menu level 3</a>
+                                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link"><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>Menu level 3</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link">Menu level 3 long name</a>
+                                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Menu level 3 long name</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link">Menu level 3</a>
+                                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link"><span class="glyphicon glyphicon-envelope-o" aria-hidden="true"></span>Menu level 3</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link">Menu level 2</a>
+                                <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span>Menu level 2</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link">Menu level 2</a>
+                                <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>Menu level 2</a>
                                 <ul class="nav">
                                     <li class="nav-item">
-                                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link">Menu level 3</a>
+                                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link"><span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span>Menu level 3</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link">Menu level 3</a>
+                                        <a href="{{ "#" | prepend: site.baseurl }}" class="nav-link"><span class="glyphicon glyphicon-image" aria-hidden="true"></span>Menu level 3</a>
                                     </li>
                                 </ul>
                             </li>
@@ -93,7 +96,7 @@
                     </li>
                 </ul>
             </div>
-            <!-- Sidenav for getting-started page layout end -->
+            <!-- Sidenav for default-custom page layout end -->
         </div>
         <div class="col-sm-9">
           <div class="container">
@@ -111,6 +114,11 @@
 
     {% include footer.html %}
 
+  <script type="text/javascript">
+    document.getElementById('sidenav-toggle').onclick = function() {
+      document.getElementById('sidenav').classList.toggle('active');
+    }
+  </script>
   </body>
 
 </html>
