@@ -16,3 +16,38 @@ label {
   padding-left: 0;
   padding-right: 0;
 }
+
+.has-feedback {
+  // Enable absolute positioning
+  position: relative;
+
+  // Ensure icons don't overlap text
+  .form-control {
+    padding-left: ($input-height);
+  }
+}
+// Feedback icon
+.form-control-feedback {
+  display: block;
+  height: $input-height;
+  left: 0;
+  line-height: $input-height;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: $input-height;
+  z-index: 4; // Ensure icon is above input groups
+}
+.input-lg + .form-control-feedback,
+.input-group-lg + .form-control-feedback {
+  height: $input-height-lg;
+  line-height: $input-height-lg;
+  width: $input-height-lg;
+}
+.input-sm + .form-control-feedback,
+.input-group-sm + .form-control-feedback {
+  height: $input-height-sm;
+  line-height: $input-height-sm;
+  width: $input-height-sm;
+}
