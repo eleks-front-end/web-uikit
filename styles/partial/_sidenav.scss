@@ -14,6 +14,7 @@
   position: fixed;
   transition-property: max-width, width;
   transition-duration: 300ms;
+  z-index: $zindex-modal;
 
   & > .nav {
     padding: 2rem 0;
@@ -35,7 +36,7 @@
   .nav-link {
     display: block;
     padding: 4px 1.5rem;
-    transition-property: padding;
+    transition-property: padding, width;
     transition-duration: 300ms;
   }
 
@@ -89,7 +90,7 @@
   transition-duration: 300ms;
 }
 
-.active {
+@mixin sideNav-small {
   &.sidenavWrap {
     max-width: 3rem !important;
     min-width: 3rem !important;
@@ -112,5 +113,49 @@
   .sidenav-toggle {
     transform: rotate(180deg);
     left: 0;
+  }
+}
+%sideNav-small {
+    @include sideNav-small;
+}
+.active {
+  @extend %sideNav-small;
+}
+@media (max-width: 1023px) {
+  @include sideNav-small;
+  .active {
+    .sidenav.with-icons {
+      max-width: 275px !important;
+      width: 275px !important;
+      .nav-link {
+        /*padding-left: 275px !important;*/
+        padding-right: 1.5rem !important;
+        width: 275px;
+
+        .glyphicon {
+          left: 1rem !important;
+        }
+      }
+    }
+    .sidenav-toggle {
+      transform: rotate(0deg);
+      left: 220px;
+    }
+    .sidenav-mask {
+      opacity: 0.6;
+      z-index: $zindex-modal-bg;
+    }
+  }
+  .sidenav-mask {
+    background-color: black;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition-property: opacity;
+    transition-duration: 100ms;
+    z-index: -1;
   }
 }
