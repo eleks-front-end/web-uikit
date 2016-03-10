@@ -35,7 +35,7 @@ gulp.task('webserver', function() {
     gulp.src('')
         .pipe(webserver({
             livereload: true,
-            directoryListing: true,
+            //directoryListing: true,
             open: true
         }));
 });
