@@ -32,11 +32,12 @@
         }
 
         render() {
-            this.el.appendChild()
+            var interpreted = new TemplateInterpreter(this.template)
+            this.el.appendChild(interpreted)
         }
 
         setTemplate() {
-
+            
         }
 
         getTemplate() {
@@ -59,7 +60,7 @@
             }
         }
         
-        clone(obj) {
+        static clone(obj) {
             return obj;
         }
     }
@@ -95,7 +96,7 @@
     class TemplateInterpreter {
         constructor(template) {
             if (!(template instanceof Template))
-                throw new Error('Not valid data');
+                throw new Error('Not valid arguments');
 
             this.template = template;
         }
