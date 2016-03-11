@@ -1,13 +1,12 @@
-"use strict"
-
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var prefix = require('gulp-autoprefixer');
-var babel = require('gulp-babel');
-var sourcemaps = require('gulp-sourcemaps');
-var webserver = require('gulp-webserver');
-var exec = require('gulp-exec');
-var fs = require('fs');
+var gulp = require('gulp'),
+    sass = require('gulp-sass'),
+    prefix = require('gulp-autoprefixer'),
+    babel = require('gulp-babel'),
+    sourcemaps = require('gulp-sourcemaps'),
+    webserver = require('gulp-webserver'),
+    exec = require('gulp-exec'),
+    argv = require('yargs').argv,
+    fs = require('fs');
 
 gulp.task('run', ['compile', 'createBabelConfig', 'webserver', 'watch']);
 
@@ -41,8 +40,8 @@ gulp.task('sass', function () {
 gulp.task('webserver', function () {
     gulp.src('')
         .pipe(webserver({
-            livereload: true,
-            open: true
+            livereload: argv.live,
+            open: argv.open
         }));
 });
 

@@ -24,7 +24,8 @@
     "gulp-exec": "^2.1.2",
     "gulp-sass": "^2.1.1",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-webserver": "^0.9.1"
+    "gulp-webserver": "^0.9.1",
+    "yargs": "^4.2.0"
   },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.2"
