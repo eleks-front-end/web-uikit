@@ -74,10 +74,16 @@
 </head>
 <body>
 
-<input type="text" class="e-autocomplete" placeholder="Search..."/>
+<div class="e-autocomplete" data-api="google.com" data-tpl="#imgItem"></div>
 
+<script type="text/template" id="imgItemTpl">
 
-<script src="./public/scripts/search.js"></script>
+<h1>{{Title}}</h1>
+<h1>{{Desc}}</h1>
+
+</script>
+
+<script src="./scripts/index.js"></script>
 
 </body>
 </html>
