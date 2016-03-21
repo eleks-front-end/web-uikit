@@ -9,14 +9,14 @@
         <p>At a high level, here’s how the grid system works:</p>
         <ul>
             <li>There are three major components&mdash;containers, rows, and columns.</li>
-            <li>Containers&mdash;<code>.e-container</code> for fixed width or <code>.e-container-fluid</code> for full width&mdash;center your site’s contents and help align your grid content.</li>
+            <li>Containers&mdash;<code>.container</code> for fixed width or <code>.container-fluid</code> for full width&mdash;center your site’s contents and help align your grid content.</li>
             <li>Rows are horizontal groups of columns that ensure your columns are lined up properly.</li>
             <li>Content should be placed within columns, and only columns may be immediate children of rows.</li>
-            <li>Column classes indicate the number of columns you’d like to use out of the possible 12 per row. So if you need three equal-width columns, use <code>.e-col-sm-4</code>.</li>
+            <li>Column classes indicate the number of columns you’d like to use out of the possible 12 per row. So if you need three equal-width columns, use <code>.col-sm-4</code>.</li>
             <li>Column <code>width</code>s are set in percentage, so they’re always fluid and sized correspondingly to their parent element.</li>
             <li>Columns have horizontal <code>padding</code> to create the gutters between individual columns.</li>
             <li>There are five grid tiers, one for each responsive breakpoint: extra small, small, medium, large, and extra large.</li>
-            <li>Grid tiers are based on minimum widths, meaning they apply to that one tier and all those above it (e.g., <code>.e-col-sm-4</code> applies to small, medium, large, and extra large devices).</li>
+            <li>Grid tiers are based on minimum widths, meaning they apply to that one tier and all those above it (e.g., <code>.col-sm-4</code> applies to small, medium, large, and extra large devices).</li>
             <li>You can use predefined grid classes or Sass mixins for more semantic markup.</li>
         </ul>
         <!-- How it works end -->
@@ -25,9 +25,9 @@
         <h2 id="grid-quick-start-example">Quick start example</h2>
         <p>If you’re using Web UI Kit’s compiled CSS, this the example you’ll want to start with.</p>
 
-        <div class="e-example-block">
-            <div class="e-row">
-                <div class="e-col-sm-12">
+        <div class="example-block">
+            <div class="row">
+                <div class="col-sm-12">
                     {% include_relative grid/grid.html %}
                 </div>
             </div>
@@ -35,36 +35,36 @@
 
         {% highlight html %}{% include_relative grid/grid.html %}{% endhighlight %}
 
-        <p>The above example creates three equal-width columns on small, medium, large, and extra large devices using our <a href="#grid-predefined-classes">predefined grid classes</a>. Those columns are centered in the page with the parent <code>.e-container</code>.</p>
+        <p>The above example creates three equal-width columns on small, medium, large, and extra large devices using our <a href="#grid-predefined-classes">predefined grid classes</a>. Those columns are centered in the page with the parent <code>.container</code>.</p>
         <!-- Quick start example end -->
 
         <!-- Grid options start-->
         <h2 id="grid-grid-options">Grid options</h2>
         <p>Web UI Kit uses <code>px</code>s for grid breakpoints and container widths.</p>
         <p>In the table below, you can view how aspects of the Web UI Kit grid system work across multiple devices.</p>
-        <div class="e-example-block">
-            <div class="e-table-responsive">
-                <table class="e-table e-table-bordered e-table-striped">
+        <div class="example-block">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th></th>
-                            <th class="e-text-xs-center">
+                            <th class="text-xs-center">
                                 Extra small<br>
                                 <small>&lt;544px</small>
                             </th>
-                            <th class="e-text-xs-center">
+                            <th class="text-xs-center">
                                 Small<br>
                                 <small>≥544px</small>
                             </th>
-                            <th class="e-text-xs-center">
+                            <th class="text-xs-center">
                                 Medium<br>
                                 <small>≥768px</small>
                             </th>
-                            <th class="e-text-xs-center">
+                            <th class="text-xs-center">
                                 Large<br>
                                 <small>≥992px</small>
                             </th>
-                            <th class="e-text-xs-center">
+                            <th class="text-xs-center">
                                 Extra large<br>
                                 <small>≥1200px</small>
                             </th>
@@ -72,12 +72,12 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th class="e-text-nowrap">Grid behavior</th>
+                            <th class="text-nowrap">Grid behavior</th>
                             <td>Horizontal at all times</td>
                             <td colspan="4">Collapsed to start, horizontal above breakpoints</td>
                         </tr>
                         <tr>
-                            <th class="e-text-nowrap">Container width</th>
+                            <th class="text-nowrap">Container width</th>
                             <td>None (auto)</td>
                             <td>576px</td>
                             <td>720px</td>
@@ -85,31 +85,31 @@
                             <td>1140px</td>
                         </tr>
                         <tr>
-                            <th class="e-text-nowrap">Class prefix</th>
-                            <td><code>.e-col-xs-</code></td>
-                            <td><code>.e-col-sm-</code></td>
-                            <td><code>.e-col-md-</code></td>
-                            <td><code>.e-col-lg-</code></td>
-                            <td><code>.e-col-xl-</code></td>
+                            <th class="text-nowrap">Class prefix</th>
+                            <td><code>.col-xs-</code></td>
+                            <td><code>.col-sm-</code></td>
+                            <td><code>.col-md-</code></td>
+                            <td><code>.col-lg-</code></td>
+                            <td><code>.col-xl-</code></td>
                         </tr>
                         <tr>
-                            <th class="e-text-nowrap"># of columns</th>
+                            <th class="text-nowrap"># of columns</th>
                             <td colspan="5">12</td>
                         </tr>
                         <tr>
-                            <th class="e-text-nowrap">Gutter width</th>
+                            <th class="text-nowrap">Gutter width</th>
                             <td colspan="5">1.875rem / 30px (15px on each side of a column)</td>
                         </tr>
                         <tr>
-                            <th class="e-text-nowrap">Nestable</th>
+                            <th class="text-nowrap">Nestable</th>
                             <td colspan="5">Yes</td>
                         </tr>
                         <tr>
-                            <th class="e-text-nowrap">Offsets</th>
+                            <th class="text-nowrap">Offsets</th>
                             <td colspan="5">Yes</td>
                         </tr>
                         <tr>
-                            <th class="e-text-nowrap">Column ordering</th>
+                            <th class="text-nowrap">Column ordering</th>
                             <td colspan="5">Yes</td>
                         </tr>
                     </tbody>
@@ -129,12 +129,12 @@
         <p>In addition to our semantic mixins, Web UI Kit includes an extensive set of prebuilt classes to quickly create grid columns. It includes options for device-based column sizing, reordering columns, and more.</p>
 
         <h3 id="grid-example-stacked-to-horizontal">Example: Stacked to horizontal</h3>
-        <p>Using a single set of <code>.e-col-md-*</code> grid classes, you can create a basic grid system that starts out stacked on mobile devices and tablet devices (the extra small to small range) before becoming horizontal on desktop (medium) devices. Place grid columns in any <code>.e-row</code>.</p>
+        <p>Using a single set of <code>.col-md-*</code> grid classes, you can create a basic grid system that starts out stacked on mobile devices and tablet devices (the extra small to small range) before becoming horizontal on desktop (medium) devices. Place grid columns in any <code>.row</code>.</p>
 
-        <div class="e-example-block">
-            <div class="e-row">
-                <div class="e-col-sm-12">
-                    <div class="e-example">
+        <div class="example-block">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="example">
                         {% include_relative grid/exampleStackedToHorizontal.html %}
                     </div>
                 </div>
@@ -144,12 +144,12 @@
         {% highlight html %}{% include_relative grid/exampleStackedToHorizontal.html %}{% endhighlight %}
 
         <h3 id="grid-example-mobile-tablet-desktop">Example: Mobile, tablet, desktop</h3>
-        <p>Build on the previous example by creating even more dynamic and powerful layouts with tablet <code>.e-col-sm-*</code> classes.</p>
+        <p>Build on the previous example by creating even more dynamic and powerful layouts with tablet <code>.col-sm-*</code> classes.</p>
 
-        <div class="e-example-block">
-            <div class="e-row">
-                <div class="e-col-sm-12">
-                    <div class="e-example">
+        <div class="example-block">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="example">
                         {% include_relative grid/exampleMobileTabletDesktop.html %}
                     </div>
                 </div>
@@ -158,13 +158,13 @@
 
         {% highlight html %}{% include_relative grid/exampleMobileTabletDesktop.html %}{% endhighlight %}
 
-        <h3 id="grid-example-column-wrapping">Example: Column wrapping</h3>
+        <h3 id="grid-examplcolumn-wrapping">Example: Column wrapping</h3>
         <p>If more than 12 columns are placed within a single row, each group of extra columns will wrap onto a new line as one unit.</p>
 
-        <div class="e-example-block">
-            <div class="e-row">
-                <div class="e-col-sm-12">
-                    <div class="e-example">
+        <div class="example-block">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="example">
                         {% include_relative grid/exampleColumnWrapping.html %}
                     </div>
                 </div>
@@ -175,12 +175,12 @@
         <!-- Predefined classes end -->
 
         <h3 id="grid-example-offsetting-columns">Example: Offsetting columns</h3>
-        <p>Move columns to the right using <code>.e-col-md-offset-*</code> classes. These classes increase the left margin of a column by <code>*</code> columns. For example, <code>.e-col-md-offset-4</code> moves <code>.e-col-md-4</code> over four columns.</p>
+        <p>Move columns to the right using <code>.col-md-offset-*</code> classes. These classes increase the left margin of a column by <code>*</code> columns. For example, <code>.col-md-offset-4</code> moves <code>.col-md-4</code> over four columns.</p>
 
-        <div class="e-example-block">
-            <div class="e-row">
-                <div class="e-col-sm-12">
-                    <div class="e-example">
+        <div class="example-block">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="example">
                         {% include_relative grid/exampleOffsettingColumns.html %}
                     </div>
                 </div>
@@ -190,12 +190,12 @@
         {% highlight html %}{% include_relative grid/exampleOffsettingColumns.html %}{% endhighlight %}
 
         <h3 id="grid-example-nesting-columns">Example: Nesting columns</h3>
-        <p>To nest your content with the default grid, add a new <code>.e-row</code> and set of <code>.e-col-sm-*</code> columns within an existing <code>.e-col-sm-*</code> column. Nested rows should include a set of columns that add up to 12 or fewer (it is not required that you use all 12 available columns).</p>
+        <p>To nest your content with the default grid, add a new <code>.row</code> and set of <code>.col-sm-*</code> columns within an existing <code>.col-sm-*</code> column. Nested rows should include a set of columns that add up to 12 or fewer (it is not required that you use all 12 available columns).</p>
 
-        <div class="e-example-block">
-            <div class="e-row">
-                <div class="e-col-sm-12">
-                    <div class="e-example">
+        <div class="example-block">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="example">
                         {% include_relative grid/exampleNestingColumns.html %}
                     </div>
                 </div>
@@ -204,13 +204,13 @@
 
         {% highlight html %}{% include_relative grid/exampleNestingColumns.html %}{% endhighlight %}
 
-        <h3 id="grid-example-column-ordering">Example: Column ordering</h3>
-        <p>Easily change the order of our built-in grid columns with <code>.e-col-md-push-*</code> and <code>.e-col-md-pull-*</code> modifier classes. Also you can use classes <code>.e-col-md-first</code> or <code>.e-col-md-last</code>.</p>
+        <h3 id="grid-examplcolumn-ordering">Example: Column ordering</h3>
+        <p>Easily change the order of our built-in grid columns with <code>.col-md-push-*</code> and <code>.col-md-pull-*</code> modifier classes. Also you can use classes <code>.col-md-first</code> or <code>.col-md-last</code>.</p>
 
-        <div class="e-example-block">
-            <div class="e-row">
-                <div class="e-col-sm-12">
-                    <div class="e-example">
+        <div class="example-block">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="example">
                         {% include_relative grid/exampleColumnOrdering.html %}
                     </div>
                 </div>
@@ -222,11 +222,11 @@
         <h3 id="grid-example-horizontal-alignment">Example: Horizontal alignment</h3>
         <p>Add classes to align elements to the start or end of a row as well as the top, bottom, or center of a column.</p>
 
-        <h5>.e-start-</h5>
-        <div class="e-example-block">
-            <div class="e-row">
-                <div class="e-col-sm-12">
-                    <div class="e-example">
+        <h5>.start-*</h5>
+        <div class="example-block">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="example">
                         {% include_relative grid/exampleHorizontalAlignmentStart.html %}
                     </div>
                 </div>
@@ -235,11 +235,11 @@
 
         {% highlight html %}{% include_relative grid/exampleHorizontalAlignmentStart.html %}{% endhighlight %}
 
-        <h5>.e-center-</h5>
-        <div class="e-example-block">
-            <div class="e-row">
-                <div class="e-col-sm-12">
-                    <div class="e-example">
+        <h5>.center-*</h5>
+        <div class="example-block">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="example">
                         {% include_relative grid/exampleHorizontalAlignmentCenter.html %}
                     </div>
                 </div>
@@ -248,11 +248,11 @@
 
         {% highlight html %}{% include_relative grid/exampleHorizontalAlignmentCenter.html %}{% endhighlight %}
 
-        <h5>.e-end-</h5>
-        <div class="e-example-block">
-            <div class="e-row">
-                <div class="e-col-sm-12">
-                    <div class="e-example">
+        <h5>.end-*</h5>
+        <div class="example-block">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="example">
                         {% include_relative grid/exampleHorizontalAlignmentEnd.html %}
                     </div>
                 </div>
@@ -264,11 +264,11 @@
         <h3 id="grid-example-vertical-alignment-for-parent">Example: Vertical alignment for parent</h3>
         <p>Add classes to align elements to the start or end of a row as well as the top, bottom, or center of a column</p>
 
-        <h5>.e-row-*-top</h5>
-        <div class="e-example-block">
-            <div class="e-row">
-                <div class="e-col-sm-12">
-                    <div class="e-example">
+        <h5>.row-*-top</h5>
+        <div class="example-block">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="example">
                         {% include_relative grid/exampleVerticalAlignmentForParentStart.html %}
                     </div>
                 </div>
@@ -277,11 +277,11 @@
 
         {% highlight html %}{% include_relative grid/exampleVerticalAlignmentForParentStart.html %}{% endhighlight %}
 
-        <h5>.e-row-*-center</h5>
-        <div class="e-example-block">
-            <div class="e-row">
-                <div class="e-col-sm-12">
-                    <div class="e-example">
+        <h5>.row-*-center</h5>
+        <div class="example-block">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="example">
                         {% include_relative grid/exampleVerticalAlignmentForParentCenter.html %}
                     </div>
                 </div>
@@ -290,11 +290,11 @@
 
         {% highlight html %}{% include_relative grid/exampleVerticalAlignmentForParentCenter.html %}{% endhighlight %}
 
-        <h5>.e-row-*-bottom</h5>
-        <div class="e-example-block">
-            <div class="e-row">
-                <div class="e-col-sm-12">
-                    <div class="e-example">
+        <h5>.row-*-bottom</h5>
+        <div class="example-block">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="example">
                         {% include_relative grid/exampleVerticalAlignmentForParentEnd.html %}
                     </div>
                 </div>
@@ -306,11 +306,11 @@
         <h3 id="grid-example-vertical-alignment-for-children">Example: Vertical alignment for children</h3>
         <p>Add classes to align elements to the start or end of a column as well as the top, bottom, or center of a row</p>
 
-        <h5>.e-col-*-top</h5>
-        <div class="e-example-block">
-            <div class="e-row">
-                <div class="e-col-sm-12">
-                    <div class="e-example">
+        <h5>.col-*-top</h5>
+        <div class="example-block">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="example">
                         {% include_relative grid/exampleVerticalAlignmentForChildrenStart.html %}
                     </div>
                 </div>
@@ -319,11 +319,11 @@
 
         {% highlight html %}{% include_relative grid/exampleVerticalAlignmentForChildrenStart.html %}{% endhighlight %}
 
-        <h5>.e-col-*-center</h5>
-        <div class="e-example-block">
-            <div class="e-row">
-                <div class="e-col-sm-12">
-                    <div class="e-example">
+        <h5>.col-*-center</h5>
+        <div class="example-block">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="example">
                         {% include_relative grid/exampleVerticalAlignmentForChildrenCenter.html %}
                     </div>
                 </div>
@@ -332,11 +332,11 @@
 
         {% highlight html %}{% include_relative grid/exampleVerticalAlignmentForChildrenCenter.html %}{% endhighlight %}
 
-        <h5>.e-col-*-bottom</h5>
-        <div class="e-example-block">
-            <div class="e-row">
-                <div class="e-col-sm-12">
-                    <div class="e-example">
+        <h5>.col-*-bottom</h5>
+        <div class="example-block">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="example">
                         {% include_relative grid/exampleVerticalAlignmentForChildrenEnd.html %}
                     </div>
                 </div>
@@ -348,11 +348,11 @@
         <h3 id="grid-example-distribution">Example: Distribution</h3>
         <p>Add classes to distribute the contents of a row or column.</p>
 
-        <h5>.e-around-</h5>
-        <div class="e-example-block">
-            <div class="e-row">
-                <div class="e-col-sm-12">
-                    <div class="e-example">
+        <h5>.around-*</h5>
+        <div class="example-block">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="example">
                         {% include_relative grid/exampleDistributionAround.html %}
                     </div>
                 </div>
@@ -361,11 +361,11 @@
 
         {% highlight html %}{% include_relative grid/exampleDistributionAround.html %}{% endhighlight %}
 
-        <h5>.e-between-</h5>
-        <div class="e-example-block">
-            <div class="e-row">
-                <div class="e-col-sm-12">
-                    <div class="e-example">
+        <h5>.between-*</h5>
+        <div class="example-block">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="example">
                         {% include_relative grid/exampleDistributionBetween.html %}
                     </div>
                 </div>
