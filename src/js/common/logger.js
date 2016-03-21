@@ -1,14 +1,13 @@
-/**
- * Created by Dmytro.Verbovyi on 14.03.2016.
- */
-
 export default class Logger {
-    const MESSAGES = {
-        ABSTRACT_CLASS: 'Abstract class! The instance shouldn\'t be created',
-        ABSTRACT_METHOD: 'The method isn\'t implemented'
-    };
+    constructor () {
+        this.MESSAGES = {
+            ABSTRACT_CLASS: 'Abstract class! The instance shouldn\'t be created',
+            ABSTRACT_METHOD: 'The method isn\'t implemented'
+        };
+    }
 
-    static log(message, status) {
+
+    static log (message, status) {
         let method;
         switch (status) {
             case 1:
@@ -21,18 +20,18 @@ export default class Logger {
                 method = 'debug';
                 break;
             default:
-                method = 'log'
+                method = 'log';
         }
         console[method](message);
 
         return message;
     }
 
-    static abstractClassError() {
+    static abstractClassError () {
         Logger.log(this.MESSAGES.ABSTRACT_CLASS, 1);
     }
 
-    static abstractMethod() {
+    static abstractMethod () {
         Logger.log(this.MESSAGES.ABSTRACT_METHOD, 2);
     }
 

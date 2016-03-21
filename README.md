@@ -5,4 +5,4 @@ Web uikit for eleks projects
 
 ### For development:
 1. ```npm install```
-1. ```gulp run``` //for livereloading run with argument --live-reload
+1. ```npm start```
