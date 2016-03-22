@@ -1,6 +1,8 @@
+import { Logger } from './logger';
+
 export default class Utils {
     constructor () {
-        throw new Error('Abstract Class! The instance shouldn\'t be created');
+        Logger.abstractClassError();
     }
 
     static extend (obj1, obj2) {
