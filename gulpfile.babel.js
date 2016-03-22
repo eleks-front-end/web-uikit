@@ -14,7 +14,6 @@ import sourcemaps from 'gulp-sourcemaps';
 import autoprefixer from 'gulp-autoprefixer';
 import gIf from 'gulp-if';
 import watch from 'gulp-watch';
-import svgSprite from 'gulp-svg-sprite';
 import cssNano from 'gulp-cssnano';
 import sequence from 'gulp-sequence';
 import util from 'gulp-util';
@@ -70,8 +69,10 @@ function runScriptsBundler (isWatchMode) {
                 this.emit('end');
             })
             .pipe(source('index.js'))
+            //.pipe(gIf(IS_DEV_MODE, sourcemaps.init()))
             .pipe(gIf(!IS_DEV_MODE, buffer()))
             .pipe(gIf(!IS_DEV_MODE, uglify(config.uglify)))
+            //.pipe(gIf(IS_DEV_MODE, sourcemaps.write()))
             .pipe(gulp.dest(destinationDirectory))
             .pipe(gIf(IS_DEV_MODE, browserSync.reload({stream: true})));
     }
@@ -137,7 +138,6 @@ gulp.task('build:svg', () => {
 
     return gulp.src(`${sourceDirectory}/svg/**/*.svg`)
         .pipe(plumber())
-        .pipe(svgSprite(config))
         .pipe(gulp.dest(destinationDirectory))
         .pipe(gIf(IS_DEV_MODE, browserSync.reload({stream: true})));
 });

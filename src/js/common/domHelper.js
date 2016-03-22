@@ -17,6 +17,16 @@ export default class DOMHelper {
         }
     }
 
+    /**
+     *
+     * @param {String} selector
+     * @returns {NodeList}
+     */
+    static get(selector) {
+        //TODO - specify switch selection by selector's type
+        return document.querySelectorAll(selector)
+    }
+
     static createNode (type, options) {
         let el = document.createElement(type);
 

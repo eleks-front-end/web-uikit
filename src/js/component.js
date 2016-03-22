@@ -17,7 +17,7 @@ export class Component{
     }
 
     static autoInit (className) {
-        const elements = document.querySelectorAll(`.${className}`);
+        const elements = [].slice.call(DOM.get(`.${className}`));
 
         for (const element of elements) {
             new Component(element, this.grabAttrOptions(element));
