@@ -2,12 +2,10 @@ import DOM from './common/domHelper';
 import Utils from './common/utils';
 import { SearchView } from './views/searchView';
 
-export class Component {
+export class Component{
     constructor (element, options) {
-        console.log(element, options);
-        this.element = element;
+        this.el = element || document.body;
         const defaults = {
-            appendTo: document.body,
             width: 'auto',
             maxHeight: 300,
             zIndex: 9999
@@ -49,12 +47,12 @@ export class Component {
     }
 
     render () {
-        //let el = this.getAttr('el'),
-        //    fragment = DOM.createFragment(),
-        //    search = new SearchView().el;
-        //
-        //fragment.appendChild(search);
-        //
-        //el.appendChild(fragment);
+        let el = this.el,
+            fragment = DOM.createFragment(),
+            search = new SearchView().el;
+
+        fragment.appendChild(search);
+
+        el.appendChild(fragment);
     }
 }

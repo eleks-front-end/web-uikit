@@ -1,6 +1,6 @@
 import { Logger } from '../common/logger';
 
-export default class {
+export default class BaseView {
     constructor () {
         this._element = null;
         this.setupView();
