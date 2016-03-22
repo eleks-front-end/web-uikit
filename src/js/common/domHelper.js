@@ -1,6 +1,6 @@
 import { Logger } from './logger';
 
-export default class DOMHelper {
+export default class {
     constructor () {
         Logger.abstractClassError();
     }
@@ -20,7 +20,7 @@ export default class DOMHelper {
     static createNode (type, options) {
         let el = document.createElement(type);
 
-        DOMHelper.setElementOptions(options);
+        this.setElementOptions(options);
 
         return el;
     }
@@ -32,12 +32,12 @@ export default class DOMHelper {
     }
 
     static addClass (node, className) {
-        if (!DOMHelper.hasClass(node, className))
+        if (!this.hasClass(node, className))
             node.addClass(className);
     }
 
     static removeClass (node, className) {
-        if (DOMHelper.hasClass(node, className))
+        if (this.hasClass(node, className))
             node.removeClass(className);
     }
 

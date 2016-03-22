@@ -1,6 +1,6 @@
-import { Logger } from '../common/logger';
-import { BaseView } from './baseView';
-import { DOMHelper as DOM } from '../common/domHelper';
+import Logger from '../common/logger';
+import BaseView from './baseView';
+import { DOM } from '../common/domHelper';
 
 export class SearchView extends BaseView {
     setupView () {

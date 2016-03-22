@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="eleks-ui-kit.css">
     <link rel="stylesheet" href="preview.css">
+
     <title>Hello world</title>
-  </head>
-  <body>
-  <div class="e-autocomplete" data-api="google.com" data-tpl="#imgItem"></div>
-  <script type="text/template" id="imgItemTpl">
+</head>
+<body>
+    <input type="search" class="e-search" data-search-api="http://www.regexr.com/" data-search-height="400">
+    <input type="search" class="e-search" data-search-api="http://www.regexr2.com/" data-search-height="500">
+    <script type="text/template" id="imgItemTpl">
 
-  <h1>{{Title}}</h1>
-  <h1>{{Desc}}</h1>
+        <h1>{{Title}}</h1>
+        <h1>{{Desc}}</h1>
 
-  </script>
-  </body>
+    </script>
+
+    <script type="text/javascript" src="index.js"></script>
+</body>
 </html>

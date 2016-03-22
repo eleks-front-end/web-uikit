@@ -3,15 +3,6 @@ export default class Utils {
         throw new Error('Abstract Class! The instance shouldn\'t be created');
     }
 
-    static extend (obj1, obj2) {
-        for (const key in obj2) {
-            if (!obj2.hasOwnProperty(key))
-                continue;
-
-            obj1[key] = obj2[key];
-        }
-    }
-
     static clone (obj) {
         if (obj == null || typeof obj !== 'object')
             return obj;
@@ -22,5 +13,17 @@ export default class Utils {
             if (obj.hasOwnProperty(key))
                 temp[key] = obj[key];
         return temp;
+    }
+
+    static isUndefined (val) {
+        return typeof val === 'undefined';
+    }
+
+    static isPlainObj (obj) {
+        return Object.prototype.toString.call(obj) === '[object Object]';
+    }
+
+    static isArray (arr) {
+        return Array.isArray ? Array.isArray(arr) : Object.prototype.toString.call(arr) === '[object Array]';
     }
 }

@@ -1,4 +1,4 @@
-export default class Logger {
+export default class {
     constructor () {
         this.MESSAGES = {
             ABSTRACT_CLASS: 'Abstract class! The instance shouldn\'t be created',

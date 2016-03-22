@@ -35,7 +35,7 @@ const destinationDirectory = packageJSON.directories.dist;
  * @param  {Boolean} isWatchMode Are we in watching mode?
  * @return {Function}            Exposed bundler function.
  */
-function runScriptsBundler(isWatchMode) {
+function runScriptsBundler (isWatchMode) {
     // Configuration.
     const config = {
         babel: JSON.parse(fs.readFileSync(`${__dirname}/.babelrc`, 'utf8')),
@@ -69,7 +69,7 @@ function runScriptsBundler(isWatchMode) {
                 console.log(error); // eslint-disable-line no-console
                 this.emit('end');
             })
-            .pipe(source('scripts.js'))
+            .pipe(source('index.js'))
             .pipe(gIf(!IS_DEV_MODE, buffer()))
             .pipe(gIf(!IS_DEV_MODE, uglify(config.uglify)))
             .pipe(gulp.dest(destinationDirectory))

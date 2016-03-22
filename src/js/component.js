@@ -1,44 +1,60 @@
-import { DOMHelper as DOM } from './common/domHelper';
-import { Utils } from './common/utils';
+import DOM from './common/domHelper';
+import Utils from './common/utils';
 import { SearchView } from './views/searchView';
 
-export default class Component {
-    constructor (options) {
-        this.attributes = {
-            el: document.body,
-            apis: [
-                {
-                    url: '...',
-                    template: '<div><h1>{title}</h1><img src="{desc.image}"></div>',
-                    apiAdapter: 'title->name;desc.image->img'
-                }
-
-            ]
+export class Component {
+    constructor (element, options) {
+        console.log(element, options);
+        this.element = element;
+        const defaults = {
+            appendTo: document.body,
+            width: 'auto',
+            maxHeight: 300,
+            zIndex: 9999
         };
 
-        Utils.extend(this.attributes, options);
+        this.options = Object.assign({}, defaults, options);
 
         this.render();
     }
 
-    getAttr (key) {
-        return this.attributes[key];
+    static autoInit (className) {
+        const elements = document.querySelectorAll(`.${className}`);
+
+        for (const element of elements) {
+            new Component(element, this.grabAttrOptions(element));
+            console.log(this.grabAttrOptions(element));
+        }
     }
 
-    static autoInit (className) {
-        let elements = [].slice.call(document.getElementsByClassName(className));
-        elements.forEach(node => {
-            new Component();  //TODO: collect and pass all data attributes as options
-        });
+    static grabAttrOptions (element) {
+        let options = {};
+
+        const attrs = element.attributes;
+
+        for (const k in attrs) {
+            if (!attrs.hasOwnProperty(k))
+                continue;
+
+            const attr = attrs[k];
+            const matchAttr = /^data-search-(.+)$/g.exec(attr.name);
+
+            if (!matchAttr)
+                continue;
+
+            options[matchAttr[1]] = attr.value;
+        }
+
+        return options;
     }
 
     render () {
-        let el = this.getAttr('el'),
-            fragment = DOM.createFragment(),
-            search = new SearchView().el;
-
-        fragment.appendChild(search);
-
-        el.appendChild(fragment);
+        //let el = this.getAttr('el'),
+        //    fragment = DOM.createFragment(),
+        //    search = new SearchView().el;
+        //
+        //fragment.appendChild(search);
+        //
+        //el.appendChild(fragment);
     }
 }

@@ -1,12 +1,21 @@
+import crossbrowser from './common/crossbrowser';
 import { Service } from './service';
 import { Component } from './component';
+import Ajax from './common/ajax';
+
 
 ((root, factory) => {
+    crossbrowser();
+    var promise = new Ajax();
     const SETUP_CONFIG = {
-        INIT_CLASSNAME: 'e-autocomplete'
+        INIT_CLASSNAME: 'e-search'
     };
 
-    let SearchEngine = factory({});
+    promise.get('http://api-mockapitron.rhcloud.com/?size=3&name=name&address=address').then(response => {
+        console.log(response);
+    });
+
+    const SearchEngine = factory({});
 
     root.SearchEngine = SearchEngine;
 
