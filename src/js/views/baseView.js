@@ -1,35 +1,36 @@
 import { Logger } from '../common/logger';
 
 export default class BaseView {
-    constructor (element, options) {
-        this._element = element || null;
+    constructor(element = null, options) {
+        this._element = element;
         this.options = options;
         this.setupView();
         this.setupEvents();
     }
 
-    setupView () {
+    setupView() {
         Logger.abstractMethod();
     }
 
-    setupEvents () {}
+    setupEvents() {
+    }
 
-    set el (node) {
+    set el(node) {
         if (!(node instanceof HTMLElement))
-            Logger.log('Value not assignable to el', 1);
+            return Logger.log('Value not assignable to el', 1);
 
         this._element = node;
     }
 
-    get el () {
+    get el() {
         return this._element;
     }
 
-    hide () {
+    hide() {
         this.el.style.display = 'none';
     }
 
-    show () {
+    show() {
         this.el.style.display = '';
     }
 }

@@ -7,12 +7,9 @@ import { ResultView } from './resultView';
 
 export class SearchView extends BaseView {
     setupView () {
-        //this.el = DOM.createNode('input', {
-        //    type: 'search',
-        //    id: 'search'
-        //});
+        this.el = this._element;
 
-        this.resultView = new ResultView();
+        this.resultView = new ResultView(); //TODO SearchView shouldn't know about Result
     }
 
     setupEvents () {
@@ -34,7 +31,7 @@ export class SearchView extends BaseView {
                         return item;
                     });
                     console.log(response)
-                    this.resultView.updateView(response);
+                    this.resultView.updateView(response);//TODO SearchView shouldn't know about Result
                 }, response => {
                     console.log(response, e);
                 });
@@ -43,16 +40,19 @@ export class SearchView extends BaseView {
                 response = Array.from(response);
                 response.map(item => {
                     item.type = api.tpl || this.options.defaultTpl;
+                    //TODO - move transformApi to ajaxService or utils?
                     item = SearchView.transformApi(this.options.api.transform, item);
                     return item;
                 });
-                this.resultView.updateView(response);
+                this.resultView.updateView(response);//TODO SearchView shouldn't know about Result
             }, response => {
                 console.log(response, e);
             });
     }
 
+    //TODO - move transformApi to ajaxService or utils?
     static transformApi (parser, obj) {
+        console.log(parser);
         const map = {};
         const parserArr = parser.split(';');
         const transformed = {};

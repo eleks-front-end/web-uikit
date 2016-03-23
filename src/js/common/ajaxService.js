@@ -1,4 +1,4 @@
-const ajaxService = (() => {
+export default (() => {
     const EVENTS = {
         READY_STATE_CHANGE: 'onreadystatechange',
         LOAD_START: 'loadstart',
@@ -18,47 +18,59 @@ const ajaxService = (() => {
         withCredentials: false
     };
 
-    const setHeaders = (xhr, headers) => {
+    const service = {
+        send: Send,
+        get: Get,
+        post: Post
+    };
+
+    return service;
+
+    function Send (url, method, data, options) {
+        return new Promise((resolve, reject) => {
+            try {
+                _sendRequest(url, method, data, resolve, reject, options);
+            } catch (e) {
+                reject(e);
+            }
+        });
+    }
+
+    function Get (url, data, options) {
+        return Send(url, 'GET', data, options);
+    }
+
+    function Post (url, data, options) {
+        return Send(url, 'POST', data, options);
+    }
+
+    function _sendRequest (url, method = 'GET', data, resolve, reject, async = true, options) {
+        let ajaxOptions = Object.assign({}, DEFAULTS, options);
+        const xhr = new XMLHttpRequest();
+        xhr.open(method, url, async);
+
+        _setHeaders(xhr, ajaxOptions.headers);
+
+        if (ajaxOptions.withCredentials)
+            xhr.withCredentials = true;
+
+        data = data ? _parseData(data, options.headers) : null;
+
+        _setupEventListeners(xhr, resolve, reject, ajaxOptions.json);
+
+        data ? xhr.send(data) : xhr.send();
+    }
+
+    function _setHeaders (xhr, headers) {
         for (const headerName in headers) {
             if (!headers.hasOwnProperty(headerName))
                 continue;
 
             xhr.setRequestHeader(headerName, headers[headerName]);
         }
-    };
+    }
 
-    const parseResponse = (xhr, isJson) => {
-        let responseText = '';
-
-        if (xhr.responseText)
-            responseText = isJson ? JSON.parse(xhr.responseText) : xhr.responseText;
-
-        return responseText;
-    };
-
-    const setupEventListeners = (xhr, resolve, reject, isJson) => {
-        let errorHandler = () => {
-            reject(parseResponse(xhr, isJson));
-        };
-
-        xhr[EVENTS.READY_STATE_CHANGE] = () => {
-            if(xhr.readyState === 4) {
-                if (xhr.status >= 200 && xhr.status <= 300)
-                    resolve(parseResponse(xhr, isJson), xhr);
-                else {
-                    errorHandler();
-                }
-            }
-        };
-
-        xhr.addEventListener(EVENTS.ERROR, () => errorHandler);
-
-        xhr.addEventListener(EVENTS.TIMEOUT, () => errorHandler);
-
-        xhr.addEventListener(EVENTS.ABORT, () => errorHandler);
-    };
-
-    const parseData = (data, headers) => {
+    function _parseData (data, headers) {
         if (headers['Content-Type'] === 'application/json')
             return JSON.stringify(data);
 
@@ -74,60 +86,36 @@ const ajaxService = (() => {
             }
 
         return query.join('&');
-    };
+    }
 
-    const sendRequest = (url, method = 'GET', data, resolve, reject, async = true, options) => {
-        let ajaxOptions = Object.assign({}, DEFAULTS, options);
-        const xhr = (() => {
-            let xmlhttp = null;
-            try {
-                xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
-            } catch (e) {
-                try {
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                } catch (E) {
-                    xmlhttp = false;
+    function _setupEventListeners (xhr, resolve, reject, isJson) {
+        const errorHandler = () => {
+            reject(_parseResponse(xhr, isJson));
+        };
+
+        xhr[EVENTS.READY_STATE_CHANGE] = () => {
+            if(xhr.readyState === 4) {
+                if (xhr.status >= 200 && xhr.status <= 300)
+                    resolve(_parseResponse(xhr, isJson), xhr);
+                else {
+                    errorHandler();
                 }
             }
-            if (!xmlhttp && typeof XMLHttpRequest != 'undefined') {
-                xmlhttp = new XMLHttpRequest();
-            }
-            return xmlhttp;
-        })();
-        xhr.open(method, url, async);
+        };
 
-        setHeaders(xhr, ajaxOptions.headers);
+        xhr.addEventListener(EVENTS.ERROR, () => errorHandler);
 
-        if (ajaxOptions.withCredentials)
-            xhr.withCredentials = true;
+        xhr.addEventListener(EVENTS.TIMEOUT, () => errorHandler);
 
-        data = data ? parseData(data, options.headers) : null;
+        xhr.addEventListener(EVENTS.ABORT, () => errorHandler);
+    }
 
-        setupEventListeners(xhr, resolve, reject, ajaxOptions.json);
+    function _parseResponse (xhr, isJson) {
+        let responseText = '';
 
-        data ? xhr.send(data) : xhr.send();
+        if (xhr.responseText)
+            responseText = isJson ? JSON.parse(xhr.responseText) : xhr.responseText;
 
-    };
-
-    return {
-        send (url, method, data, options) {
-            return new Promise((resolve, reject) => {
-                try {
-                    sendRequest(url, method, data, resolve, reject, options);
-                } catch (e) {
-                    reject(e);
-                }
-            });
-        },
-
-        get (url, data, options) {
-            return this.send(url, 'GET', data, options);
-        },
-
-        post (url, data, options) {
-            return this.send(url, 'POST', data, options);
-        }
-    };
+        return responseText;
+    }
 })();
-
-export default ajaxService;

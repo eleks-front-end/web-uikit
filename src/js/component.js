@@ -67,5 +67,6 @@ export class Component {
 
     render () {
         let search = new SearchView(this.el, this.options);
+        //let results = new ResultView() //TODO should be here
     }
 }

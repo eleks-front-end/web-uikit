@@ -4,16 +4,16 @@ import DOM from '../common/domHelper';
 import ajaxService from '../common/ajaxService';
 import TEMPLATES from '../templates/templatesNames';
 
-let instance = null;
+//let instance = null;
 
 export class ResultView extends BaseView {
     constructor () {
         super();
 
-        if (!instance)
-            instance = this;
-
-        return instance;
+        //if (!instance)
+        //    instance = this;
+        //
+        //return instance;
     }
 
     setupView () {
@@ -26,6 +26,8 @@ export class ResultView extends BaseView {
         const resultItemEl = DOM.createNode('li', {
             class: 'e-search-results-item'
         });
+
+        const fragment = DOM.createFragment();
 
         for (const item of items) {
             let itemTpl;
@@ -44,10 +46,10 @@ export class ResultView extends BaseView {
             console.log(itemTpl)
 
             resultItemEl.innerHTML = itemTpl;
-            this.el.appendChild(resultItemEl);
+            fragment.appendChild(resultItemEl);
         }
 
+        this.el.appendChild(fragment);
         console.log(this.el)
     }
-
 }
