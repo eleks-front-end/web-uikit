@@ -120,12 +120,12 @@ const ajaxService = (() => {
             });
         },
 
-        get (url) {
-            return this.send(url);
+        get (url, data, options) {
+            return this.send(url, 'GET', data, options);
         },
 
-        post (url, data) {
-            return this.send(url, 'POST', data);
+        post (url, data, options) {
+            return this.send(url, 'POST', data, options);
         }
     }
 })();
