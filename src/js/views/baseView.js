@@ -1,8 +1,9 @@
 import { Logger } from '../common/logger';
 
 export default class BaseView {
-    constructor () {
-        this._element = null;
+    constructor (element, options) {
+        this._element = element || null;
+        this.options = options;
         this.setupView();
         this.setupEvents();
     }

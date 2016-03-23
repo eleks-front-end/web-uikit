@@ -127,7 +127,7 @@ const ajaxService = (() => {
         post (url, data) {
             return this.send(url, 'POST', data);
         }
-    }
+    };
 })();
 
 export default ajaxService;

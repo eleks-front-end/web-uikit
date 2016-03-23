@@ -2,27 +2,26 @@ import DOM from './common/domHelper';
 import Utils from './common/utils';
 import { SearchView } from './views/searchView';
 
-export class Component{
+export class Component {
     constructor (element, options) {
-        this.el = element || document.body;
+        this.el = element;
         const defaults = {
             width: 'auto',
             maxHeight: 300,
-            zIndex: 9999
+            zIndex: 9999,
+            defaultTpl: 'plainText'
         };
 
         this.options = Object.assign({}, defaults, options);
-
+        console.log(this)
         this.render();
     }
 
     static autoInit (className) {
         const elements = [].slice.call(DOM.get(`.${className}`));
 
-        for (const element of elements) {
+        for (const element of elements)
             new Component(element, this.grabAttrOptions(element));
-            console.log(this.grabAttrOptions(element));
-        }
     }
 
     static grabAttrOptions (element) {
@@ -40,19 +39,33 @@ export class Component{
             if (!matchAttr)
                 continue;
 
-            options[matchAttr[1]] = attr.value;
+            let name = matchAttr[1].split('-');
+
+            if (name.length <= 1)
+                options[name[0]] = attr.value;
+            else
+                this.prepareCompositeOptions(options, name, attr.value);
         }
 
         return options;
     }
 
+    static prepareCompositeOptions (options, path, value) {
+        var option;
+
+        for (let i = 0, length = path.length; i < length; i++) {
+            let subPath = path[i];
+
+            if (i === path.length - 1)
+                option[subPath] = value;
+            else {
+                options[subPath] = options[subPath] || {};
+                option = options[subPath];
+            }
+        }
+    }
+
     render () {
-        let el = this.el,
-            fragment = DOM.createFragment(),
-            search = new SearchView().el;
-
-        fragment.appendChild(search);
-
-        el.appendChild(fragment);
+        let search = new SearchView(this.el, this.options);
     }
 }

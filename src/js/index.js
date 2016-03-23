@@ -1,8 +1,6 @@
 import { Component } from './component';
 
 ((root, factory) => {
-    //crossbrowser();
-    //var promise = new Ajax();
     const SETUP_CONFIG = {
         INIT_CLASSNAME: 'e-search'
     };
@@ -12,7 +10,6 @@ import { Component } from './component';
     root.SearchEngine = SearchEngine;
 
     SearchEngine.Component.autoInit(SETUP_CONFIG.INIT_CLASSNAME);
-
 })(window, SearchEngine => {
     SearchEngine.VERSION = '0.0.1';
 
