@@ -1,6 +1,7 @@
 import DOM from './common/domHelper';
 import Utils from './common/utils';
 import { SearchView } from './views/searchView';
+import { ResultView } from './views/resultView';
 
 export class Component {
     constructor (element, options) {
@@ -9,11 +10,11 @@ export class Component {
             width: 'auto',
             maxHeight: 300,
             zIndex: 9999,
-            defaultTpl: 'plainText'
+            defaultTpl: 'plainText',
+            appendTo: document.body
         };
 
         this.options = Object.assign({}, defaults, options);
-        console.log(this)
         this.render();
     }
 
@@ -65,8 +66,22 @@ export class Component {
         }
     }
 
+    updateResults (items, clearItems) {
+        this.results.updateView(items, clearItems);
+    }
+
+    clearResults () {
+        this.results.clear();
+    }
+
     render () {
-        let search = new SearchView(this.el, this.options);
-        //let results = new ResultView() //TODO should be here
+        const search = new SearchView(this.el, this);
+        this.results = new ResultView(this);
+
+        if (!Utils.isHTMLNode(this.options.appendTo)) {
+            this.options.appendTo = document.querySelector(this.options.appendTo);
+        }
+
+        this.options.appendTo.appendChild(this.results.el);
     }
 }

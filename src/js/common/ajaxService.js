@@ -18,13 +18,36 @@ export default (() => {
         withCredentials: false
     };
 
-    const service = {
+    return {
         send: Send,
         get: Get,
-        post: Post
+        post: Post,
+        transformApi: TransformApi
     };
 
-    return service;
+    function TransformApi (parser, obj) {
+        const map = {};
+        const parserArr = parser.split(';');
+        const transformed = {};
+
+        for (const opt of parserArr) {
+            const keyVal = opt.split('=>');
+
+            map[keyVal[0]] = keyVal[1];
+        }
+
+        for (const key in obj) {
+            if (!obj.hasOwnProperty(key))
+                continue;
+
+            if (!map[key])
+                transformed[key] = obj[key];
+            else
+                transformed[map[key]] = obj[key];
+        }
+
+        return transformed;
+    }
 
     function Send (url, method, data, options) {
         return new Promise((resolve, reject) => {
@@ -94,7 +117,7 @@ export default (() => {
         };
 
         xhr[EVENTS.READY_STATE_CHANGE] = () => {
-            if(xhr.readyState === 4) {
+            if (xhr.readyState === 4) {
                 if (xhr.status >= 200 && xhr.status <= 300)
                     resolve(_parseResponse(xhr, isJson), xhr);
                 else {

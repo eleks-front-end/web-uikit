@@ -14,61 +14,38 @@ export class SearchView extends BaseView {
 
     setupEvents () {
         this.el.addEventListener('keydown', e => {
-            this.keyDownHandler(e);
+            this.component.clearResults();
+
+            Utils.debounce(() => {
+                this.keyDownHandler(e);
+            }, 1500)();
         });
     }
 
     keyDownHandler (e) {
-        //TODO - need debounce implements
-        let api = this.options.api;
-        if (Utils.isArray(api))
-            for (let apiItem of api)
-                ajaxService.get(apiItem.url).then((response, xhr) => {
-                    response = Array.from(response);
-                    response.map(item => {
-                        item.type = apiItem.tpl || this.options.defaultTpl;
+        let api = this.component.options.api;
 
-                        return item;
-                    });
-                    console.log(response)
-                    this.resultView.updateView(response);//TODO SearchView shouldn't know about Result
-                }, response => {
-                    console.log(response, e);
-                });
-        else
-            ajaxService.get(api.url).then((response, xhr) => {
+        api = Utils.isArray(api) ? api : [api];
+        let clearItems = true;
+
+        for (const apiItem of api)
+            ajaxService.get(apiItem.url).then((response, xhr) => {
                 response = Array.from(response);
-                response.map(item => {
-                    item.type = api.tpl || this.options.defaultTpl;
-                    //TODO - move transformApi to ajaxService or utils?
-                    item = SearchView.transformApi(this.options.api.transform, item);
+                response = response.map(item => {
+                    item.type = apiItem.tpl || this.component.options.defaultTpl;
+                    if (this.component.options.api.transform)
+                        item = ajaxService.transformApi(apiItem.transform, item);
+
                     return item;
                 });
-                this.resultView.updateView(response);//TODO SearchView shouldn't know about Result
+
+                console.log(response);
+
+                this.component.updateResults(response, clearItems);
+                clearItems = false;
             }, response => {
-                console.log(response, e);
+                console.warn(response, e);
             });
     }
-
-    //TODO - move transformApi to ajaxService or utils?
-    static transformApi (parser, obj) {
-        console.log(parser);
-        const map = {};
-        const parserArr = parser.split(';');
-        const transformed = {};
-
-        for (const opt of parserArr) {
-            const keyVal = opt.split('=>');
-            map[keyVal[0]] = keyVal[1];
-        }
-
-        for (let key in obj) {
-            if (!obj.hasOwnProperty(key) || !map[key])
-                continue;
-
-            transformed[map[key]] = obj[key];
-        }
-
-        return transformed;
-    }
 }
+

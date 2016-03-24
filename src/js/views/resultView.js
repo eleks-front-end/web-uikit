@@ -4,34 +4,27 @@ import DOM from '../common/domHelper';
 import ajaxService from '../common/ajaxService';
 import TEMPLATES from '../templates/templatesNames';
 
-//let instance = null;
-
 export class ResultView extends BaseView {
-    constructor () {
-        super();
-
-        //if (!instance)
-        //    instance = this;
-        //
-        //return instance;
-    }
-
     setupView () {
         this.el = DOM.createNode('ul', {
             class: 'e-search-results'
         });
     }
 
-    updateView (items) {
-        const resultItemEl = DOM.createNode('li', {
-            class: 'e-search-results-item'
-        });
+    clear () {
+        this.el.innerHTML = '';
+    }
 
+    updateView (items) {
         const fragment = DOM.createFragment();
 
         for (const item of items) {
+            const resultItemEl = DOM.createNode('li', {
+                class: 'e-search-results-item'
+            });
+
             let itemTpl;
-            console.log(item)
+
             switch (item.type) {
                 case TEMPLATES.IMAGE_TEXT.name:
                     itemTpl = TEMPLATES.IMAGE_TEXT.tpl(item);
@@ -43,13 +36,10 @@ export class ResultView extends BaseView {
                     itemTpl = TEMPLATES.PLAIN_TEXT.tpl(item);
             }
 
-            console.log(itemTpl)
-
             resultItemEl.innerHTML = itemTpl;
             fragment.appendChild(resultItemEl);
         }
 
         this.el.appendChild(fragment);
-        console.log(this.el)
     }
 }
