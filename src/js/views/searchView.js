@@ -3,13 +3,10 @@ import Utils from '../common/utils';
 import BaseView from './baseView';
 import DOM from '../common/domHelper';
 import ajaxService from '../common/ajaxService';
-import { ResultView } from './resultView';
 
 export class SearchView extends BaseView {
     setupView () {
         this.el = this._element;
-
-        this.resultView = new ResultView(); //TODO SearchView shouldn't know about Result
     }
 
     setupEvents () {
