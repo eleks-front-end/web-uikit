@@ -10,13 +10,16 @@ export class SearchView extends BaseView {
     }
 
     setupEvents () {
-        this.el.addEventListener('keydown', e => {
-            this.component.clearResults();
-
-            Utils.debounce(() => {
+        this.el.addEventListener('keydown', Utils.debounce({
+            delayed: e => {
                 this.keyDownHandler(e);
-            }, 1500)();
-        });
+            },
+            time: 1500,
+            instantly: () => {
+                console.log(this.component.results);
+                this.component.clearResults();
+            }
+        }));
     }
 
     keyDownHandler (e) {
@@ -27,6 +30,7 @@ export class SearchView extends BaseView {
 
         for (const apiItem of api)
             ajaxService.get(apiItem.url).then((response, xhr) => {
+                console.log(response);
                 response = Array.from(response);
                 response = response.map(item => {
                     item.type = apiItem.tpl || this.component.options.defaultTpl;
@@ -35,8 +39,6 @@ export class SearchView extends BaseView {
 
                     return item;
                 });
-
-                console.log(response);
 
                 this.component.updateResults(response, clearItems);
                 clearItems = false;

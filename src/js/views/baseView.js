@@ -27,11 +27,27 @@ export default class BaseView {
         return this._element;
     }
 
+    setStyle (name, value) {
+        this.el.style[name] = value;
+    }
+
     hide () {
-        this.el.style.display = 'none';
+        this.setStyle('display', 'none');
     }
 
     show () {
-        this.el.style.display = '';
+        this.setStyle('display', '');
+    }
+
+    getOffsetParents () {
+        const parents = [];
+        let el = this.el;
+
+        while (el.offsetParent && el.offsetParent.nodeName !== 'BODY') {
+            parents.push(el.offsetParent);
+            el = el.offsetParent;
+        }
+
+        return parents;
     }
 }

@@ -29,33 +29,48 @@ export default class Utils {
         return Object.prototype.toString.call(obj) === '[object Object]';
     }
 
-    static isArray (arr) {
-        return Array.isArray ? Array.isArray(arr) : Object.prototype.toString.call(arr) === '[object Array]';
+    static isArray (obj) {
+        return Array.isArray ? Array.isArray(obj) : Object.prototype.toString.call(obj) === '[object Array]';
     }
 
-    static debounce (func, wait, immediate) {
-        let timeout;
+    static isFunction (obj) {
+        return Object.prototype.toString.call(obj) === '[object Function]';
+    }
 
+    static debounce (opts) {
+        let timeout;
+        let that = this;
         /*
          Arrow functions do not expose an arguments object to their code: arguments.length, arguments[0], arguments[1],
          and so forth do not refer to the arguments provided to the arrow function when called.
          Instead, arguments is simply a reference to the name in the enclosing scope.
          */
         return function () {
+            if (that.isFunction(opts.instantly))
+                opts.instantly();
+
             const args = arguments;
 
             const later = () => {
                 timeout = null;
-                if (!immediate)
-                    func(...args);
+                if (!opts.immediate)
+                    opts.delayed(...args);
             };
-            const callNow = immediate && !timeout;
+            const callNow = opts.immediate && !timeout;
 
             clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
+            timeout = setTimeout(later, opts.time);
             if (callNow)
-                func(...args);
+                opts.delayed(...args);
         };
+    }
+
+    static insertAfter (elem, refElem) {
+        refElem.parentNode.insertBefore(elem, refElem.nextSibling);
+    }
+
+    static addPxToCss(param) {
+        return `${parseInt(param)}px`;
     }
 }
 
