@@ -5,15 +5,33 @@ import { Component } from './component';
         INIT_CLASSNAME: 'e-search'
     };
 
-    const SearchEngine = factory({});
+    const SearchComponent = factory({});
 
-    root.SearchEngine = SearchEngine;
+    root.SearchComponent = SearchComponent;
+    console.log(window.SearchComponent);
 
-    SearchEngine.Component.autoInit(SETUP_CONFIG.INIT_CLASSNAME);
-})(window, SearchEngine => {
-    SearchEngine.VERSION = '0.0.1';
+    SearchComponent.Component.autoInit(SETUP_CONFIG.INIT_CLASSNAME);
+})(window, SearchComponent => {
+    SearchComponent.VERSION = '0.0.1';
 
-    SearchEngine.Component = Component;
+    SearchComponent.Component = Component;
 
-    return SearchEngine;
+    return SearchComponent;
+});
+
+
+
+const search = new SearchComponent.Component(document.querySelector('.example1'), {
+    api: [
+        {
+            url: 'http://api-mockapitron.rhcloud.com/?size=5&name=name&address=address',
+            transform: 'name=>title;address=>text',
+            tpl: 'titleText'
+        },
+        {
+            url: 'http://api-mockapitron.rhcloud.com/?size=5&name=name&address=address',
+            transform: 'name=>title;address=>text',
+            tpl: 'titleText'
+        }
+    ]
 });

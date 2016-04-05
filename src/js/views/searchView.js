@@ -2,7 +2,6 @@ import Logger from '../common/logger';
 import Utils from '../common/utils';
 import BaseView from './baseView';
 import DOM from '../common/domHelper';
-import ajaxService from '../common/ajaxService';
 
 export class SearchView extends BaseView {
     setupView () {
@@ -10,41 +9,39 @@ export class SearchView extends BaseView {
     }
 
     setupEvents () {
-        this.el.addEventListener('keydown', Utils.debounce({
-            delayed: e => {
-                this.keyDownHandler(e);
+        let time = 0;
+
+        if (this.component.options.searchType === 'server')
+            time = 500;
+
+        const deb = Utils.debounce({
+            delayed: () => {
+                this.keyDownHandler();
             },
-            time: 1500,
+            time,
             instantly: () => {
-                console.log(this.component.results);
                 this.component.clearResults();
             }
-        }));
+        });
+
+        this.el.addEventListener('keypress', deb);
+        this.el.addEventListener('paste', deb);
+        this.el.addEventListener('cut', deb);
+        this.el.addEventListener('keydown', e => {
+            const key = e.keyCode;
+
+            if (key !== 8 && key !== 46)
+                return;
+
+            deb();
+        });
     }
 
-    keyDownHandler (e) {
-        let api = this.component.options.api;
-
-        api = Utils.isArray(api) ? api : [api];
-        let clearItems = true;
-
-        for (const apiItem of api)
-            ajaxService.get(apiItem.url).then((response, xhr) => {
-                console.log(response);
-                response = Array.from(response);
-                response = response.map(item => {
-                    item.type = apiItem.tpl || this.component.options.defaultTpl;
-                    if (this.component.options.api.transform)
-                        item = ajaxService.transformApi(apiItem.transform, item);
-
-                    return item;
-                });
-
-                this.component.updateResults(response, clearItems);
-                clearItems = false;
-            }, response => {
-                console.warn(response, e);
-            });
+    keyDownHandler () {
+        if (this.component.options.searchType === 'server')
+            this.component.serverSearch(this._element.value);
+        else
+            this.component.clientSearch(this._element.value);
     }
 }
 

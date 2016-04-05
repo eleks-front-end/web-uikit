@@ -1,14 +1,22 @@
 import DOM from './common/domHelper';
 import Utils from './common/utils';
-import { SearchView } from './views/searchView';
-import { ResultView } from './views/resultView';
+import Logger from './common/logger';
+import {SearchView} from './views/searchView';
+import {ResultView} from './views/resultView';
+import ajaxService from './common/ajaxService';
+import {SearchEngine} from './search-engine/searchEngine';
 
 export class Component {
     constructor (element, options) {
+        if (!element)
+            throw new TypeError(`Element is ${element}`);
+
         this.el = element;
+        this.data = [];
+
         this.setElOffsets();
         const defaults = {
-
+            searchType: 'client',
             defaultTpl: 'plainText',
             appendTo: document.body,
 
@@ -22,6 +30,11 @@ export class Component {
         this.options = Object.assign({}, defaults, options);
 
         this.render();
+
+        if (this.options.searchType === 'client')
+            this.request();
+
+        this.searchEngine = new SearchEngine();
     }
 
     setElOffsets () {
@@ -50,7 +63,7 @@ export class Component {
             if (!matchAttr)
                 continue;
 
-            let name = matchAttr[1].replace(/_(.{1})/g, function (match, p1) {
+            const name = matchAttr[1].replace(/_(.{1})/g, function (match, p1) {
                 return p1.toUpperCase();
             }).split('-');
 
@@ -78,23 +91,53 @@ export class Component {
         }
     }
 
-    updateResults (items, clearItems) {
-        this.results.update(items, clearItems);
-    }
-
     clearResults () {
         this.results.clear();
     }
-    //asdasd2
+
+    serverSearch (val) {
+        this.request(val);
+    }
+
+    clientSearch (val) {
+        this.results.update(this.searchEngine.updateQuery(val));
+    }
+
+    request () {
+        let api = this.options.api;
+        let allApiLoadded = 0;
+
+        api = Utils.isArray(api) ? api : [api];
+
+        for (const apiItem of api)
+            ajaxService.get(apiItem.url).then((response, xhr) => {
+                allApiLoadded++;
+                response = Utils.isArray(response) ? response : [response];
+                response = response.map(item => {
+                    item.type = apiItem.tpl || this.options.defaultTpl;
+                    item.id = Utils.GUID();
+
+                    if (apiItem.transform)
+                        item = ajaxService.transformApi(apiItem.transform, item);
+                    return item;
+                });
+
+                if (this.options.searchType === 'server')
+                    this.results.update(response);
+                else
+                    this.searchEngine.addDocuments(response, allApiLoadded === api.length);
+            }, response => {
+                console.warn(response);
+            });
+    }
 
     render () {
-        console.log('render23')
         if (!Utils.isHTMLNode(this.options.appendTo))
             this.options.appendTo = document.querySelector(this.options.appendTo);
 
         this.results = new ResultView(null, this);
         const search = new SearchView(this.el, this);
-        console.log(this)
+
         if (this.options.isAbsolute) {
             this.options.appendTo.appendChild(this.results.el);
             this.results.place();
@@ -103,7 +146,6 @@ export class Component {
             this.el.parentNode.insertBefore(this.results.el, this.el);
         else
             Utils.insertAfter(this.results.el, this.el);
-
 
     }
 }

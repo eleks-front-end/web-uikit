@@ -1,4 +1,4 @@
-import { Logger } from './logger';
+import {Logger} from './logger';
 
 export default class Utils {
     constructor () {
@@ -37,6 +37,10 @@ export default class Utils {
         return Object.prototype.toString.call(obj) === '[object Function]';
     }
 
+    static isSetObj (obj) {
+        return Object.prototype.toString.call(obj) === '[object Set]';
+    }
+
     static debounce (opts) {
         let timeout;
         let that = this;
@@ -69,8 +73,18 @@ export default class Utils {
         refElem.parentNode.insertBefore(elem, refElem.nextSibling);
     }
 
-    static addPxToCss(param) {
+    static addPxToCss (param) {
         return `${parseInt(param)}px`;
+    }
+
+    static GUID () {
+        const s4 = () => Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+
+        return `${s4()}${s4()}-${s4()}-${s4()}-${s4()}-${s4()}${s4()}${s4()}`.toLowerCase();
+    }
+
+    static mergeSets (set1, set2) {
+        return new Set([...set1, ...set2]);
     }
 }
 
