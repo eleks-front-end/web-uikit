@@ -36,3 +36,4 @@ node_modules
 dist/
 
 .idea
+src/styles/eleks-ui-kit.css
