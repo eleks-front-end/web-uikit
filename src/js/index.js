@@ -1,33 +1,25 @@
 import { Component } from './component';
 
-((root, factory) => {
+((root, Component) => {
     const SETUP_CONFIG = {
         INIT_CLASSNAME: 'e-search'
     };
 
-    const SearchComponent = factory({});
+    Component.VERSION = "0.1";
+    Component.autoInit(SETUP_CONFIG.INIT_CLASSNAME);
 
-    root.SearchComponent = SearchComponent;
-    console.log(window.SearchComponent);
-
-    SearchComponent.Component.autoInit(SETUP_CONFIG.INIT_CLASSNAME);
-})(window, SearchComponent => {
-    SearchComponent.VERSION = '0.0.1';
-
-    SearchComponent.Component = Component;
-
-    return SearchComponent;
-});
+    root.SearchComponent = Component;
+})(window, Component);
 
 
-const search = new SearchComponent.Component(document.querySelector('.example1'), {
+const search = new SearchComponent(document.querySelector('.example1'), {
     api: [
         {
             url: 'http://api-mockapitron.rhcloud.com/?size=5&name=name&address=address',
             transform: 'name=>title;address=>text',
             tpl: `
                 <h2>{{title}}</h2>
-                <hr />
+                <hr />gulp
                 <b style="color: cadetblue;">{{text}}</b>
             `
         },
