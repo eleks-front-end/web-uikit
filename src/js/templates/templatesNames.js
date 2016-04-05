@@ -1,6 +1,7 @@
 import plainText from './plainText.tpl';
 import imageText from './imgText.tpl';
 import titleText from './titleText.tpl';
+import custom from './custom.tpl';
 
 export default {
     IMAGE_TEXT: {
@@ -14,5 +15,8 @@ export default {
     TITLE_TEXT: {
         name: 'titleText',
         tpl: titleText
+    },
+    CUSTOM: {
+        tpl: custom
     }
 };
