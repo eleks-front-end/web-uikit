@@ -19,7 +19,7 @@ const search = new SearchComponent(document.querySelector('.example1'), {
             transform: 'name=>title;address=>text',
             tpl: `
                 <h2>{{title}}</h2>
-                <hr />gulp
+                <hr />
                 <b style="color: cadetblue;">{{text}}</b>
             `
         },

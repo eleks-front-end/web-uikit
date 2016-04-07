@@ -22,31 +22,20 @@ export default (() => {
         send: Send,
         get: Get,
         post: Post,
-        transformApi: TransformApi
+        parseTransform: parseTransform
     };
 
-    function TransformApi (parser, obj) {
+    function parseTransform (parser) {
         const map = {};
         const parserArr = parser.split(';');
-        const transformed = {};
 
         for (const opt of parserArr) {
             const keyVal = opt.split('=>');
 
-            map[keyVal[0]] = keyVal[1];
+            map[keyVal[1]] = keyVal[0];
         }
 
-        for (const key in obj) {
-            if (!obj.hasOwnProperty(key))
-                continue;
-
-            if (!map[key])
-                transformed[key] = obj[key];
-            else
-                transformed[map[key]] = obj[key];
-        }
-
-        return transformed;
+        return map;
     }
 
     function Send (url, method, data, options) {
@@ -68,8 +57,9 @@ export default (() => {
     }
 
     function _sendRequest (url, method = 'GET', data, resolve, reject, async = true, options) {
-        let ajaxOptions = Object.assign({}, DEFAULTS, options);
+        const ajaxOptions = Object.assign({}, DEFAULTS, options);
         const xhr = new XMLHttpRequest();
+
         xhr.open(method, url, async);
 
         _setHeaders(xhr, ajaxOptions.headers);

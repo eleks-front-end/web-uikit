@@ -1,7 +1,7 @@
 import Utils from '../common/utils';
 import Tokenization from './tokenization';
 import stemming from './stemming';
-console.log(stemming)
+
 export class SearchEngine {
     constructor (options) {
         this.allLoaded = false;

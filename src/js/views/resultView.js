@@ -1,9 +1,7 @@
 import Utils from '../common/utils';
-import Logger from '../common/logger';
 import BaseView from './baseView';
 import DOM from '../common/domHelper';
-import ajaxService from '../common/ajaxService';
-import TEMPLATES from '../templates/templatesNames';
+import ResultItemView from './resultItemView';
 
 export class ResultView extends BaseView {
 
@@ -18,8 +16,6 @@ export class ResultView extends BaseView {
             class: 'e-search-results'
         });
 
-        console.log(this)
-        
         if (this.component.options.isAbsolute)
             this.setStyle('position', 'absolute');
         
@@ -50,42 +46,20 @@ export class ResultView extends BaseView {
     
     update (items) {
         const fragment = DOM.createFragment();
-        
+
         for (const item of items) {
-            const resultItemEl = DOM.createNode('li', {
-                class: 'e-search-results-item'
-            });
+            const itemView = new ResultItemView();
             
-            let itemTpl, tpl;
+            itemView.render(item, this.tplCache);
 
-            if (item.type.substr(0, 1) === '#') {
-                const id = item.type.substr(1);
-
-                if (!this.tplCache[id])
-                    this.tplCache[id] = document.getElementById(id).innerHTML;
-
-                tpl = this.tplCache[id];
-            } else
-                tpl = item.type;
-
-            switch (item.type) {
-                case TEMPLATES.IMAGE_TEXT.name:
-                    itemTpl = TEMPLATES.IMAGE_TEXT.tpl(item);
-                    break;
-                case TEMPLATES.TITLE_TEXT.name:
-                    itemTpl = TEMPLATES.TITLE_TEXT.tpl(item);
-                    break;
-                case TEMPLATES.PLAIN_TEXT.name:
-                    itemTpl = TEMPLATES.PLAIN_TEXT.tpl(item);
-                    break;
-                default:
-                    itemTpl = TEMPLATES.CUSTOM.tpl(item, tpl);
-            }
-            
-            resultItemEl.innerHTML = itemTpl;
-            fragment.appendChild(resultItemEl);
+            fragment.appendChild(itemView.el);
         }
-        
+
         this.el.appendChild(fragment);
+
+        if (!items.length)
+            this.hide();
+        else
+            this.show();
     }
 }

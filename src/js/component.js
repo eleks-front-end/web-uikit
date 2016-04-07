@@ -19,7 +19,7 @@ export class Component {
             searchType: 'client',
             defaultTpl: 'plainText',
             appendTo: document.body,
-
+            keywordName: 'query',
             width: 'auto',
             maxHeight: 300,
             zIndex: 9999,
@@ -103,14 +103,14 @@ export class Component {
         this.results.update(this.searchEngine.updateQuery(val));
     }
 
-    request () {
+    request (query) {
         let api = this.options.api;
         let allApiLoadded = 0;
 
         api = Utils.isArray(api) ? api : [api];
 
         for (const apiItem of api)
-            ajaxService.get(apiItem.url).then((response, xhr) => {
+            ajaxService.get(`${apiItem.url}&${this.options.keywordName}=${query}`).then((response, xhr) => {
                 allApiLoadded++;
                 response = Utils.isArray(response) ? response : [response];
                 response = response.map(item => {
@@ -118,7 +118,13 @@ export class Component {
                     item.id = Utils.GUID();
 
                     if (apiItem.transform)
-                        item = ajaxService.transformApi(apiItem.transform, item);
+                        item = new Proxy(item, {
+                            get: (target, name) => {
+                                const parser = ajaxService.parseTransform(apiItem.transform);
+
+                                return target[name] || target[parser[name]] || '';
+                            }
+                        });
                     return item;
                 });
 
@@ -146,6 +152,8 @@ export class Component {
             this.el.parentNode.insertBefore(this.results.el, this.el);
         else
             Utils.insertAfter(this.results.el, this.el);
+
+        this.results.hide();
 
     }
 }

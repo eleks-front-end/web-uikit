@@ -31,6 +31,10 @@ export default class BaseView {
         this.el.style[name] = value;
     }
 
+    getStyle (name) {
+        return this.el.style[name];
+    }
+
     hide () {
         this.setStyle('display', 'none');
     }
