@@ -1,7 +1,4 @@
-import plainText from './plainText.tpl';
-import imageText from './imgText.tpl';
-import titleText from './titleText.tpl';
-import custom from './custom.tpl';
+import {plainText, imageText, titleText, custom, bySelector} from './templates';
 
 export default {
     IMAGE_TEXT: {
@@ -15,6 +12,10 @@ export default {
     TITLE_TEXT: {
         name: 'titleText',
         tpl: titleText
+    },
+    BY_SELECTOR: {
+        name: 'bySelector',
+        tpl: bySelector
     },
     CUSTOM: {
         tpl: custom

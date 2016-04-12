@@ -2,6 +2,7 @@ import Utils from '../common/utils';
 import BaseView from './baseView';
 import DOM from '../common/domHelper';
 import ResultItemView from './resultItemView';
+import LoadMoreView from './loadMoreView';
 
 export class ResultView extends BaseView {
 
@@ -50,12 +51,14 @@ export class ResultView extends BaseView {
         for (const item of items) {
             const itemView = new ResultItemView();
             
-            itemView.render(item, this.tplCache);
+            itemView.render(item);
 
             fragment.appendChild(itemView.el);
         }
 
         this.el.appendChild(fragment);
+        console.log(new LoadMoreView())
+        this.el.appendChild(new LoadMoreView().el);
 
         if (!items.length)
             this.hide();

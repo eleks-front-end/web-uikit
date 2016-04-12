@@ -4,23 +4,32 @@ var browserify = require('browserify'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     source = require('vinyl-source-stream'),
-    browserSync = require('browser-sync');
+    browserSync = require('browser-sync'),
+    eventStream = require('event-stream');
 
 /* pathConfig*/
-var entryPoint = './src/js/index.js',
+var jsPath = './src/js/',
     browserDir = './',
     sassWatchPath = './src/styles/**/*.scss',
     jsWatchPath = './src/js/**/*.js',
-    htmlWatchPath = './**/*.html';
+    htmlWatchPath = './**/*.html',
+    files = [ // for multiple files bundle
+        'index.js',
+        // 'search-agent/search-agent.js'
+    ];
 /**/
 
 gulp.task('js', function () {
-    return browserify(entryPoint, {debug: true, extensions: ['es6']})
-        .transform("babelify", {presets: ["es2015"]})
-        .bundle()
-        .pipe(source('index.js'))
-        .pipe(gulp.dest('./dist/'))
-        .pipe(browserSync.reload({stream: true}));
+    var tasks = files.map(function (file) {
+        return browserify(jsPath + file, {debug: true, extensions: ['es6']})
+            .transform("babelify", {presets: ["es2015"]})
+            .bundle()
+            .pipe(source(file))
+            .pipe(gulp.dest('./dist/'))
+            .pipe(browserSync.reload({stream: true}));
+    });
+
+    return eventStream.merge.apply(null, tasks);
 });
 
 gulp.task('browser-sync', function () {

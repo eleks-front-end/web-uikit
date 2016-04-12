@@ -1,10 +1,7 @@
 import DOM from './common/domHelper';
 import Utils from './common/utils';
-import Logger from './common/logger';
 import {SearchView} from './views/searchView';
 import {ResultView} from './views/resultView';
-import ajaxService from './common/ajaxService';
-import {SearchEngine} from './search-engine/searchEngine';
 
 export class Component {
     constructor (element, options) {
@@ -24,17 +21,15 @@ export class Component {
             maxHeight: 300,
             zIndex: 9999,
             resultPosition: 'auto', //top, bottom, left, right
-            isAbsolute: true
+            isAbsolute: true,
+            loadMore: {
+                text: 'Load More'
+            }
         };
 
         this.options = Object.assign({}, defaults, options);
 
         this.render();
-
-        if (this.options.searchType === 'client')
-            this.request();
-
-        this.searchEngine = new SearchEngine();
     }
 
     setElOffsets () {
@@ -49,7 +44,7 @@ export class Component {
     }
 
     static grabAttrOptions (element) {
-        let options = {};
+        const options = {};
 
         const attrs = element.attributes;
 
@@ -80,7 +75,7 @@ export class Component {
         var option;
 
         for (let i = 0, length = path.length; i < length; i++) {
-            let subPath = path[i];
+            const subPath = path[i];
 
             if (i === path.length - 1)
                 option[subPath] = value;
@@ -95,46 +90,25 @@ export class Component {
         this.results.clear();
     }
 
-    serverSearch (val) {
-        this.request(val);
-    }
+    search (query = this.query) {
+        this.query = query;
 
-    clientSearch (val) {
-        this.results.update(this.searchEngine.updateQuery(val));
-    }
-
-    request (query) {
         let api = this.options.api;
-        let allApiLoadded = 0;
 
         api = Utils.isArray(api) ? api : [api];
 
-        for (const apiItem of api)
-            ajaxService.get(`${apiItem.url}&${this.options.keywordName}=${query}`).then((response, xhr) => {
-                allApiLoadded++;
-                response = Utils.isArray(response) ? response : [response];
-                response = response.map(item => {
-                    item.type = apiItem.tpl || this.options.defaultTpl;
-                    item.id = Utils.GUID();
+        for (const apiItem of api) {
+            const result = apiItem.searchAgent.search(this.query);
 
-                    if (apiItem.transform)
-                        item = new Proxy(item, {
-                            get: (target, name) => {
-                                const parser = ajaxService.parseTransform(apiItem.transform);
-
-                                return target[name] || target[parser[name]] || '';
-                            }
-                        });
-                    return item;
+            if (result.then)
+                result.then(data => {
+                    this.results.update(apiItem.templateAgent.getTpl(data));
                 });
+            else
+                this.results.update(apiItem.templateAgent(result));
 
-                if (this.options.searchType === 'server')
-                    this.results.update(response);
-                else
-                    this.searchEngine.addDocuments(response, allApiLoadded === api.length);
-            }, response => {
-                console.warn(response);
-            });
+
+        }
     }
 
     render () {

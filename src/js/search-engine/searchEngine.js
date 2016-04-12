@@ -50,9 +50,7 @@ export class SearchEngine {
 
     updateQuery (query) {
         this.searchedDocs = new Set();
-        console.log(query)
         query = stemming(query);
-        console.log(query)
         const searched = this.search(query);
 
         if (!this.allLoaded)

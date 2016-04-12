@@ -1,4 +1,6 @@
 import { Component } from './component';
+import SearchAgent from './search-agent/index';
+import TemplateAgent from './template-agent/index';
 
 ((root, Component) => {
     const SETUP_CONFIG = {
@@ -15,18 +17,21 @@ import { Component } from './component';
 const search = new SearchComponent(document.querySelector('.example1'), {
     api: [
         {
-            url: 'http://api-mockapitron.rhcloud.com/?size=5&name=name&address=address',
-            transform: 'name=>title;address=>text',
-            tpl: `
-                <h2>{{title}}</h2>
-                <hr />
-                <b style="color: cadetblue;">{{text}}</b>
-            `
-        },
-        {
-            url: 'http://api-mockapitron.rhcloud.com/?size=5&name=name&address=address',
-            transform: 'name=>title;address=>text',
-            tpl: 'titleText'
+            searchAgent: new SearchAgent('searchByUrl', {
+                url: 'http://api-mockapitron.rhcloud.com/?size=5&name=name&address=address',
+            }),
+            templateAgent: new TemplateAgent('imageText', {
+                transformer: 'name=>title;address=>text'
+            })
         }
-    ]
+    ],
+    width: 600,
+    loadMore: {
+        text: 'Load More Please'
+    }
+
+    // pagination: {
+    //     perPage: 2,
+    //     position: 'both'
+    // }
 });

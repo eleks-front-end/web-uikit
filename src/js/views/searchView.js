@@ -1,7 +1,5 @@
-import Logger from '../common/logger';
 import Utils from '../common/utils';
 import BaseView from './baseView';
-import DOM from '../common/domHelper';
 
 export class SearchView extends BaseView {
     setupView () {
@@ -9,14 +7,14 @@ export class SearchView extends BaseView {
     }
 
     setupEvents () {
-        let time = 0;
+        let time = 500;
 
         if (this.component.options.searchType === 'server')
             time = 500;
 
         const deb = Utils.debounce({
             delayed: () => {
-                this.keyDownHandler();
+                this.keyDownHandler(!this.el.value);
             },
             time,
             instantly: () => {
@@ -37,11 +35,11 @@ export class SearchView extends BaseView {
         });
     }
 
-    keyDownHandler () {
-        if (this.component.options.searchType === 'server')
-            this.component.serverSearch(this._element.value);
-        else
-            this.component.clientSearch(this._element.value);
+    keyDownHandler (clear) {
+        if (clear)
+            this.component.clearResults();
+
+        this.component.search(this._element.value);
     }
 }
 
