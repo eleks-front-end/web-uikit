@@ -1,5 +1,6 @@
 import DOM from './common/domHelper';
 import Utils from './common/utils';
+import eventDriver from './common/eventDriver';
 import {SearchView} from './views/searchView';
 import {ResultView} from './views/resultView';
 
@@ -12,6 +13,7 @@ export class Component {
         this.data = [];
 
         this.setElOffsets();
+
         const defaults = {
             searchType: 'client',
             defaultTpl: 'plainText',
@@ -30,6 +32,10 @@ export class Component {
         this.options = Object.assign({}, defaults, options);
 
         this.render();
+
+        eventDriver.on('LoadMore', () => {
+            this.search();
+        }, this);
     }
 
     setElOffsets () {

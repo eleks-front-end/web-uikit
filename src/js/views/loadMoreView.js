@@ -7,7 +7,7 @@ export default class LoadMoreView extends BaseView {
     
     setupView () {
         console.log(this)
-        this.options = this.component.loadMore;
+        this.options = this.component.options.loadMore;
         
         this.el = DOM.createNode('span', {
             class: 'e-search-results-load_more'

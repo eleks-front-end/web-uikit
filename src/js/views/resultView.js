@@ -13,7 +13,7 @@ export class ResultView extends BaseView {
     }
 
     setupView () {
-        this.el = DOM.createNode('ul', {
+        this.el = DOM.createNode('div', {
             class: 'e-search-results'
         });
 
@@ -25,6 +25,15 @@ export class ResultView extends BaseView {
             : this.component.options.width;
         
         this.setStyle('width', Utils.addPxToCss(width));
+
+        if (this.component.options.layout)
+            this.el = this.component.options.layout.render(this.el);
+
+        // if (this.component.options.loadMore) {
+        //     this.loadMoreBtn = new LoadMoreView(null, this.component).el;
+        //
+        //     this.el.appendChild(this.loadMoreBtn);
+        // }
     }
     
     place () {
@@ -56,9 +65,11 @@ export class ResultView extends BaseView {
             fragment.appendChild(itemView.el);
         }
 
-        this.el.appendChild(fragment);
-        console.log(new LoadMoreView())
-        this.el.appendChild(new LoadMoreView().el);
+        // console.log(this.el, this.el.children);
+
+        // this.el.insertBefore(fragment, this.loadMoreBtn);
+
+        this.el.appendChild(new LoadMoreView(null, this.component).el);
 
         if (!items.length)
             this.hide();

@@ -18,6 +18,7 @@ class EventDriver {
     }
 
     on (eventName, handler, context, once) {
+
         let _once = once && typeof once === 'boolean';
         let listeners = this.eventsMap[eventName],
             isExistListener = this._find(listeners, function (listener) {
@@ -68,6 +69,7 @@ class EventDriver {
 
     trigger (eventName, ...args) {
         let listeners = this.eventsMap[eventName];
+        console.log(eventName, listeners);
         if (!listeners || !listeners.length) {
             console.warn(`${this._toString()}::The event ${eventName} was triggered, but handler didn\'t fired.`);
             return this;
