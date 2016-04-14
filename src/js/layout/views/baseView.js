@@ -1,5 +1,5 @@
-import Utils from '../common/utils';
-import Logger from '../common/logger';
+import Utils from '../../common/utils';
+import Logger from '../../common/logger';
 
 export default class BaseView {
     constructor (element = null, component) {

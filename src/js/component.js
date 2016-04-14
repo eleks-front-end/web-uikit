@@ -1,16 +1,24 @@
 import DOM from './common/domHelper';
 import Utils from './common/utils';
-import eventDriver from './common/eventDriver';
-import {SearchView} from './views/searchView';
-import {ResultView} from './views/resultView';
+import EventDriver from './common/eventDriver';
+import SearchView from './core/searchView';
 
+/**
+ * Class representing main Component
+ */
 export class Component {
+    /**
+     * Create a component
+     * @param {HTMLElement} element - HTML node
+     * @param options
+     */
     constructor (element, options) {
         if (!element)
             throw new TypeError(`Element is ${element}`);
 
         this.el = element;
         this.data = [];
+        this.eventsDriver = new EventDriver();
 
         this.setElOffsets();
 
@@ -32,16 +40,19 @@ export class Component {
         this.options = Object.assign({}, defaults, options);
 
         this.render();
-
-        eventDriver.on('LoadMore', () => {
-            this.search();
-        }, this);
     }
 
+    /**
+     * Set element offsets
+     */
     setElOffsets () {
         this.elOffsets = this.el.getBoundingClientRect();
     }
 
+    /**
+     * Autoinitialize Component
+     * @param {string} className - autoinitialize className
+     */
     static autoInit (className) {
         const elements = [].slice.call(DOM.get(`.${className}`));
 
@@ -49,6 +60,11 @@ export class Component {
             new Component(element, this.grabAttrOptions(element));
     }
 
+    /**
+     *
+     * @param {HTMLElement} element
+     * @returns {object} - collected options from HTML element's attributes
+     */
     static grabAttrOptions (element) {
         const options = {};
 
@@ -71,13 +87,19 @@ export class Component {
             if (name.length <= 1)
                 options[name[0]] = attr.value;
             else
-                this.prepareCompositeOptions(options, name, attr.value);
+                this.prepareNestedOptions(options, name, attr.value);
         }
 
         return options;
     }
 
-    static prepareCompositeOptions (options, path, value) {
+    /**
+     * Parse and write nested options
+     * @param {object} options - collection of options where to write nested options
+     * @param {string} path - object's nesting
+     * @param {string} value - option value
+     */
+    static prepareNestedOptions (options, path, value) {
         var option;
 
         for (let i = 0, length = path.length; i < length; i++) {
@@ -92,13 +114,19 @@ export class Component {
         }
     }
 
+    /**
+     * Clear results view
+     */
     clearResults () {
-        this.results.clear();
+        this.eventsDriver.trigger('CLEAR_RESULTS');
     }
 
+    /**
+     * Search via SearchAgent
+     * @param {string} query - query typed into search input
+     */
     search (query = this.query) {
         this.query = query;
-
         let api = this.options.api;
 
         api = Utils.isArray(api) ? api : [api];
@@ -108,32 +136,22 @@ export class Component {
 
             if (result.then)
                 result.then(data => {
-                    this.results.update(apiItem.templateAgent.getTpl(data));
+                    const templatedItems = apiItem.templateAgent.getTpl(data);
+
+                    this.options.layout.update(templatedItems);
                 });
             else
-                this.results.update(apiItem.templateAgent(result));
-
-
+                this.options.layout.update(apiItem.templateAgent.getTpl(result));
         }
     }
 
+    /**
+     * Render result and search views
+     */
     render () {
         if (!Utils.isHTMLNode(this.options.appendTo))
             this.options.appendTo = document.querySelector(this.options.appendTo);
 
-        this.results = new ResultView(null, this);
-        const search = new SearchView(this.el, this);
-
-        if (this.options.isAbsolute) {
-            this.options.appendTo.appendChild(this.results.el);
-            this.results.place();
-        }
-        else if (this.options.position === 'top' || this.options.position === 'left')
-            this.el.parentNode.insertBefore(this.results.el, this.el);
-        else
-            Utils.insertAfter(this.results.el, this.el);
-
-        this.results.hide();
-
+        const searchView = new SearchView(this.el, this);
     }
 }

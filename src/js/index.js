@@ -1,7 +1,7 @@
 import { Component } from './component';
 import SearchAgent from './search-agent/index';
 import TemplateAgent from './template-agent/index';
-import LayoutAgent from './layout-agent/index';
+import Layout from './layout/index';
 
 ((root, Component) => {
     const SETUP_CONFIG = {
@@ -29,11 +29,7 @@ const search1 = new SearchComponent(document.querySelector('.example1'), {
     loadMore: {
         text: 'Load More Please2'
     },
-    layout: new LayoutAgent('multiColumn', {
-        columnCount: 3,
-        columnGap: 40,
-        columnRule: '1px solid red'
-    })
+    layout: new Layout('default')
 
     // pagination: {
     //     perPage: 2,

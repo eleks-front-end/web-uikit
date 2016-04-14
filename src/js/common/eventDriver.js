@@ -1,7 +1,7 @@
 /**
  * Created by Dmytro on 4/9/2016.
  */
-class EventDriver {
+export default class {
     constructor () {
         this.eventsMap = {};
     }
@@ -93,4 +93,4 @@ class EventDriver {
         return [['EventDriver']]
     }
 }
-export default new EventDriver();
+
