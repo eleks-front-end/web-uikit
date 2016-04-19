@@ -20,8 +20,6 @@ export class Component {
         this.data = [];
         this.eventsDriver = new EventDriver();
 
-        this.setElOffsets();
-
         const defaults = {
             searchType: 'client',
             defaultTpl: 'plainText',
@@ -36,17 +34,73 @@ export class Component {
                 text: 'Load More'
             }
         };
-
+        
         this.options = Object.assign({}, defaults, options);
 
+        const agents = this.getAgents();
+
+        this.setEventsDriverForAgents(agents);
+
         this.render();
+        this.setupEvents();
+        try {
+            this.options.layoutAgent.setInputOffsets(this.searchView.el.getBoundingClientRect());
+        } catch (error) {
+            console.error('Layout agent wasn\'t found.', error);
+        }
     }
 
     /**
-     * Set element offsets
+     * setup events to control all agents
      */
-    setElOffsets () {
-        this.elOffsets = this.el.getBoundingClientRect();
+    setupEvents () {
+        this.eventsDriver.on('TYPED', (e, query) => {
+            for (const apiItem of this.options.api)
+                apiItem.searchAgent.search(query, apiItem.templateAgent);
+        });
+
+        this.eventsDriver.on('RESULTS_LOADED', (e, data, tplAgent) => {
+            const tpl = tplAgent.getTpl(data);
+
+            this.options.layoutAgent.update(tpl);
+        });
+
+        this.eventsDriver.on('LOAD_MORE', (e, data) => {
+
+        });
+
+        this.eventsDriver.on('CLEAR_RESULTS', () => {
+            this.options.layoutAgent.clearResults();
+        });
+    }
+    
+    /**
+     * Get agents from options
+     * @returns {Set}
+     */
+    getAgents () {
+        const agents = [];
+
+        Utils.lookThroughNestedObj(this.options, (name, obj) => {
+            const item = obj[name] || obj;
+            const needEventsDriver = item.addEventsDriver;
+
+            if (needEventsDriver)
+                agents.push(obj[name]);
+
+            return needEventsDriver;
+        });
+        
+        return agents;
+    }
+
+    /**
+     * set events driver for agents
+     * @param {object[]|object} agents
+     */
+    setEventsDriverForAgents (agents) {
+        for (const agent of agents)
+            agent.addEventsDriver(this.eventsDriver);
     }
 
     /**
@@ -125,33 +179,30 @@ export class Component {
      * Search via SearchAgent
      * @param {string} query - query typed into search input
      */
-    search (query = this.query) {
-        this.query = query;
-        let api = this.options.api;
-
-        api = Utils.isArray(api) ? api : [api];
-
-        for (const apiItem of api) {
-            const result = apiItem.searchAgent.search(this.query);
-
-            if (result.then)
-                result.then(data => {
-                    const templatedItems = apiItem.templateAgent.getTpl(data);
-
-                    this.options.layout.update(templatedItems);
-                });
-            else
-                this.options.layout.update(apiItem.templateAgent.getTpl(result));
-        }
-    }
+    // search (query = this.query) {
+    //     this.query = query;
+    //     let api = this.options.api;
+    //
+    //     api = Utils.isArray(api) ? api : [api];
+    //
+    //     for (const apiItem of api) {
+    //         const result = apiItem.searchAgent.search(this.query);
+    //
+    //         if (result.then)
+    //             result.then(data => {
+    //                 const templatedItems = apiItem.templateAgent.getTpl(data);
+    //
+    //                 this.options.layoutAgent.update(templatedItems);
+    //             });
+    //         else
+    //             this.options.layoutAgent.update(apiItem.templateAgent.getTpl(result));
+    //     }
+    // }
 
     /**
      * Render result and search views
      */
     render () {
-        if (!Utils.isHTMLNode(this.options.appendTo))
-            this.options.appendTo = document.querySelector(this.options.appendTo);
-
-        const searchView = new SearchView(this.el, this);
+        this.searchView = new SearchView(this.el, this);
     }
 }

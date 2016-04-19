@@ -15,18 +15,40 @@ export default class {
         const defaults = {
             method: 'GET'
         };
-        
+
         this.options = Object.assign({}, defaults, options);
+
+        this.updateURL();
+    }
+
+    updateURL () {
+        const queryParams = this.options.queryParams;
+        let url = this.options.url;
+
+        if (/\?$/.test(url))
+            url += '?';
+
+        for (const param in queryParams) {
+            if (!queryParams.hasOwnProperty(param))
+                continue;
+
+            if (new RegExp(`${param}=`).test(url))
+                url = url.replace(new RegExp(`(${param}=)([^&]+)`), `$1${queryParams[param]}`);
+            else
+                url += `&${param}=${queryParams[param]}`;
+        }
+
+        this.options.url = url;
     }
 
     /**
      * Choose search agent method. Depends on type
      * @param {string} query - typed query in search input
-     * @returns {promise}
+     * @param {object} tplAgent - tpl which parse response
      */
-    search (query) {
+    search (query, tplAgent) {
         this.options.query = query;
-
+        this.options.url += `&query=${query}`;
         let promise;
 
         switch (this.type) {
@@ -40,7 +62,17 @@ export default class {
                 promise = this.ajax();
         }
 
-        return promise;
+        promise.then(result => {
+            this.eventsDriver.trigger('RESULTS_LOADED', result, tplAgent);
+        });
+    }
+    
+    loadMore () {
+        
+    }
+
+    addEventsDriver (eventsDriver) {
+        this.eventsDriver = eventsDriver;
     }
     
     /**

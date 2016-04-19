@@ -1,43 +1,52 @@
 import Utils from '../../common/utils';
 import BaseView from './baseView';
 import DOM from '../../common/domHelper';
+import {ResultViewHeader, ResultViewContent, ResultViewFooter} from './resultViewParts';
 
 export default class extends BaseView {
 
     constructor () {
         super(...arguments);
+        
+        this.header = new ResultViewHeader();
+        this.footer = new ResultViewFooter();
+        this.content = new ResultViewContent();
 
         this.tplCache = {};
+
+        if (!Utils.isHTMLNode(this.options.appendTo))
+            this.options.appendTo = document.querySelector(this.options.appendTo);
+
+        this.options.appendTo.appendChild(this.el)
+
+        this.setupStructure();
     }
 
     setupView () {
         this.el = DOM.createNode('div', {
             class: 'e-search-results'
         });
-
-        // if (this.component.options.isAbsolute)
-        //     this.setStyle('position', 'absolute');
-        //
-        // const width = this.component.options.width === 'auto'
-        //     ? this.component.elOffsets.width
-        //     : this.component.options.width;
-        //
+        
+        if (this.options.isAbsolute)
+            this.setStyle('position', 'absolute');
+        console.log(this.options);
+        // const width = this.options.width === 'auto'
+        //     ? this.options.inputOffsets.width
+        //     : this.options.width;
+        
         // this.setStyle('width', Utils.addPxToCss(width));
-        //
-        // if (this.component.options.layout)
-        //     this.el = this.component.options.layout.render(this.el);
-
-        // if (this.component.options.loadMore) {
-        //     this.loadMoreBtn = new LoadMoreView(null, this.component).el;
-        //
-        //     this.el.appendChild(this.loadMoreBtn);
-        // }
     }
 
-    place () {
+    setupStructure () {
+        this.appendChild(this.header.el);
+        this.appendChild(this.content.el);
+        this.appendChild(this.footer.el);
+    }
+
+    place (inputOffsets) {
         const offsetParents = this.getOffsetParents();
-        let top = this.component.elOffsets.top + this.component.elOffsets.height;
-        let left = this.component.elOffsets.left;
+        let top = inputOffsets.top + inputOffsets.height;
+        let left = inputOffsets.left;
         
         for (const parent of offsetParents) {
             top -= parent.offsetTop;
@@ -49,10 +58,6 @@ export default class extends BaseView {
     }
     
     clear () {
-        this.el.innerHTML = '';
-    }
-    
-    update (items) {
-        
+        this.content.el.innerHTML = '';
     }
 }

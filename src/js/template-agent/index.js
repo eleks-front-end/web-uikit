@@ -10,6 +10,10 @@ export default class {
         this.tplCache = new Set();
     }
 
+    addEventsDriver (eventsDriver) {
+        this.eventsDriver = eventsDriver;
+    }
+
     _transform () {
         const map = {};
         const parserArr = this.transformer.split(';');
@@ -24,6 +28,7 @@ export default class {
     }
 
     _prepareData (data) {
+        console.log(data);
         return data.map(item => {
             item = new Proxy(item, {
                 get: (target, name) => {

@@ -20,7 +20,7 @@ export default class {
     on (eventName, handler, context, once) {
 
         let _once = once && typeof once === 'boolean';
-        let listeners = this.eventsMap[eventName],
+        const listeners = this.eventsMap[eventName],
             isExistListener = this._find(listeners, function (listener) {
                 return listener.handler === handler && listener.caller === context;
             });
@@ -45,7 +45,7 @@ export default class {
     }
 
     off (eventName, handler, context) {
-        let listeners = this.eventsMap[eventName];
+        const listeners = this.eventsMap[eventName];
 
         if (!listeners || !listeners.length)
             return this;
@@ -56,7 +56,7 @@ export default class {
         }
 
         for (let i = 0, l = listeners.length; i < l; ++i) {
-            let listener = listeners[i];
+            const listener = listeners[i];
 
             if (listener.handler === handler && listener.caller === context) {
                 listeners.splice(i, 1);
@@ -68,8 +68,8 @@ export default class {
     }
 
     trigger (eventName, ...args) {
-        let listeners = this.eventsMap[eventName];
-        console.log(eventName, listeners);
+        const listeners = this.eventsMap[eventName];
+
         if (!listeners || !listeners.length) {
             console.warn(`${this._toString()}::The event ${eventName} was triggered, but handler didn\'t fired.`);
             return this;
@@ -85,12 +85,13 @@ export default class {
     }
 
     _dispatch (listener, args) {
-        let _args = [].slice.call(args);
+        const _args = [].slice.call(args);
+
         listener.handler.call(listener.caller, ..._args);
     }
 
     _toString () {
-        return [['EventDriver']]
+        return [['EventDriver']];
     }
 }
 

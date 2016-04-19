@@ -13,13 +13,23 @@ export default class {
     constructor (type, options) {
         this.type = type;
 
-        this.options = options;
+        const defaults = {
+            position: 'absolute',
+            appendTo: document.body,
+            width: 'auto'
+        };
 
-        this.resultView = new ResultView();
+        this.options = Object.assign({}, defaults, options);
 
-        document.body.appendChild(this.resultView.el);
+        this.resultView = new ResultView(this.options);
+
         this.loadMore = new LoadMoreView(null, this.component).el;
-        this.resultView.el.appendChild(this.loadMore);
+        this.resultView.footer.appendChild(this.loadMore);
+        // this.resultView.hide();
+    }
+
+    addEventsDriver (eventsDriver) {
+        this.eventsDriver = eventsDriver;
     }
 
     /**
@@ -37,12 +47,17 @@ export default class {
             fragment.appendChild(itemView.el);
         }
 
-        this.resultView.el.insertBefore(fragment, this.loadMore);
-
         if (!items.length)
             this.resultView.hide();
         else
             this.resultView.show();
+
+        this.resultView.content.appendChild(fragment);
+    }
+
+    setInputOffsets (offsets) {
+        this.options.inputOffsets = offsets;
+        this.resultView.place(offsets);
     }
 
     render (el) {
@@ -55,6 +70,11 @@ export default class {
         }
 
         return this.el;
+    }
+
+    clearResults () {
+        this.resultView.clear();
+        this.resultView.hide();
     }
 
     multiColumn () {

@@ -2,9 +2,8 @@ import Utils from '../../common/utils';
 import Logger from '../../common/logger';
 
 export default class BaseView {
-    constructor (element = null, component) {
-        this._element = element;
-        this.component = component;
+    constructor (options) {
+        this.options = options;
         this.setupView();
         this.setupEvents();
     }
@@ -53,5 +52,17 @@ export default class BaseView {
         }
 
         return parents;
+    }
+
+    insertBefore (elem) {
+        this.el.parentNode.insertBefore(elem, this.el);
+    }
+
+    insertAfter (elem) {
+        this.el.parentNode.insertBefore(elem, this.el.nextSibling);
+    }
+
+    appendChild (elem) {
+        this.el.appendChild(elem);
     }
 }

@@ -76,7 +76,7 @@ export default class {
         if (clear)
             this.component.clearResults();
 
-        this.component.search(this._element.value);
+        this.component.eventsDriver.trigger('TYPED', this.el.value);
     }
 }
 

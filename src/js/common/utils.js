@@ -41,6 +41,37 @@ export default class Utils {
         return Object.prototype.toString.call(obj) === '[object Set]';
     }
 
+    static lookThroughNestedObj (obj, cb) {
+        // obj = this.isArray(obj) ? obj : Object.keys
+        for (const item in obj) {
+            if (!obj.hasOwnProperty(item))
+                continue;
+
+            const dontNeedContinue = cb(item, obj);
+
+            if (dontNeedContinue)
+                continue;
+
+            if (this.isArray(obj[item]))
+                this.lookThroughNestedArray(obj[item], cb);
+            else if (Utils.isPlainObj(obj[item])) {
+                this.lookThroughNestedObj(obj[item], cb);
+            }
+        }
+    }
+
+    static lookThroughNestedArray (array, cb) {
+        for (const item of array) {
+            if (this.isArray(item))
+                this.lookThroughNestedArray(item, cb);
+            else if (this.isPlainObj(item))
+                this.lookThroughNestedObj(item, cb);
+
+            cb(item, array);
+        }
+
+    }
+
     static debounce (opts) {
         let timeout;
         let that = this;
@@ -67,10 +98,6 @@ export default class Utils {
             if (callNow)
                 opts.delayed(...args);
         };
-    }
-
-    static insertAfter (elem, refElem) {
-        refElem.parentNode.insertBefore(elem, refElem.nextSibling);
     }
 
     static addPxToCss (param) {

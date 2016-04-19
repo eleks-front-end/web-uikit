@@ -20,6 +20,10 @@ const search1 = new SearchComponent(document.querySelector('.example1'), {
         {
             searchAgent: new SearchAgent('searchByUrl', {
                 url: 'http://api-mockapitron.rhcloud.com/?size=5&name=name&address=address',
+                queryParams: {
+                    size: 15,
+                    offset: 0
+                }
             }),
             templateAgent: new TemplateAgent('imageText', {
                 transformer: 'name=>title;address=>text'
@@ -29,7 +33,14 @@ const search1 = new SearchComponent(document.querySelector('.example1'), {
     loadMore: {
         text: 'Load More Please2'
     },
-    layout: new Layout('default')
+    layoutAgent: new Layout('default', {
+        appendTo: document.getElementById('appendToExample'),
+        className: 'custom_results',
+        position: 'absolute',
+        loadMore: {
+            text: 'Load More Please...'
+        }
+    })
 
     // pagination: {
     //     perPage: 2,
