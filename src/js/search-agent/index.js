@@ -61,8 +61,11 @@ export default class {
     search (query = this.options.query, tplAgent = this.tplAgent) {
         this.options.query = query;
         this.tplAgent = tplAgent;
-        this.options.url += `&query=${query}`;
+
         let promise;
+        
+        if (!/query=/.test(this.options.url))
+            this.options.url += `&query=${query}`;
         
         switch (this.type) {
             case 'searchByServer':
