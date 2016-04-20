@@ -1,5 +1,8 @@
 import {plainText, imageText, titleText, custom, bySelector} from './templates';
 
+/**
+ * Constants for template names & template methods
+ */
 export default {
     IMAGE_TEXT: {
         name: 'imageText',

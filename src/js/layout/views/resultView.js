@@ -3,8 +3,14 @@ import BaseView from './baseView';
 import DOM from '../../common/domHelper';
 import {ResultViewHeader, ResultViewContent, ResultViewFooter} from './resultViewParts';
 
+/**
+ * Class representing result view
+ * @class
+ */
 export default class extends BaseView {
-
+    /**
+     * create result view which extends on {BaseView}
+     */
     constructor () {
         super(...arguments);
         
@@ -22,27 +28,31 @@ export default class extends BaseView {
         this.setupStructure();
     }
 
+    /**
+     * create an HTMLElement and setup some styles depends in options
+     */
     setupView () {
         this.el = DOM.createNode('div', {
             class: 'e-search-results'
         });
-        
+
         if (this.options.isAbsolute)
             this.setStyle('position', 'absolute');
-        console.log(this.options);
-        // const width = this.options.width === 'auto'
-        //     ? this.options.inputOffsets.width
-        //     : this.options.width;
-        
-        // this.setStyle('width', Utils.addPxToCss(width));
     }
 
+    /**
+     * setup direct children
+     */
     setupStructure () {
         this.appendChild(this.header.el);
         this.appendChild(this.content.el);
         this.appendChild(this.footer.el);
     }
 
+    /**
+     * place result view relatively to search input, also depends on options
+     * @param inputOffsets
+     */
     place (inputOffsets) {
         const offsetParents = this.getOffsetParents();
         let top = inputOffsets.top + inputOffsets.height;
@@ -55,8 +65,20 @@ export default class extends BaseView {
         
         this.setStyle('top', Utils.addPxToCss(top));
         this.setStyle('left', Utils.addPxToCss(left));
+
+        let width;
+
+        if (this.options.width === 'auto')
+            width = inputOffsets.width;
+        else
+            width = this.options.width;
+
+        this.setStyle('width', Utils.addPxToCss(width));
     }
-    
+
+    /**
+     * clear search results
+     */
     clear () {
         this.content.el.innerHTML = '';
     }

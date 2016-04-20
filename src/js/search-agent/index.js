@@ -21,6 +21,9 @@ export default class {
         this.updateURL();
     }
 
+    /**
+     * Past params to url from options
+     */
     updateURL () {
         const queryParams = this.options.queryParams;
         let url = this.options.url;
@@ -71,6 +74,10 @@ export default class {
         
     }
 
+    /**
+     * Set up events driver
+     * @param {object} eventsDriver - events manager
+     */
     addEventsDriver (eventsDriver) {
         this.eventsDriver = eventsDriver;
     }

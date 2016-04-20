@@ -6,7 +6,7 @@ import LoadMoreView from './views/loadMoreView';
 export default class {
 
     /**
-     * Class repesented layout of
+     * Class represented layout agent
      * @param type
      * @param options
      */
@@ -27,7 +27,11 @@ export default class {
         this.resultView.footer.appendChild(this.loadMore);
         // this.resultView.hide();
     }
-
+    
+    /**
+     * Set up events driver
+     * @param {object} eventsDriver - events manager
+     */
     addEventsDriver (eventsDriver) {
         this.eventsDriver = eventsDriver;
     }

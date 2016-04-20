@@ -36,7 +36,7 @@ export default class {
     }
 
     /**
-     * Add event listener for searchView element
+     * Add event listeners for searchView element
      */
     setupEvents () {
         let time = 500;
