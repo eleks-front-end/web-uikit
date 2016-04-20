@@ -9,7 +9,7 @@ export default class {
      * Class represented layout agent
      * @param type
      * @param options
-     */
+     */ 
     constructor (type, options) {
         this.type = type;
 
@@ -23,9 +23,11 @@ export default class {
 
         this.resultView = new ResultView(this.options);
 
-        this.loadMore = new LoadMoreView(null, this.component).el;
-        this.resultView.footer.appendChild(this.loadMore);
-        // this.resultView.hide();
+        if (this.options.loadMore) {
+            this.loadMore = new LoadMoreView(this.options, this.eventsDriver);
+            this.resultView.footer.appendChild(this.loadMore.el);
+        }
+
     }
     
     /**
@@ -34,6 +36,9 @@ export default class {
      */
     addEventsDriver (eventsDriver) {
         this.eventsDriver = eventsDriver;
+
+        if(this.loadMore)
+            this.loadMore.eventsDriver = eventsDriver;
     }
 
     /**
@@ -62,6 +67,7 @@ export default class {
     setInputOffsets (offsets) {
         this.options.inputOffsets = offsets;
         this.resultView.place(offsets);
+        this.resultView.hide();
     }
 
     render (el) {

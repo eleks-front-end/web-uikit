@@ -23,7 +23,7 @@ export default class extends BaseView {
         if (!Utils.isHTMLNode(this.options.appendTo))
             this.options.appendTo = document.querySelector(this.options.appendTo);
 
-        this.options.appendTo.appendChild(this.el)
+        this.options.appendTo.appendChild(this.el);
 
         this.setupStructure();
     }
@@ -47,6 +47,9 @@ export default class extends BaseView {
         this.appendChild(this.header.el);
         this.appendChild(this.content.el);
         this.appendChild(this.footer.el);
+
+        if(this.options.header)
+            this.header.el.innerHTML = this.options.header;
     }
 
     /**
@@ -74,6 +77,13 @@ export default class extends BaseView {
             width = this.options.width;
 
         this.setStyle('width', Utils.addPxToCss(width));
+
+        let height = 300;
+
+        if (this.options.maxHeight === 'window')
+            height = window.innerHeight - this.el.getBoundingClientRect().top;
+
+        this.setStyle('height', Utils.addPxToCss(height));
     }
 
     /**

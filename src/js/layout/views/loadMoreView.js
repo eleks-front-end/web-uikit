@@ -6,20 +6,33 @@ import DOM from '../../common/domHelper';
  * @class
  */
 export default class extends BaseView {
+
+    constructor () {
+        const defaults = {
+            loadMore: {
+                text: 'Load More!'
+            }
+        };
+
+        super(defaults, ...arguments);
+    }
+
     /**
      * create an HTMLElement and setup some styles depends in options
      */
     setupView () {
         this.el = DOM.createNode('span', {
-            class: 'e-search-results-load_more'
+            class: 'e-search-results-load_more btn btn-primary'
         });
+
+        this.el.innerHTML = this.options.loadMore.text;
     }
 
     /**
      * Add event listeners for searchView element
      */
     setupEvents () {
-        this.el.addEventListener('click', this.clickHandler);
+        this.el.addEventListener('click', this.clickHandler.bind(this));
     }
 
     /**
@@ -27,6 +40,6 @@ export default class extends BaseView {
      * Click event callback
      */
     clickHandler () {
-        // eventDriver.trigger('LoadMore');
+        this.eventsDriver.trigger('LOAD_MORE');
     }
 }

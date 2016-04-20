@@ -113,5 +113,20 @@ export default class Utils {
     static mergeSets (set1, set2) {
         return new Set([...set1, ...set2]);
     }
+
+    static objDeepMerge (obj1, obj2) {
+        const targetObj = new Proxy({}, {
+            set: (obj, prop, value) => {
+                if (this.isPlainObj(value) && this.isPlainObj(obj[prop]))
+                    value = this.objDeepMerge(obj[prop], value);
+
+                obj[prop] = value;
+
+                return true;
+            }
+        });
+
+        return Object.assign(targetObj, obj1, obj2);
+    }
 }
 

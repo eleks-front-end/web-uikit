@@ -1,5 +1,31 @@
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+    // For Google Chrome
+    ::-webkit-scrollbar {
+        width:  $size;
+        height: $size;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: $foreground-color;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: $background-color;
+    }
+
+    // For Internet Explorer
+    body {
+        scrollbar-face-color: $foreground-color;
+        scrollbar-track-color: $background-color;
+    }
+}
+
+@include scrollbars(.5em, slategray);
+
 .e-search {
     &-results {
+        display: flex;
+        flex-direction: column;
         position: absolute;
         z-index: 1000;
         padding: 5px 0.75rem;;
@@ -14,6 +40,21 @@
         border-radius: 0.125rem;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
 
+        &-header {
+            padding: 8px 0 ;
+            text-align: center;
+        }
+
+        &-content {
+            overflow-y: scroll;
+            flex: 1;
+        }
+
+        &-footer {
+            text-align: center;
+            padding: 8px 0 ;
+        }
+
         &.columns-layout {
             display: flex;
         }
@@ -22,6 +63,10 @@
             flex-grow: 1;
             flex-shrink: 1;
             flex-basis: 0;
+        }
+
+        &-load_more {
+
         }
     }
 }

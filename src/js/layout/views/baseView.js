@@ -11,8 +11,8 @@ export default class BaseView {
      *
      * @param options
      */
-    constructor (options) {
-        this.options = options;
+    constructor (defaults = {}, options, eventsDriver) {
+        this.options = Utils.objDeepMerge(defaults, options);
         this.setupView();
         this.setupEvents();
     }

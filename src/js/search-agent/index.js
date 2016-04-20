@@ -15,45 +15,55 @@ export default class {
         const defaults = {
             method: 'GET'
         };
-
+        
         this.options = Object.assign({}, defaults, options);
-
+        
         this.updateURL();
     }
-
+    
     /**
      * Past params to url from options
      */
     updateURL () {
         const queryParams = this.options.queryParams;
         let url = this.options.url;
-
+        
         if (/\?$/.test(url))
             url += '?';
-
+        
         for (const param in queryParams) {
             if (!queryParams.hasOwnProperty(param))
                 continue;
-
+            
             if (new RegExp(`${param}=`).test(url))
                 url = url.replace(new RegExp(`(${param}=)([^&]+)`), `$1${queryParams[param]}`);
             else
                 url += `&${param}=${queryParams[param]}`;
         }
-
+        
         this.options.url = url;
     }
+    
+    loadMore () {
+        const loadMoreProp = this.options.loadMore;
 
+        this.options.queryParams[loadMoreProp]++;
+
+        this.updateURL();
+        this.search();
+    }
+    
     /**
      * Choose search agent method. Depends on type
      * @param {string} query - typed query in search input
      * @param {object} tplAgent - tpl which parse response
      */
-    search (query, tplAgent) {
+    search (query = this.options.query, tplAgent = this.tplAgent) {
         this.options.query = query;
+        this.tplAgent = tplAgent;
         this.options.url += `&query=${query}`;
         let promise;
-
+        
         switch (this.type) {
             case 'searchByServer':
                 promise = this.searchByServer();
@@ -64,16 +74,12 @@ export default class {
             default:
                 promise = this.ajax();
         }
-
+        
         promise.then(result => {
             this.eventsDriver.trigger('RESULTS_LOADED', result, tplAgent);
         });
     }
     
-    loadMore () {
-        
-    }
-
     /**
      * Set up events driver
      * @param {object} eventsDriver - events manager
@@ -86,7 +92,7 @@ export default class {
      * Implementation of client search
      */
     searchByClient () {
-
+        
     }
     
     /**
