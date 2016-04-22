@@ -1,3 +1,5 @@
+import CancelablePromise from './cancelablePromise';
+
 export default (() => {
     const EVENTS = {
         READY_STATE_CHANGE: 'onreadystatechange',
@@ -22,7 +24,8 @@ export default (() => {
         send: Send,
         get: Get,
         post: Post,
-        parseTransform: parseTransform
+        parseTransform: parseTransform,
+        abort: abort
     };
 
     function parseTransform (parser) {
@@ -39,7 +42,7 @@ export default (() => {
     }
 
     function Send (url, method, data, options) {
-        return new Promise((resolve, reject) => {
+        return new CancelablePromise((resolve, reject) => {
             try {
                 _sendRequest(url, method, data, resolve, reject, options);
             } catch (e) {
@@ -56,7 +59,7 @@ export default (() => {
         return Send(url, 'POST', data, options);
     }
 
-    function _sendRequest (url, method = 'GET', data, resolve, reject, async = true, options) {
+    function _sendRequest (url, method = 'GET', data, resolve, reject, async = true, options, abort) {
         const ajaxOptions = Object.assign({}, DEFAULTS, options);
         const xhr = new XMLHttpRequest();
 
@@ -72,6 +75,9 @@ export default (() => {
         _setupEventListeners(xhr, resolve, reject, ajaxOptions.json);
 
         data ? xhr.send(data) : xhr.send();
+
+        if (abort)
+            xhr.abort();
     }
 
     function _setHeaders (xhr, headers) {
@@ -130,5 +136,9 @@ export default (() => {
             responseText = isJson ? JSON.parse(xhr.responseText) : xhr.responseText;
 
         return responseText;
+    }
+
+    function abort () {
+
     }
 })();

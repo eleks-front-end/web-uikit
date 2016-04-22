@@ -65,7 +65,7 @@ export class Component {
             this.options.layoutAgent.update(tpl);
         });
 
-        this.eventsDriver.on('LOAD_MORE', () => {
+        this.eventsDriver.on('RESULTS_LOAD_MORE', () => {
             for (const apiItem of this.options.api)
                 apiItem.searchAgent.loadMore();
         });

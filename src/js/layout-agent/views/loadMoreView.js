@@ -6,15 +6,19 @@ import DOM from '../../common/domHelper';
  * @class
  */
 export default class extends BaseView {
-
-    constructor () {
+    /**
+     * create load more which extends on {BaseView}
+     * @param {{}} eventsDriver - events driver for communication between layout sub-components
+     * @param {{}} options - layout agents options
+     */
+    constructor (eventsDriver, options) {
         const defaults = {
             loadMore: {
                 text: 'Load More!'
             }
         };
 
-        super(defaults, ...arguments);
+        super(eventsDriver, options, defaults);
     }
 
     /**
@@ -40,6 +44,7 @@ export default class extends BaseView {
      * Click event callback
      */
     clickHandler () {
+        console.log(this)
         this.eventsDriver.trigger('LOAD_MORE');
     }
 }

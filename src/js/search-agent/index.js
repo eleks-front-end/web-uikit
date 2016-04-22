@@ -1,3 +1,4 @@
+import Logger from '../common/logger';
 import ajax from './sa-ajax';
 
 /**
@@ -19,6 +20,10 @@ export default class {
         this.options = Object.assign({}, defaults, options);
         
         this.updateURL();
+
+        this.xhrStore = {
+            xhr: null
+        };
     }
     
     /**
@@ -61,28 +66,31 @@ export default class {
     search (query = this.options.query, tplAgent = this.tplAgent) {
         this.options.query = query;
         this.tplAgent = tplAgent;
-
-        let promise;
         
         if (!/query=/.test(this.options.url))
             this.options.url += `&query=${query}`;
         
         switch (this.type) {
             case 'searchByServer':
-                promise = this.searchByServer();
+                this.promise = this.searchByServer();
                 break;
             case 'searchByClient':
-                promise = this.searchByClient();
+                this.promise = this.searchByClient();
                 break;
             default:
-                promise = this.ajax();
+                this.promise = this.ajax();
         }
-        
-        promise.then(result => {
+
+        this.promise.then(result => {
             this.eventsDriver.trigger('RESULTS_LOADED', result, tplAgent);
+            this.xhrStore.xhr = null;
         });
     }
-    
+
+    // cancelRequest () {
+    //     this.xhrStore.xhr.abort();
+    // }
+
     /**
      * Set up events driver
      * @param {object} eventsDriver - events manager
@@ -103,7 +111,7 @@ export default class {
      * @returns {promise} - return promise of request
      */
     searchByServer () {
-        return ajax.get(this.options.url, this.options.data, this.options);
+        return ajax.get(this.options.url, this.options.data, this.options, this.xhrStore);
     }
     
     /**
@@ -111,7 +119,7 @@ export default class {
      * @returns {promise} - return promise of request
      */
     ajax () {
-        return ajax.send(this.options.url, this.options.method, this.options.data, this.options);
+        return ajax.send(this.options.url, this.options.method, this.options.data, this.options, this.xhrStore);
     }
     
 }

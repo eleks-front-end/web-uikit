@@ -10,13 +10,15 @@ import {ResultViewHeader, ResultViewContent, ResultViewFooter} from './resultVie
 export default class extends BaseView {
     /**
      * create result view which extends on {BaseView}
+     * @param {{}} eventsDriver - events driver for communication between layout sub-components
+     * @param {{}} options - layout agents options
      */
-    constructor () {
-        super(...arguments);
+    constructor (eventsDriver, options) {
+        super(eventsDriver, options);
         
-        this.header = new ResultViewHeader();
-        this.footer = new ResultViewFooter();
-        this.content = new ResultViewContent();
+        this.header = new ResultViewHeader(this.eventsDriver);
+        this.footer = new ResultViewFooter(this.eventsDriver);
+        this.content = new ResultViewContent(this.eventsDriver);
 
         this.tplCache = {};
 

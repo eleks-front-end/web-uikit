@@ -9,10 +9,13 @@ import Logger from '../../common/logger';
 export default class BaseView {
     /**
      *
-     * @param options
+     * @param {{}} eventsDriver - events driver for communication between layout sub-components
+     * @param {{}} options - layout agents options
+     * @param {{}} defaults - defaults options
      */
-    constructor (defaults = {}, options, eventsDriver) {
+    constructor (eventsDriver, options, defaults = {}) {
         this.options = Utils.objDeepMerge(defaults, options);
+        this.eventsDriver = eventsDriver;
         this.setupView();
         this.setupEvents();
     }
@@ -120,5 +123,13 @@ export default class BaseView {
      */
     appendChild (elem) {
         this.el.appendChild(elem);
+    }
+
+    /**
+     * Set up events driver for view class
+     * @param {{}} eventsDriver - events driver
+     */
+    setupEventsDriver (eventsDriver) {
+        this.eventsDriver = eventsDriver;
     }
 }

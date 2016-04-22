@@ -19,6 +19,8 @@ export default (() => {
         LOAD_END: 'loadend'
     };
 
+    const xhrActionTable = {};
+
     /**
      * Defaults options
      * @type {{headers: {Content-Type: string}, json: boolean, withCredentials: boolean}}
@@ -62,13 +64,14 @@ export default (() => {
      * @param {string} method
      * @param {object} data
      * @param {object} options
+     * @param {object} xhrStore
      * @returns {Promise}
      * @constructor
      */
-    function Send (url, method, data, options) {
-        return new Promise((resolve, reject) => {
+    function Send (url, method, data, options, xhrStore) {
+        return new Promise(function (resolve, reject) {
             try {
-                _sendRequest(url, method, data, resolve, reject, options);
+               _sendRequest(url, method, data, resolve, reject, options, xhrStore);
             } catch (e) {
                 reject(e);
             }
@@ -80,11 +83,12 @@ export default (() => {
      * @param {string} url
      * @param {object} data
      * @param {object} options
+     * @param {object} xhrStore
      * @returns {Promise}
      * @constructor
      */
-    function Get (url, data, options) {
-        return Send(url, 'GET', data, options);
+    function Get (url, data, options, xhrStore) {
+        return Send(url, 'GET', data, options, xhrStore);
     }
 
     /**
@@ -92,11 +96,12 @@ export default (() => {
      * @param {string} url
      * @param {object} data
      * @param {object} options
+     * @param {object} xhrStore
      * @returns {Promise}
      * @constructor
      */
-    function Post (url, data, options) {
-        return Send(url, 'POST', data, options);
+    function Post (url, data, options, xhrStore) {
+        return Send(url, 'POST', data, options, xhrStore);
     }
 
     /**
@@ -108,10 +113,17 @@ export default (() => {
      * @param {callback} reject
      * @param {boolean} async
      * @param {object} options
+     * @param {object} xhrStore
      * @private
      */
-    function _sendRequest (url, method = 'GET', data, resolve, reject, async = true, options) {
+    function _sendRequest (url, method = 'GET', data, resolve, reject, options, xhrStore, async = true) {
         const ajaxOptions = Object.assign({}, DEFAULTS, options);
+        console.log(xhrStore);
+        if (xhrStore.xhr) {
+            xhrStore.xhr.abort();
+            xhrStore.xhr = null;
+        }
+
         const xhr = new XMLHttpRequest();
 
         xhr.open(method, url, async);
@@ -126,6 +138,8 @@ export default (() => {
         _setupEventListeners(xhr, resolve, reject, ajaxOptions.json);
 
         data ? xhr.send(data) : xhr.send();
+
+        xhrStore.xhr = xhr;
     }
 
     /**
@@ -154,7 +168,8 @@ export default (() => {
         if (headers['Content-Type'] === 'application/json')
             return JSON.stringify(data);
 
-        var query = [];
+        const query = [];
+
         if ((typeof data).toLowerCase() === 'string' || (typeof data).toLowerCase() === 'number')
             query.push(data);
         else
@@ -178,7 +193,7 @@ export default (() => {
      */
     function _setupEventListeners (xhr, resolve, reject, isJson) {
         const errorHandler = () => {
-            reject(_parseResponse(xhr, isJson));
+            reject(_parseResponse(xhr, isJson), xhr);
         };
 
         xhr[EVENTS.READY_STATE_CHANGE] = () => {

@@ -1,7 +1,7 @@
 import { Component } from './component';
 import SearchAgent from './search-agent/index';
 import TemplateAgent from './template-agent/index';
-import Layout from './layout/index';
+import Layout from './layout-agent/index';
 
 ((root, Component) => {
     const SETUP_CONFIG = {
@@ -21,7 +21,7 @@ const search1 = new SearchComponent(document.querySelector('.example1'), {
             searchAgent: new SearchAgent('searchByUrl', {
                 url: 'http://api-mockapitron.rhcloud.com/?size=5&name=name&address=address',
                 queryParams: {
-                    size: 15,
+                    size: 150,
                     offset: 1
                 },
                 loadMore: 'offset'

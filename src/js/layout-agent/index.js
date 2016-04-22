@@ -2,6 +2,7 @@ import DOM from '../common/domHelper';
 import ResultView from './views/resultView';
 import ResultItemView from './views/resultItemView';
 import LoadMoreView from './views/loadMoreView';
+import EventsDriver from '../common/eventDriver';
 
 export default class {
 
@@ -9,7 +10,7 @@ export default class {
      * Class represented layout agent
      * @param type
      * @param options
-     */ 
+     */
     constructor (type, options) {
         this.type = type;
 
@@ -20,14 +21,25 @@ export default class {
         };
 
         this.options = Object.assign({}, defaults, options);
+        this.innerEventsDriver = new EventsDriver();
 
-        this.resultView = new ResultView(this.options);
+        this.resultView = new ResultView(this.innerEventsDriver, this.options);
 
         if (this.options.loadMore) {
-            this.loadMore = new LoadMoreView(this.options, this.eventsDriver);
+            this.loadMore = new LoadMoreView(this.innerEventsDriver, this.options);
             this.resultView.footer.appendChild(this.loadMore.el);
         }
 
+        this.setupEvents();
+    }
+
+    /**
+     * setup events to control all subcomponents
+     */
+    setupEvents () {
+        this.innerEventsDriver.on('LOAD_MORE', () => {
+            this.eventsDriver.trigger('RESULTS_LOAD_MORE');
+        });
     }
     
     /**
@@ -36,9 +48,6 @@ export default class {
      */
     addEventsDriver (eventsDriver) {
         this.eventsDriver = eventsDriver;
-
-        if(this.loadMore)
-            this.loadMore.eventsDriver = eventsDriver;
     }
 
     /**
@@ -49,7 +58,7 @@ export default class {
         const fragment = DOM.createFragment();
 
         for (const item of items) {
-            const itemView = new ResultItemView();
+            const itemView = new ResultItemView(this.innerEventsDriver);
 
             itemView.render(item);
 
